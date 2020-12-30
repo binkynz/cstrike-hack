@@ -9,6 +9,9 @@
     <ClCompile Include="other\pattern\pattern.cpp" />
     <ClCompile Include="cstrike\hooked\hooked.cpp" />
     <ClCompile Include="cstrike\hooked\functions\base_player.cpp" />
+    <ClCompile Include="valve\netvars\netvars.cpp" />
+    <ClCompile Include="valve\interfaces\interfaces.cpp" />
+    <ClCompile Include="other\hash\hash.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cstrike\cstrike.h" />
@@ -31,5 +34,12 @@
     <ClInclude Include="valve\shared\shared.h" />
     <ClInclude Include="valve\shared\user_cmd.h" />
     <ClInclude Include="valve\shared\in_buttons.h" />
+    <ClInclude Include="valve\netvars\netvars.h" />
+    <ClInclude Include="valve\dt_recv.h" />
+    <ClInclude Include="valve\dt_common.h" />
+    <ClInclude Include="valve\client_class.h" />
+    <ClInclude Include="valve\interfaces\interfaces.h" />
+    <ClInclude Include="valve\cdll_int.h" />
+    <ClInclude Include="other\hash\hash.h" />
   </ItemGroup>
 </Project>
