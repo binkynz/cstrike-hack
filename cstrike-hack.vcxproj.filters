@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="cstrike\dllmain.cpp" />
+    <ClCompile Include="cstrike\cstrike.cpp" />
+    <ClCompile Include="other\utils\utils.cpp" />
+    <ClCompile Include="other\console\console.cpp" />
+    <ClCompile Include="valve\detour\detour.cpp" />
+    <ClCompile Include="other\pattern\pattern.cpp" />
+    <ClCompile Include="cstrike\hooked\hooked.cpp" />
+    <ClCompile Include="cstrike\hooked\functions\base_player.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="cstrike\cstrike.h" />
+    <ClInclude Include="other\utils\utils.h" />
+    <ClInclude Include="other\other.h" />
+    <ClInclude Include="other\console\console.h" />
+    <ClInclude Include="valve\detour\detour.h" />
+    <ClInclude Include="other\pattern\pattern.h" />
+    <ClInclude Include="other\memory\address.h" />
+    <ClInclude Include="valve\valve.h" />
+    <ClInclude Include="cstrike\hooked\hooked.h" />
+    <ClInclude Include="valve\client\base_animating.h" />
+    <ClInclude Include="valve\client\base_combat_character.h" />
+    <ClInclude Include="valve\client\base_entity.h" />
+    <ClInclude Include="valve\client\base_player.h" />
+    <ClInclude Include="valve\client\cs_player.h" />
+    <ClInclude Include="valve\client\client.h" />
+    <ClInclude Include="other\math\q_angle.h" />
+    <ClInclude Include="other\math\vector_3d.h" />
+    <ClInclude Include="valve\shared\shared.h" />
+    <ClInclude Include="valve\shared\user_cmd.h" />
+    <ClInclude Include="valve\shared\in_buttons.h" />
+  </ItemGroup>
+</Project>
