@@ -8,8 +8,8 @@ struct hash {
 
 private:
 
-	std::size_t basis = 0x8adf9ed5;
-	std::size_t prime = 0x60561129;
+	std::size_t m_basis = 0x8adf9ed5;
+	std::size_t m_prime = 0x60561129;
 
 };
 

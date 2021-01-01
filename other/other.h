@@ -1,5 +1,6 @@
 #pragma once
 
+#include "color/color.h"
 #include "console/console.h"
 #include "hash/hash.h"
 #include "pattern/pattern.h"

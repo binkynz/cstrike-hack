@@ -2,15 +2,15 @@
 
 #include <cstring>
 
-std::size_t hash::get( const char* txt ) {
+std::size_t hash::get( const char* string ) {
 
-    auto ret = basis;
+    auto ret = m_basis;
 
-    const auto length = std::strlen( txt );
+    const auto length = std::strlen( string );
     for ( std::size_t i = 0; i < length; ++i ) {
 
-        ret ^= txt[ i ];
-        ret *= prime;
+        ret ^= string[ i ];
+        ret *= m_prime;
 
     }
 

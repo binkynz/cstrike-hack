@@ -12,6 +12,9 @@
     <ClCompile Include="valve\netvars\netvars.cpp" />
     <ClCompile Include="valve\interfaces\interfaces.cpp" />
     <ClCompile Include="other\hash\hash.cpp" />
+    <ClCompile Include="cstrike\hooked\functions\engine_v_gui.cpp" />
+    <ClCompile Include="cstrike\render\render.cpp" />
+    <ClCompile Include="cstrike\features\visuals\visuals.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cstrike\cstrike.h" />
@@ -41,5 +44,17 @@
     <ClInclude Include="valve\interfaces\interfaces.h" />
     <ClInclude Include="valve\cdll_int.h" />
     <ClInclude Include="other\hash\hash.h" />
+    <ClInclude Include="valve\vgui\surface.h" />
+    <ClInclude Include="valve\vgui\vgui.h" />
+    <ClInclude Include="valve\engine_v_gui.h" />
+    <ClInclude Include="cstrike\render\render.h" />
+    <ClInclude Include="other\color\color.h" />
+    <ClInclude Include="cstrike\features\visuals\visuals.h" />
+    <ClInclude Include="cstrike\features\features.h" />
+    <ClInclude Include="valve\client_entity_list.h" />
+    <ClInclude Include="valve\client_renderable.h" />
+    <ClInclude Include="valve\client_networkable.h" />
+    <ClInclude Include="valve\engine\debug_overlay.h" />
+    <ClInclude Include="valve\engine\engine.h" />
   </ItemGroup>
 </Project>

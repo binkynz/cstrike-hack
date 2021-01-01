@@ -3,6 +3,9 @@
 #include <string>
 
 #include "../cdll_int.h"
+#include "../vgui/surface.h"
+#include "../client_entity_list.h"
+#include "../engine/debug_overlay.h"
 
 #include "../../other/console/console.h"
 
@@ -11,6 +14,9 @@ struct interfaces {
 	bool setup( );
 
 	base_client_dll* m_client;
+	surface* m_surface;
+	client_entity_list* m_entity_list;
+	debug_overlay* m_debug_overlay;
 
 private:
 
