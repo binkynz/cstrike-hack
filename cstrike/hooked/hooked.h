@@ -4,20 +4,17 @@
 
 #include "../features/features.h"
 
-namespace hooked {
+struct hooked {
 
 	bool setup( );
 
 	void unload( );
 
-	inline detour m_create_move;
-	inline detour m_paint;
+private:
 
-	namespace functions {
+	static bool __fastcall create_move( base_player* ecx, void* edx, float input_sample_time, user_cmd* cmd );
+	static void __fastcall paint( void* ecx, void* edx, paint_mode mode );
 
-		bool __fastcall create_move( base_player* ecx, void* edx, float input_sample_time, user_cmd* cmd );
-		void __fastcall paint( void* ecx, void* edx, paint_mode mode );
+};
 
-	}
-
-}
+inline hooked m_hooked;

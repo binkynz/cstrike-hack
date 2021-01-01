@@ -33,28 +33,43 @@ void visuals::paint( ) {
 
 void visuals::draw_box( ) {
 
-	color box_color = color( 255, 255, 255, m_alpha.at( m_player.index - 1 ) );
+	m_render.draw_outlined_rect( m_box.x - 1, m_box.y - 1, 
+		m_box.width + 2, m_box.height + 2, 
+		color( 0, 0, 0, m_alpha[ m_player.index - 1 ] ) );
 
-	m_render.draw_outlined_rect( m_box.x - 1, m_box.y - 1, m_box.width + 2, m_box.height + 2, color( 0, 0, 0, m_alpha.at( m_player.index - 1 ) ) );
-	m_render.draw_outlined_rect( m_box.x + 1, m_box.y + 1, m_box.width - 2, m_box.height - 2, color( 0, 0, 0, m_alpha.at( m_player.index - 1 ) ) );
-	m_render.draw_outlined_rect( m_box.x, m_box.y, m_box.width, m_box.height, box_color );
+	m_render.draw_outlined_rect( m_box.x + 1, m_box.y + 1, 
+		m_box.width - 2, m_box.height - 2, 
+		color( 0, 0, 0, m_alpha[ m_player.index - 1 ] ) );
+
+	m_render.draw_outlined_rect( m_box.x, m_box.y,
+		m_box.width, m_box.height, 
+		color( 255, 255, 255, m_alpha[ m_player.index - 1 ] ) );
 
 }
 
 void visuals::draw_health( ) {
 
-	int health = m_player.pointer->get_health( );
+	int health = m_player.pointer->get_health( ), 
+		scaler = static_cast< int >( 2.55 * health );
 
-	int scaler = static_cast< int >( 2.55 * health );
-	color health_color = color( 255 - scaler, scaler, 0, m_alpha.at( m_player.index - 1 ) );
+	m_render.draw_filled_rect( m_box.x - 2, m_box.y - 1, 
+		4, m_box.height + 2, 
+		color( 0, 0, 0, m_alpha[ m_player.index - 1 ] ), 
+		x_right );
 
-	m_render.draw_filled_rect( m_box.x - 2, m_box.y - 1, 4, m_box.height + 2, color( 0, 0, 0, m_alpha.at( m_player.index - 1 ) ), x_right );
-	m_render.draw_filled_rect( m_box.x - 3, m_box.y, 2, health * m_box.height / 100, health_color, x_right );
+	m_render.draw_filled_rect( m_box.x - 3, m_box.y, 
+		2, health * m_box.height / 100, 
+		color( 255 - scaler, scaler, 0, m_alpha[ m_player.index - 1 ] ),
+		x_right );
 
 	if ( health == 100 )
 		return;
 
-	m_render.draw_text( m_font, m_box.x - 7, m_box.y + health * m_box.height / 100, std::to_wstring( health ), color( 255, 255, 255, m_alpha.at( m_player.index - 1 ) ), x_right );
+	m_render.draw_text( m_font, 
+		m_box.x - 7, m_box.y + health * m_box.height / 100, 
+		std::to_wstring( health ), 
+		color( 255, 255, 255, m_alpha[ m_player.index - 1 ] ), 
+		x_right );
 
 }
 
@@ -70,7 +85,11 @@ void visuals::draw_name( ) {
 	if ( !info.m_xuid_low )
 		name.append( " - bot" );
 
-	m_render.draw_text( m_font, m_box.x + m_box.width / 2, m_box.y + 1, name, color( 255, 255, 255, m_alpha.at( m_player.index - 1 ) ), x_centre | y_bottom );
+	m_render.draw_text( m_font, 
+		m_box.x + m_box.width / 2, m_box.y + 1, 
+		name, 
+		color( 255, 255, 255, m_alpha[ m_player.index - 1 ] ), 
+		x_centre | y_bottom );
 
 }
 
@@ -80,7 +99,7 @@ void visuals::calculate_alpha( ) {
 
 	float opacity = m_player.is_dormant ? std::clamp( 1.f - delta_time / 0.5f, 0.f, 1.f ) : 1.f;
 
-	m_alpha.at( m_player.index - 1 ) = static_cast< int >( 255 * opacity );
+	m_alpha[ m_player.index - 1 ] = static_cast< int >( 255 * opacity );
 
 }
 

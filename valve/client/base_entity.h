@@ -27,7 +27,7 @@ struct base_entity {
 
 	inline auto& get_origin( ) {
 
-		static auto offset = m_netvars.m_offsets.at( m_hash.get( "DT_BaseEntity->m_vecOrigin" ) );
+		static auto offset = m_netvars.m_offsets[ m_hash.get( "DT_BaseEntity->m_vecOrigin" ) ];
 
 		return *reinterpret_cast< vector_3d* >( reinterpret_cast< std::size_t >( this ) + offset );
 
@@ -35,7 +35,7 @@ struct base_entity {
 
 	inline auto& get_simulation_time( ) {
 
-		static auto offset = m_netvars.m_offsets.at( m_hash.get( "DT_BaseEntity->m_flSimulationTime" ) );
+		static auto offset = m_netvars.m_offsets[ m_hash.get( "DT_BaseEntity->m_flSimulationTime" ) ];
 
 		return *reinterpret_cast< float* >( reinterpret_cast< std::size_t >( this ) + offset );
 
@@ -43,7 +43,7 @@ struct base_entity {
 
 	inline auto& get_team( ) {
 
-		static auto offset = m_netvars.m_offsets.at( m_hash.get( "DT_BaseEntity->m_iTeamNum" ) );
+		static auto offset = m_netvars.m_offsets[ m_hash.get( "DT_BaseEntity->m_iTeamNum" ) ];
 
 		return *reinterpret_cast< int* >( reinterpret_cast< std::size_t >( this ) + offset );
 

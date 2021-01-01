@@ -8,7 +8,7 @@ DWORD WINAPI cstrike::setup( void* parameter ) {
 
 	m_console.setup( "cstrike-hack" );
 
-	if ( !m_interfaces.setup( ) || !m_netvars.setup( ) || !hooked::setup( ) ) {
+	if ( !m_interfaces.setup( ) || !m_netvars.setup( ) || !m_hooked.setup( ) ) {
 
 		FreeLibraryAndExitThread( handle, EXIT_FAILURE );
 
@@ -27,7 +27,7 @@ DWORD WINAPI cstrike::setup( void* parameter ) {
 
 void cstrike::unload( ) {
 
-	hooked::unload( );
+	m_hooked.unload( );
 
 	m_console.unload( );
 
