@@ -6,6 +6,7 @@
 #include "../vgui/surface.h"
 #include "../client_entity_list.h"
 #include "../engine/debug_overlay.h"
+#include "../global_vars_base.h"
 
 #include "../../other/console/console.h"
 
@@ -17,6 +18,7 @@ struct interfaces {
 	surface* m_surface;
 	client_entity_list* m_entity_list;
 	debug_overlay* m_debug_overlay;
+	global_vars_base* m_globals;
 
 private:
 

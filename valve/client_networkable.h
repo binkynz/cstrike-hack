@@ -8,4 +8,10 @@ struct client_networkable {
 
 	}
 
+	inline auto get_index( ) {
+
+		return m_utils.get_v_func< int( __thiscall* )( void* ) >( this, 10 )( this );
+
+	}
+
 };

@@ -2,6 +2,8 @@
 
 #include "../cstrike.h"
 
+#include "../features/features.h"
+
 namespace hooked {
 
 	bool setup( );

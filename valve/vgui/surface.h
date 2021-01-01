@@ -28,6 +28,12 @@ struct surface {
 
 	}
 
+	inline auto get_screen_size( int& wide, int& tall ) {
+
+		return m_utils.get_v_func< void( __thiscall* )( void*, int&, int& ) >( this, 44 )( this, wide, tall );
+
+	}
+
 	inline auto start_drawing( ) {
 
 		static auto function = m_pattern.find( "vguimatsurface.dll", "55 8B EC 83 E4 C0 83 EC 38" ).as< void( __thiscall* )( void* ) >( );

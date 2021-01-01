@@ -187,6 +187,7 @@
     <ClInclude Include="valve\engine\debug_overlay.h" />
     <ClInclude Include="valve\engine\engine.h" />
     <ClInclude Include="valve\engine_v_gui.h" />
+    <ClInclude Include="valve\global_vars_base.h" />
     <ClInclude Include="valve\interfaces\interfaces.h" />
     <ClInclude Include="valve\netvars\netvars.h" />
     <ClInclude Include="valve\shared\in_buttons.h" />

@@ -37,9 +37,9 @@ void cstrike::unload( ) {
 
 void cstrike::iterate_players( std::function< void( cs_player* ) > function, iterate_player_flags flags ) {
 
-	for ( std::size_t i = 1; i <= 64; i++ ) {
+	for ( int i = 1; i <= m_interfaces.m_globals->m_max_clients; i++ ) {
 
-		const auto player = m_interfaces.m_entity_list->get< cs_player* >( i );
+		cs_player* player = m_interfaces.m_entity_list->get< cs_player* >( i );
 		if ( !player )
 			continue;
 

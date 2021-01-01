@@ -24,6 +24,13 @@ bool interfaces::setup( ) {
 	if ( !m_debug_overlay )
 		return false;
 
+	m_globals = m_utils.get_v_func( m_client, 11 ).add( 0xa ).get< global_vars_base* >( 2 );
+
+	if ( !m_globals )
+		return false;
+
+	m_console.log( "gpGlobals -> 0x%x", m_globals );
+
 	m_console.log( "grabbed interfaces" );
 
 	return true;

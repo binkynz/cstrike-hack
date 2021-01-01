@@ -56,5 +56,6 @@
     <ClInclude Include="valve\client_networkable.h" />
     <ClInclude Include="valve\engine\debug_overlay.h" />
     <ClInclude Include="valve\engine\engine.h" />
+    <ClInclude Include="valve\global_vars_base.h" />
   </ItemGroup>
 </Project>
