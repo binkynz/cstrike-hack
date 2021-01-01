@@ -19,6 +19,7 @@ struct interfaces {
 	client_entity_list* m_entity_list;
 	debug_overlay* m_debug_overlay;
 	global_vars_base* m_globals;
+	engine_client* m_engine;
 
 private:
 

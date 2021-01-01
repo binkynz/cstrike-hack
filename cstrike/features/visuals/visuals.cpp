@@ -25,6 +25,8 @@ void visuals::paint( ) {
 
 		draw_health( );
 
+		draw_name( );
+
 		}, { iterate_dormant } );
 
 }
@@ -33,8 +35,8 @@ void visuals::draw_box( ) {
 
 	color box_color = color( 255, 255, 255, m_alpha.at( m_player.index - 1 ) );
 
-	m_render.draw_outlined_rect( m_box.x - 1, m_box.y - 1, m_box.width + 2, m_box.height + 2, color( 0, 0, 0, 220 ) );
-	m_render.draw_outlined_rect( m_box.x + 1, m_box.y + 1, m_box.width - 2, m_box.height - 2, color( 0, 0, 0, 220 ) );
+	m_render.draw_outlined_rect( m_box.x - 1, m_box.y - 1, m_box.width + 2, m_box.height + 2, color( 0, 0, 0, m_alpha.at( m_player.index - 1 ) ) );
+	m_render.draw_outlined_rect( m_box.x + 1, m_box.y + 1, m_box.width - 2, m_box.height - 2, color( 0, 0, 0, m_alpha.at( m_player.index - 1 ) ) );
 	m_render.draw_outlined_rect( m_box.x, m_box.y, m_box.width, m_box.height, box_color );
 
 }
@@ -46,8 +48,29 @@ void visuals::draw_health( ) {
 	int scaler = static_cast< int >( 2.55 * health );
 	color health_color = color( 255 - scaler, scaler, 0, m_alpha.at( m_player.index - 1 ) );
 
-	m_render.draw_filled_rect( m_box.x - 2, m_box.y - 1, 4, m_box.height + 2, color( 0, 0, 0, 220 ), origin_right );
-	m_render.draw_filled_rect( m_box.x - 3, m_box.y, 2, health * m_box.height / 100, health_color, origin_right );
+	m_render.draw_filled_rect( m_box.x - 2, m_box.y - 1, 4, m_box.height + 2, color( 0, 0, 0, m_alpha.at( m_player.index - 1 ) ), x_right );
+	m_render.draw_filled_rect( m_box.x - 3, m_box.y, 2, health * m_box.height / 100, health_color, x_right );
+
+	if ( health == 100 )
+		return;
+
+	m_render.draw_text( m_font, m_box.x - 7, m_box.y + health * m_box.height / 100, std::to_wstring( health ), color( 255, 255, 255, m_alpha.at( m_player.index - 1 ) ), x_right );
+
+}
+
+void visuals::draw_name( ) {
+
+	player_info info;
+	if ( !m_interfaces.m_engine->get_player_info( m_player.index, &info ) )
+		return;
+
+	std::string name = info.m_name;
+	std::transform( name.begin( ), name.end( ), name.begin( ), std::tolower );
+
+	if ( !info.m_xuid_low )
+		name.append( " - bot" );
+
+	m_render.draw_text( m_font, m_box.x + m_box.width / 2, m_box.y + 1, name, color( 255, 255, 255, m_alpha.at( m_player.index - 1 ) ), x_centre | y_bottom );
 
 }
 

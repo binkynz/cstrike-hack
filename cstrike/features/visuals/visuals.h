@@ -14,6 +14,8 @@ private:
 
 	void draw_health( );
 
+	void draw_name( );
+
 	void calculate_alpha( );
 
 	bool calculate_box( );
@@ -35,6 +37,8 @@ private:
 	} m_player;
 
 	std::array< int, 64 > m_alpha;
+
+	h_font m_font = 0x5;
 
 };
 

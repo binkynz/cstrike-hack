@@ -31,6 +31,11 @@ bool interfaces::setup( ) {
 
 	m_console.log( "gpGlobals -> 0x%x", m_globals );
 
+	m_engine = get< engine_client* >( "engine.dll", "VEngineClient014" );
+
+	if ( !m_engine )
+		return false;
+
 	m_console.log( "grabbed interfaces" );
 
 	return true;
