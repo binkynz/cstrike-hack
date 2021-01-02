@@ -7,6 +7,7 @@
 #include "../client_entity_list.h"
 #include "../engine/debug_overlay.h"
 #include "../global_vars_base.h"
+#include "../tier1/localize.h"
 
 #include "../../other/console/console.h"
 
@@ -20,6 +21,7 @@ struct interfaces {
 	debug_overlay* m_debug_overlay;
 	global_vars_base* m_globals;
 	engine_client* m_engine;
+	localize* m_localize;
 
 private:
 

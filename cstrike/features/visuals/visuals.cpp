@@ -27,6 +27,8 @@ void visuals::paint( ) {
 
 		draw_name( );
 
+		draw_weapon( );
+
 		}, { iterate_dormant } );
 
 }
@@ -66,10 +68,10 @@ void visuals::draw_health( ) {
 		return;
 
 	m_render.draw_text( m_font, 
-		m_box.x - 7, m_box.y + health * m_box.height / 100, 
+		m_box.x - 7, m_box.y + health * m_box.height / 100 + 1, 
 		std::to_wstring( health ), 
 		color( 255, 255, 255, m_alpha[ m_player.index - 1 ] ), 
-		x_right );
+		x_right | y_centre );
 
 }
 
@@ -86,10 +88,31 @@ void visuals::draw_name( ) {
 		name.append( " - bot" );
 
 	m_render.draw_text( m_font, 
-		m_box.x + m_box.width / 2, m_box.y + 1, 
+		m_box.x + m_box.width / 2, m_box.y - 1, 
 		name, 
 		color( 255, 255, 255, m_alpha[ m_player.index - 1 ] ), 
 		x_centre | y_bottom );
+
+}
+
+void visuals::draw_weapon( ) {
+
+	weapon_cs_base_gun* weapon = m_interfaces.m_entity_list->get< weapon_cs_base_gun* >( m_player.pointer->get_active_weapon( ) );
+	if ( !weapon )
+		return;
+
+	cs_weapon_info* weapon_info = weapon->get_cs_wpn_data( );
+	if ( !weapon_info )
+		return;
+
+	std::wstring weapon_name = m_interfaces.m_localize->find( weapon_info->m_hud_name );
+	std::transform( weapon_name.begin( ), weapon_name.end( ), weapon_name.begin( ), std::tolower );
+
+	m_render.draw_text( m_font,
+		m_box.x + m_box.width / 2, m_box.y + m_box.height + 2,
+		weapon_name,
+		color( 255, 255, 255, m_alpha[ m_player.index - 1 ] ),
+		x_centre );
 
 }
 
@@ -97,7 +120,7 @@ void visuals::calculate_alpha( ) {
 
 	float delta_time = m_interfaces.m_globals->m_curtime - m_player.pointer->get_simulation_time( );
 
-	float opacity = m_player.is_dormant ? std::clamp( 1.f - delta_time / 0.5f, 0.f, 1.f ) : 1.f;
+	double opacity = m_player.is_dormant ? m_easing.in_cubic( 1.0 - std::clamp( delta_time, 0.f, 1.f ) ) : 1.0;
 
 	m_alpha[ m_player.index - 1 ] = static_cast< int >( 255 * opacity );
 

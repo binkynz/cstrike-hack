@@ -36,6 +36,11 @@ bool interfaces::setup( ) {
 	if ( !m_engine )
 		return false;
 
+	m_localize = get< localize* >( "localize.dll", "Localize_001" );
+
+	if ( !m_localize )
+		return false;
+
 	m_console.log( "grabbed interfaces" );
 
 	return true;

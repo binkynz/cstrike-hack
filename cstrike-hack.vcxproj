@@ -144,6 +144,7 @@
     <ClCompile Include="cstrike\dllmain.cpp" />
     <ClCompile Include="cstrike\features\visuals\visuals.cpp" />
     <ClCompile Include="cstrike\hooked\functions\base_player.cpp" />
+    <ClCompile Include="cstrike\hooked\functions\client_mode_shared.cpp" />
     <ClCompile Include="cstrike\hooked\functions\engine_v_gui.cpp" />
     <ClCompile Include="cstrike\hooked\hooked.cpp" />
     <ClCompile Include="cstrike\render\render.cpp" />
@@ -160,12 +161,14 @@
     <ClInclude Include="cstrike\features\visuals\visuals.h" />
     <ClInclude Include="cstrike\render\render.h" />
     <ClInclude Include="other\color\color.h" />
+    <ClInclude Include="other\easing\easing.h" />
     <ClInclude Include="other\math\q_angle.h" />
     <ClInclude Include="other\math\vector_3d.h" />
     <ClInclude Include="other\hash\hash.h" />
     <ClInclude Include="valve\cdll_int.h" />
     <ClInclude Include="valve\client\base_animating.h" />
     <ClInclude Include="valve\client\base_combat_character.h" />
+    <ClInclude Include="valve\client\weapon_cs_base_gun.h" />
     <ClInclude Include="valve\client\base_entity.h" />
     <ClInclude Include="valve\client\base_player.h" />
     <ClInclude Include="valve\client\client.h" />
@@ -193,6 +196,8 @@
     <ClInclude Include="valve\shared\in_buttons.h" />
     <ClInclude Include="valve\shared\shared.h" />
     <ClInclude Include="valve\shared\user_cmd.h" />
+    <ClInclude Include="valve\tier1\localize.h" />
+    <ClInclude Include="valve\tier1\tier1.h" />
     <ClInclude Include="valve\valve.h" />
     <ClInclude Include="valve\vgui\surface.h" />
     <ClInclude Include="valve\vgui\vgui.h" />

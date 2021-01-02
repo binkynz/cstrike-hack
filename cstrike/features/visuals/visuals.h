@@ -16,6 +16,8 @@ private:
 
 	void draw_name( );
 
+	void draw_weapon( );
+
 	void calculate_alpha( );
 
 	bool calculate_box( );

@@ -26,7 +26,7 @@ struct render {
 
 private:
 
-	void handle_flags( int& x, int& y, int width, int height, int flags = { } );
+	void handle_flags( int& x, int& y, int width, int height, int flags );
 
 };
 
