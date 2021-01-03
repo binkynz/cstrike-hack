@@ -1,5 +1,7 @@
 #pragma once
 
+#include <intrin.h>
+
 struct address {
 
 	address( ) : m_address{ } {
@@ -8,13 +10,13 @@ struct address {
 
 	}
 
-	address( const std::size_t address ) : m_address{ address } {
+	address( std::size_t address ) : m_address{ address } {
 
 
 
 	}
 
-	address( const void* address ) : m_address{ reinterpret_cast< std::size_t >( address ) } {
+	address( void* address ) : m_address{ reinterpret_cast< std::size_t >( address ) } {
 
 
 
@@ -32,11 +34,6 @@ struct address {
 
 	}
 
-	inline operator const void* ( ) {
-
-		return reinterpret_cast< const void* >( m_address );
-
-	}
 
 	inline bool operator==( address address ) {
 
@@ -50,37 +47,37 @@ struct address {
 
 	}
 
-	template< typename t = address > inline t to( ) const {
+	template< typename t = address > inline t to( ) {
 
 		return *( t* )m_address;
 
 	}
 
-	template< typename t = address > inline t as( ) const {
+	template< typename t = address > inline t as( ) {
 
 		return m_address ? ( t )m_address : t( );
 
 	}
 
-	template< typename t = address > inline t at( const std::size_t offset ) const {
+	template< typename t = address > inline t at( std::size_t offset ) {
 
 		return m_address ? *( t* )( m_address + offset ) : t( );
 
 	}
 
-	template< typename t = address > inline t add( const std::size_t offset ) const {
+	template< typename t = address > inline t add( std::size_t offset ) {
 
 		return m_address ? ( t )( m_address + offset ) : t( );
 
 	}
 
-	template< typename t = address > inline t sub( const std::size_t offset ) const {
+	template< typename t = address > inline t sub( std::size_t offset ) {
 
 		return m_address ? ( t )( m_address - offset ) : t( );
 
 	}
 
-	template< typename t = address > inline t get( std::size_t dereferences = 1 ) const {
+	template< typename t = address > inline t get( std::size_t dereferences = 1 ) {
 
 		if ( !m_address )
 			return t( );
@@ -95,7 +92,7 @@ struct address {
 
 	}
 
-	template< typename t = std::size_t > inline void set( const t& value ) const {
+	template< typename t = std::size_t > inline void set( const t& value ) {
 
 		if ( !m_address )
 			return;
@@ -104,16 +101,16 @@ struct address {
 
 	}
 
-	template< typename t = address > inline t relative( const std::size_t offset = 0x1 ) const {
+	template< typename t = address > inline t relative( std::size_t offset = 0x1 ) {
 
 		if ( !m_address )
 			return t( );
 
-		const std::size_t new_address = m_address + offset;
+		std::size_t new_address = m_address + offset;
 
 		// boris will gutter stomp you
 
-		const std::int32_t relative_offset = *reinterpret_cast< std::int32_t* >( new_address );
+		std::int32_t relative_offset = *reinterpret_cast< std::int32_t* >( new_address );
 
 		if ( !relative_offset )
 			return t( );
@@ -122,7 +119,7 @@ struct address {
 
 	}
 
-private:
+protected:
 
 	std::size_t m_address;
 

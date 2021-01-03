@@ -2,7 +2,7 @@
 
 #include "../cstrike.h"
 
-enum {
+enum render_flags {
 
 	x_right = 1,
 	x_centre = 1 << 1,

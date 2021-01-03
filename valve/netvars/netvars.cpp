@@ -32,20 +32,20 @@ bool netvars::setup( ) {
 
 }
 
-void netvars::store( const std::string_view name, recv_table* table, std::size_t offset ) {
+void netvars::store( std::string_view name, recv_table* table, std::size_t offset ) {
 
 	for ( auto i = 0; i < table->m_props; ++i ) {
 
-		const auto prop = &table->m_props_pointer[ i ];
-		const auto child = prop->m_data_table;
+		recv_prop* prop = &table->m_props_pointer[ i ];
+		recv_table* child = prop->m_data_table;
 
 		if ( child && child->m_props > 0 )
 			store( name, child, prop->m_offset + offset );
 
-		const auto variable = prop->m_var_name;
+		auto variable = prop->m_var_name;
 
-		const auto netvar = std::string( name.data( ) ) + "->" + variable;
-		const auto hash = m_hash.get( netvar.c_str( ) );
+		std::string netvar = std::string( name.data( ) ) + "->" + variable;
+		std::size_t hash = m_hash.get( netvar.c_str( ) );
 
 		if ( !m_offsets[ hash ] ) {
 

@@ -16,6 +16,8 @@
     <ClCompile Include="cstrike\render\render.cpp" />
     <ClCompile Include="cstrike\features\visuals\visuals.cpp" />
     <ClCompile Include="cstrike\hooked\functions\client_mode_shared.cpp" />
+    <ClCompile Include="cstrike\hooked\functions\base_entity.cpp" />
+    <ClCompile Include="cstrike\hooked\functions\weapon_cs_base.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cstrike\cstrike.h" />
@@ -58,9 +60,10 @@
     <ClInclude Include="valve\engine\debug_overlay.h" />
     <ClInclude Include="valve\engine\engine.h" />
     <ClInclude Include="valve\global_vars_base.h" />
-    <ClInclude Include="valve\client\weapon_cs_base_gun.h" />
     <ClInclude Include="valve\tier1\localize.h" />
     <ClInclude Include="valve\tier1\tier1.h" />
     <ClInclude Include="other\easing\easing.h" />
+    <ClInclude Include="other\memory\stack.h" />
+    <ClInclude Include="valve\client\weapon_cs_base.h" />
   </ItemGroup>
 </Project>

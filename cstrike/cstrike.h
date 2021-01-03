@@ -19,7 +19,7 @@ struct cstrike {
 
 	void unload( );
 
-	void iterate_players( std::function< void( cs_player* ) > function, iterate_player_flags flags );
+	void iterate_players( std::function< void( cs_player* ) > function, int flags = { } );
 
 	base_player* m_local_player;
 

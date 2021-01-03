@@ -1,10 +1,11 @@
 #pragma once
 
 #include <cstddef>
+#include <string>
 
 struct hash {
 
-	std::size_t get( const char* string );
+	std::size_t get( std::string_view string );
 
 private:
 

@@ -97,7 +97,7 @@ void visuals::draw_name( ) {
 
 void visuals::draw_weapon( ) {
 
-	weapon_cs_base_gun* weapon = m_interfaces.m_entity_list->get< weapon_cs_base_gun* >( m_player.pointer->get_active_weapon( ) );
+	weapon_cs_base* weapon = m_interfaces.m_entity_list->get< weapon_cs_base* >( m_player.pointer->get_active_weapon( ) );
 	if ( !weapon )
 		return;
 

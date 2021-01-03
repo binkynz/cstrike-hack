@@ -2,7 +2,7 @@
 
 #include "base_player.h"
 
-struct base_animating : public base_player {
+struct base_animating : base_player {
 
 
 

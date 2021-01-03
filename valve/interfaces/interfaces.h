@@ -25,24 +25,24 @@ struct interfaces {
 
 private:
 
-	template< class t > inline t get( const std::string_view module_name, const std::string_view interface_name ) {
+	template< class t > inline t get( std::string_view module_name, std::string_view interface_name ) {
 
-		const auto module = GetModuleHandleA( module_name.data( ) );
+		HMODULE module = GetModuleHandleA( module_name.data( ) );
 
 		if ( !module )
 			return t( );
 
-		const auto create_interface = GetProcAddress( module, "CreateInterface" );
+		auto create_interface = GetProcAddress( module, "CreateInterface" );
 
 		if ( !create_interface )
 			return t( );
 
-		const auto create_interface_fn = reinterpret_cast< t( * )( const char*, int* ) >( create_interface );
+		auto create_interface_fn = reinterpret_cast< t( * )( const char*, int* ) >( create_interface );
 
 		if ( !create_interface_fn )
 			return t( );
 
-		const auto interface_address = create_interface_fn( interface_name.data( ), nullptr );
+		auto interface_address = create_interface_fn( interface_name.data( ), nullptr );
 
 		if ( !interface_address )
 			return t( );

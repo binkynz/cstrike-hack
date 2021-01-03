@@ -4,7 +4,7 @@
 
 DWORD WINAPI cstrike::setup( void* parameter ) {
 
-	const auto handle = static_cast< HMODULE >( parameter );
+	HMODULE handle = static_cast< HMODULE >( parameter );
 
 	m_console.setup( "cstrike-hack" );
 
@@ -35,7 +35,7 @@ void cstrike::unload( ) {
 
 }
 
-void cstrike::iterate_players( std::function< void( cs_player* ) > function, iterate_player_flags flags ) {
+void cstrike::iterate_players( std::function< void( cs_player* ) > function, int flags ) {
 
 	for ( int i = 1; i <= m_interfaces.m_globals->m_max_clients; i++ ) {
 

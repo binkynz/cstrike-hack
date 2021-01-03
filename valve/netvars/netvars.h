@@ -11,7 +11,7 @@ struct netvars {
 
 	bool setup( );
 
-	void store( const std::string_view name, recv_table* table, std::size_t offset = 0 );
+	void store( std::string_view name, recv_table* table, std::size_t offset = 0 );
 
 	std::unordered_map< std::size_t, std::size_t > m_offsets;
 

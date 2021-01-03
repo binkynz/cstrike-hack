@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-bool console::setup( const std::string_view name ) {
+bool console::setup( std::string_view name ) {
 
 	if ( !AllocConsole( ) )
 		return false;
@@ -27,7 +27,7 @@ void console::unload( ) {
 
 }
 
-void console::log( const std::string_view format, ... ) {
+void console::log( std::string_view format, ... ) {
 
 	if ( std::strlen( format.data( ) ) >= sizeof( m_buffer ) )
 		return;

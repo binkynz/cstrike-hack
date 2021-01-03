@@ -9,3 +9,5 @@
 
 #include "math/q_angle.h"
 #include "math/vector_3d.h"
+
+#include "memory/stack.h"

@@ -1,12 +1,10 @@
 #include "hash.h"
 
-#include <cstring>
+std::size_t hash::get( std::string_view string ) {
 
-std::size_t hash::get( const char* string ) {
+    std::size_t ret = m_basis;
 
-    auto ret = m_basis;
-
-    const auto length = std::strlen( string );
+    std::size_t length = std::strlen( string.data( ) );
     for ( std::size_t i = 0; i < length; ++i ) {
 
         ret ^= string[ i ];

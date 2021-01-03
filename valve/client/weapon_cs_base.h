@@ -6,10 +6,12 @@ struct cs_weapon_info {
 
 	char _pad0[ 0x88 ];
 	const char* m_hud_name;
+	char _pad1[ 0x3c ];
+	int m_weapon_type;
 
 };
 
-struct weapon_cs_base_gun : base_entity {
+struct weapon_cs_base : base_entity {
 
 	inline auto get_cs_wpn_data( ) {
 

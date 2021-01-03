@@ -2,11 +2,11 @@
 
 struct easing {
 
-	// lots of functions i know
+	// https://github.com/nicolausYes/easing-functions
 
-	inline double in_cubic( double seconds ) {
+	inline double in_cubic( double x ) {
 
-		return seconds * seconds * seconds;
+		return x * x * x;
 
 	}
 

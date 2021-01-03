@@ -3,14 +3,14 @@
 #include <psapi.h>
 #include <vector>
 
-address pattern::find( const std::string_view module_name, const std::string_view pattern ) {
+address pattern::find( std::string_view module_name, std::string_view pattern ) {
 
 	static auto pattern_to_byte = [ ]( const char* pattern ) -> std::vector< std::size_t > {
 
 		std::vector< std::size_t > bytes;
 
-		const auto start = const_cast< char* >( pattern );
-		const auto end = const_cast< char* >( pattern ) + std::strlen( pattern );
+		auto start = const_cast< char* >( pattern );
+		auto end = const_cast< char* >( pattern ) + std::strlen( pattern );
 		for ( auto current = start; current < end; ++current ) {
 
 			if ( *current == '?' ) {
@@ -33,25 +33,25 @@ address pattern::find( const std::string_view module_name, const std::string_vie
 
 	};
 
-	const auto module_handle = GetModuleHandleA( module_name.data( ) );
-	if ( !module_handle )
+	HMODULE handle = GetModuleHandleA( module_name.data( ) );
+	if ( !handle )
 		return nullptr;
 
 	MODULEINFO module_info;
-	if ( !K32GetModuleInformation( GetCurrentProcess( ), module_handle, &module_info, sizeof( MODULEINFO ) ) )
+	if ( !K32GetModuleInformation( GetCurrentProcess( ), handle, &module_info, sizeof( MODULEINFO ) ) )
 		return nullptr;
 
-	const auto image_bytes = reinterpret_cast< unsigned char* >( module_handle );
+	auto image_bytes = reinterpret_cast< unsigned char* >( handle );
 	if ( !image_bytes )
 		return nullptr;
 
-	const auto image_size = module_info.SizeOfImage;
+	auto image_size = module_info.SizeOfImage;
 	if ( !image_size )
 		return nullptr;
 
-	const auto pattern_bytes = pattern_to_byte( pattern.data( ) );
-	const auto signature_size = pattern_bytes.size( );
-	const auto signature_bytes = pattern_bytes.data( );
+	auto pattern_bytes = pattern_to_byte( pattern.data( ) );
+	auto signature_size = pattern_bytes.size( );
+	auto signature_bytes = pattern_bytes.data( );
 
 	for ( unsigned long i = 0; i < image_size - signature_size; ++i ) {
 

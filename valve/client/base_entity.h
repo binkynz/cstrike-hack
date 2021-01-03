@@ -25,6 +25,12 @@ struct base_entity {
 
 	}
 
+	inline auto is_player( ) {
+
+		return m_utils.get_v_func< bool( __thiscall* )( void* ) >( this, 157 )( this );
+
+	}
+
 	inline auto& get_origin( ) {
 
 		static auto offset = m_netvars.m_offsets[ m_hash.get( "DT_BaseEntity->m_vecOrigin" ) ];
