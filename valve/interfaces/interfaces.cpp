@@ -41,6 +41,11 @@ bool interfaces::setup( ) {
 	if ( !m_localize )
 		return false;
 
+	m_mdl_cache = get< mdl_cache* >( "datacache.dll", "MDLCache004" );
+
+	if ( !m_mdl_cache )
+		return false;
+
 	m_console.log( "grabbed interfaces" );
 
 	return true;

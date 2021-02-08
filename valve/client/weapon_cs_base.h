@@ -13,6 +13,12 @@ struct cs_weapon_info {
 
 struct weapon_cs_base : base_entity {
 
+	inline auto get_max_speed( ) {
+
+		return m_utils.get_v_func< float( __thiscall* )( void* ) >( this, 441 )( this );
+
+	}
+
 	inline auto get_cs_wpn_data( ) {
 
 		return m_utils.get_v_func< cs_weapon_info* ( __thiscall* )( void* ) >( this, 460 )( this ); // 8B 81 ? ? ? ? 85 C0 0F 84 ? ? ? ? C3

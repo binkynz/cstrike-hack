@@ -1,5 +1,6 @@
 #pragma once
 
+#include "animation_layer.h"
 #include "base_entity.h"
 #include "base_combat_character.h"
 #include "base_player.h"

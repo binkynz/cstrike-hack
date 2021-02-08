@@ -8,6 +8,7 @@
 #include "../engine/debug_overlay.h"
 #include "../global_vars_base.h"
 #include "../tier1/localize.h"
+#include "../data_cache/mdl_cache.h"
 
 #include "../../other/console/console.h"
 
@@ -22,6 +23,7 @@ struct interfaces {
 	global_vars_base* m_globals;
 	engine_client* m_engine;
 	localize* m_localize;
+	mdl_cache* m_mdl_cache;
 
 private:
 

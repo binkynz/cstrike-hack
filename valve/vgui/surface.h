@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../../other/pattern/pattern.h"
+#include "../signatures.h"
 
 using h_font = unsigned long;
 
@@ -77,7 +77,7 @@ struct surface {
 
 	inline auto start_drawing( ) {
 
-		static auto function = m_pattern.find( "vguimatsurface.dll", "55 8B EC 83 E4 C0 83 EC 38" ).as< void( __thiscall* )( void* ) >( );
+		auto function = m_signatures.m_start_drawing.as< void( __thiscall* )( void* ) >( );
 
 		return function( this );
 
@@ -85,7 +85,7 @@ struct surface {
 
 	inline auto finish_drawing( ) {
 
-		static auto function = m_pattern.find( "vguimatsurface.dll", "8B 0D ? ? ? ? 56 C6 05 ? ? ? ? ?" ).as< void( __thiscall* )( void* ) >( );
+		auto function = m_signatures.m_finish_drawing.as< void( __thiscall* )( void* ) >( );
 
 		return function( this );
 

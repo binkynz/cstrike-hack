@@ -143,9 +143,9 @@
     <ClCompile Include="cstrike\cstrike.cpp" />
     <ClCompile Include="cstrike\dllmain.cpp" />
     <ClCompile Include="cstrike\features\visuals\visuals.cpp" />
-    <ClCompile Include="cstrike\hooked\functions\base_entity.cpp" />
     <ClCompile Include="cstrike\hooked\functions\base_player.cpp" />
     <ClCompile Include="cstrike\hooked\functions\client_mode_shared.cpp" />
+    <ClCompile Include="cstrike\hooked\functions\csgo_player_anim_state.cpp" />
     <ClCompile Include="cstrike\hooked\functions\engine_v_gui.cpp" />
     <ClCompile Include="cstrike\hooked\functions\weapon_cs_base.cpp" />
     <ClCompile Include="cstrike\hooked\hooked.cpp" />
@@ -169,6 +169,7 @@
     <ClInclude Include="other\hash\hash.h" />
     <ClInclude Include="other\memory\stack.h" />
     <ClInclude Include="valve\cdll_int.h" />
+    <ClInclude Include="valve\client\animation_layer.h" />
     <ClInclude Include="valve\client\base_animating.h" />
     <ClInclude Include="valve\client\base_combat_character.h" />
     <ClInclude Include="valve\client\weapon_cs_base.h" />
@@ -187,6 +188,8 @@
     <ClInclude Include="valve\client_entity_list.h" />
     <ClInclude Include="valve\client_networkable.h" />
     <ClInclude Include="valve\client_renderable.h" />
+    <ClInclude Include="valve\data_cache\data_cache.h" />
+    <ClInclude Include="valve\data_cache\mdl_cache.h" />
     <ClInclude Include="valve\detour\detour.h" />
     <ClInclude Include="valve\dt_common.h" />
     <ClInclude Include="valve\dt_recv.h" />
@@ -195,10 +198,15 @@
     <ClInclude Include="valve\engine_v_gui.h" />
     <ClInclude Include="valve\global_vars_base.h" />
     <ClInclude Include="valve\interfaces\interfaces.h" />
+    <ClInclude Include="valve\mathlib\mathlib.h" />
+    <ClInclude Include="valve\mathlib\mathlib_base.h" />
     <ClInclude Include="valve\netvars\netvars.h" />
+    <ClInclude Include="valve\shared\csgo_player_anim_state.h" />
     <ClInclude Include="valve\shared\in_buttons.h" />
     <ClInclude Include="valve\shared\shared.h" />
     <ClInclude Include="valve\shared\user_cmd.h" />
+    <ClInclude Include="valve\signatures.h" />
+    <ClInclude Include="valve\studio.h" />
     <ClInclude Include="valve\tier1\localize.h" />
     <ClInclude Include="valve\tier1\tier1.h" />
     <ClInclude Include="valve\valve.h" />

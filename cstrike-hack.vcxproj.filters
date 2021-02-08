@@ -16,8 +16,8 @@
     <ClCompile Include="cstrike\render\render.cpp" />
     <ClCompile Include="cstrike\features\visuals\visuals.cpp" />
     <ClCompile Include="cstrike\hooked\functions\client_mode_shared.cpp" />
-    <ClCompile Include="cstrike\hooked\functions\base_entity.cpp" />
     <ClCompile Include="cstrike\hooked\functions\weapon_cs_base.cpp" />
+    <ClCompile Include="cstrike\hooked\functions\csgo_player_anim_state.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cstrike\cstrike.h" />
@@ -65,5 +65,13 @@
     <ClInclude Include="other\easing\easing.h" />
     <ClInclude Include="other\memory\stack.h" />
     <ClInclude Include="valve\client\weapon_cs_base.h" />
+    <ClInclude Include="valve\shared\csgo_player_anim_state.h" />
+    <ClInclude Include="valve\mathlib\mathlib.h" />
+    <ClInclude Include="valve\mathlib\mathlib_base.h" />
+    <ClInclude Include="valve\client\animation_layer.h" />
+    <ClInclude Include="valve\data_cache\mdl_cache.h" />
+    <ClInclude Include="valve\data_cache\data_cache.h" />
+    <ClInclude Include="valve\signatures.h" />
+    <ClInclude Include="valve\studio.h" />
   </ItemGroup>
 </Project>
