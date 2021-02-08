@@ -7,7 +7,7 @@ struct mathlib_base {
 	inline float anglemod( float a ) {
 
 		// c casting :)
-		a = ( 360.f / 65536 ) * ( ( int )( a * ( 65536.f / 360.0f ) ) & 65535 );
+		a = ( 360.f / 65536 ) * ( ( int )( a * ( 65536.f / 360.f ) ) & 65535 );
 
 		// references? lol cmon valve
 		return a;
@@ -55,7 +55,7 @@ struct mathlib_base {
 
 	inline float angle_diff( float dest, float source ) {
 
-		float delta = std::fmodf( dest - source, 360.0f );
+		float delta = std::fmodf( dest - source, 360.f );
 
 		if ( dest > source ) {
 

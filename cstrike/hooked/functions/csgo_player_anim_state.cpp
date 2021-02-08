@@ -194,7 +194,7 @@ void __fastcall hooked::set_up_velocity( csgo_player_anim_state* ecx, void* edx 
 
 	if ( ecx->m_velocity_length_xy > 0.1f || std::fabs( ecx->m_velocity_length_z ) > 100.f ) {
 
-		ecx->m_foot_yaw = m_mathlib_base.approach_angle( ecx->m_eye_yaw, ecx->m_foot_yaw, ecx->m_last_update_increment * ( 30.0f + 20.0f * ecx->m_walk_to_run_transition ) );
+		ecx->m_foot_yaw = m_mathlib_base.approach_angle( ecx->m_eye_yaw, ecx->m_foot_yaw, ecx->m_last_update_increment * ( 30.f + 20.f * ecx->m_walk_to_run_transition ) );
 
 		// add server code
 
@@ -283,9 +283,9 @@ void __fastcall hooked::set_up_velocity( csgo_player_anim_state* ecx, void* edx 
 
 	float aim_yaw = m_mathlib_base.angle_diff( ecx->m_eye_yaw, ecx->m_foot_yaw );
 	if ( aim_yaw >= 0.f && ecx->m_aim_yaw_max != 0.f )
-		aim_yaw = ( aim_yaw / ecx->m_aim_yaw_max ) * 60.0f;
+		aim_yaw = ( aim_yaw / ecx->m_aim_yaw_max ) * 60.f;
 	else if ( ecx->m_aim_yaw_min != 0.f )
-		aim_yaw = ( aim_yaw / ecx->m_aim_yaw_min ) * -60.0f;
+		aim_yaw = ( aim_yaw / ecx->m_aim_yaw_min ) * -60.f;
 
 	ecx->m_pose_param_mappings[ 6 ].set_value( player, aim_yaw );
 

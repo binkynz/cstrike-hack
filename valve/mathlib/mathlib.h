@@ -22,7 +22,7 @@ struct mathlib {
 			return val >= b ? d : c;
 
 		float clamped_value = ( val - a ) / ( b - a );
-		clamped_value = std::clamp( clamped_value, 0.0f, 1.0f );
+		clamped_value = std::clamp( clamped_value, 0.f, 1.f );
 		return c + ( d - c ) * simple_spline( clamped_value );
 
 	}
