@@ -22,6 +22,12 @@ struct engine_client {
 
 	}
 
+	inline auto get_local_player( ) {
+
+		return m_utils.get_v_func< int( __thiscall* )( void* ) >( this, 12 )( this );
+
+	}
+
 };
 
 struct base_client_dll {

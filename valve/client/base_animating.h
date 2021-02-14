@@ -88,4 +88,24 @@ struct base_animating : base_player {
 
 	}
 
+	inline auto draw_server_hitboxes( float duration = 0.f, int /*bool*/ monocolor = 0 ) {
+
+		base_player* player = base_player::util_player_by_index( get_client_networkable( )->get_index( ) );
+		if ( !player )
+			return;
+
+		__asm {
+
+			pushad
+
+			movss xmm1, duration
+			push monocolor
+			mov ecx, player
+			call m_signatures.m_draw_server_hitboxes
+
+			popad
+		}
+
+	}
+
 };

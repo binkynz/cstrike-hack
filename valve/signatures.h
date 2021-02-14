@@ -50,6 +50,9 @@ struct signatures {
 	address m_hook = m_pattern.find( "gameoverlayrenderer.dll", "55 8B EC 51 8B 45 10 C7" );
 	address m_restore = m_pattern.find( "gameoverlayrenderer.dll", "E8 ? ? ? ? 83 C4 08 FF 15 ? ? ? ?" ).relative( );
 
+	address m_draw_server_hitboxes = m_pattern.find( "server.dll", "E8 ? ? ? ? F6 83 ? ? ? ? ? 0F 84 ? ? ? ? 33 FF" ).relative( );
+	address m_util_player_by_index = m_pattern.find( "server.dll", "85 C9 7E 2A A1 ? ? ? ?" );
+
 };
 
 inline signatures m_signatures;

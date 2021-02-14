@@ -20,4 +20,12 @@ struct base_player : base_combat_character {
 
 	}
 
+	inline auto util_player_by_index( int entindex ) {
+
+		auto function = m_signatures.m_util_player_by_index.as< base_player* ( __thiscall* )( int ) >( );
+
+		return function( entindex );
+
+	}
+
 };
