@@ -18,6 +18,8 @@
     <ClCompile Include="cstrike\hooked\functions\client_mode_shared.cpp" />
     <ClCompile Include="cstrike\hooked\functions\weapon_cs_base.cpp" />
     <ClCompile Include="cstrike\hooked\functions\csgo_player_anim_state.cpp" />
+    <ClCompile Include="cstrike\input\input.cpp" />
+    <ClCompile Include="cstrike\hooked\functions\client_input.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cstrike\cstrike.h" />
@@ -73,5 +75,8 @@
     <ClInclude Include="valve\data_cache\data_cache.h" />
     <ClInclude Include="valve\signatures.h" />
     <ClInclude Include="valve\studio.h" />
+    <ClInclude Include="cstrike\input\input.h" />
+    <ClInclude Include="valve\client\client_input.h" />
+    <ClInclude Include="cstrike\config.h" />
   </ItemGroup>
 </Project>

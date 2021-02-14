@@ -2,6 +2,8 @@
 
 #include <functional>
 
+#include "config.h"
+
 #include "../other/other.h"
 #include "../valve/valve.h"
 
@@ -20,6 +22,8 @@ struct cstrike {
 	void unload( );
 
 	void iterate_players( std::function< void( cs_player* ) > function, int flags = { } );
+
+	HWND m_window;
 
 	base_player* m_local_player;
 

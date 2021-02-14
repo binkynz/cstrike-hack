@@ -8,7 +8,10 @@ DWORD WINAPI cstrike::setup( void* parameter ) {
 
 	m_console.setup( "cstrike-hack" );
 
-	if ( !m_interfaces.setup( ) || !m_netvars.setup( ) || !m_hooked.setup( ) ) {
+	while ( !( m_cstrike.m_window = FindWindowA( "Valve001", nullptr ) ) )
+		m_utils.sleep( 100 );
+
+	if ( !m_interfaces.setup( ) || !m_netvars.setup( ) || !m_input.setup( ) || !m_hooked.setup( ) ) {
 
 		FreeLibraryAndExitThread( handle, EXIT_FAILURE );
 
@@ -16,7 +19,7 @@ DWORD WINAPI cstrike::setup( void* parameter ) {
 
 	}
 
-	while ( !GetAsyncKeyState( VK_DELETE ) )
+	while ( !m_input.is_key_down( VK_DELETE  ) )
 		m_utils.sleep( 100 );
 
 	FreeLibraryAndExitThread( handle, EXIT_SUCCESS );
@@ -26,6 +29,8 @@ DWORD WINAPI cstrike::setup( void* parameter ) {
 }
 
 void cstrike::unload( ) {
+
+	m_input.unload( );
 
 	m_hooked.unload( );
 

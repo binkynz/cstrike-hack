@@ -144,11 +144,13 @@
     <ClCompile Include="cstrike\dllmain.cpp" />
     <ClCompile Include="cstrike\features\visuals\visuals.cpp" />
     <ClCompile Include="cstrike\hooked\functions\base_player.cpp" />
+    <ClCompile Include="cstrike\hooked\functions\client_input.cpp" />
     <ClCompile Include="cstrike\hooked\functions\client_mode_shared.cpp" />
     <ClCompile Include="cstrike\hooked\functions\csgo_player_anim_state.cpp" />
     <ClCompile Include="cstrike\hooked\functions\engine_v_gui.cpp" />
     <ClCompile Include="cstrike\hooked\functions\weapon_cs_base.cpp" />
     <ClCompile Include="cstrike\hooked\hooked.cpp" />
+    <ClCompile Include="cstrike\input\input.cpp" />
     <ClCompile Include="cstrike\render\render.cpp" />
     <ClCompile Include="other\console\console.cpp" />
     <ClCompile Include="other\hash\hash.cpp" />
@@ -161,7 +163,9 @@
   <ItemGroup>
     <ClInclude Include="cstrike\features\features.h" />
     <ClInclude Include="cstrike\features\visuals\visuals.h" />
+    <ClInclude Include="cstrike\input\input.h" />
     <ClInclude Include="cstrike\render\render.h" />
+    <ClInclude Include="cstrike\config.h" />
     <ClInclude Include="other\color\color.h" />
     <ClInclude Include="other\easing\easing.h" />
     <ClInclude Include="other\math\q_angle.h" />
@@ -172,6 +176,7 @@
     <ClInclude Include="valve\client\animation_layer.h" />
     <ClInclude Include="valve\client\base_animating.h" />
     <ClInclude Include="valve\client\base_combat_character.h" />
+    <ClInclude Include="valve\client\client_input.h" />
     <ClInclude Include="valve\client\weapon_cs_base.h" />
     <ClInclude Include="valve\client\base_entity.h" />
     <ClInclude Include="valve\client\base_player.h" />

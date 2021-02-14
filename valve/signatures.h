@@ -41,6 +41,8 @@ struct signatures {
 	address m_seqdesc = m_pattern.find( "client.dll", "E8 ? ? ? ? 03 40 04" ).relative( );
 	address m_lookup_pose_parameter = m_pattern.find( "client.dll", "E8 ? ? ? ? 85 C0 79 08" ).relative( );
 	address m_studio_set_pose_parameter = m_pattern.find( "client.dll", "E8 ? ? ? ? 0F 28 D8 83 C4 04" ).relative( );
+	address m_cam_think = m_pattern.find( "client.dll", "55 8B EC 83 E4 F8 81 EC ? ? ? ? 56 8B F1 8B 0D ? ? ? ? 57 85 C9" );
+	address m_cam_to_third_person = m_pattern.find( "client.dll", "55 8B EC 83 EC 0C 8D 55 F4 " );
 
 	address m_start_drawing = m_pattern.find( "vguimatsurface.dll", "55 8B EC 83 E4 C0 83 EC 38" );
 	address m_finish_drawing = m_pattern.find( "vguimatsurface.dll", "8B 0D ? ? ? ? 56 C6 05 ? ? ? ? ?" );

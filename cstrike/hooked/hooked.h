@@ -3,6 +3,7 @@
 #include "../cstrike.h"
 
 #include "../features/features.h"
+#include "../input/input.h"
 
 struct hooked {
 
@@ -21,6 +22,8 @@ private:
 	static void __fastcall do_procedural_foot_plant( csgo_player_anim_state* ecx, void* edx, void* bone_to_world, void* left_foot_chain, void* right_foot_chain, void* pos );
 	static void __fastcall set_up_movement( csgo_player_anim_state* ecx, void* edx );
 	static void __fastcall set_up_velocity( csgo_player_anim_state* ecx, void* edx );
+	static void __fastcall cam_think( client_input* ecx, void* edx );
+	static void __fastcall cam_to_third_person( client_input* ecx, void* edx );
 
 };
 

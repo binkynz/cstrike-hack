@@ -22,6 +22,10 @@ bool hooked::setup( ) {
 
 	m_detour.setup( "CCSGOPlayerAnimState::SetUpMovement", m_signatures.m_setup_movement, &set_up_movement );
 
+	m_detour.setup( "C_Input::CAM_Think", m_signatures.m_cam_think, &cam_think );
+
+	m_detour.setup( "C_Input::CAM_ToThirdPerson", m_signatures.m_cam_to_third_person, &cam_to_third_person );
+
 	m_console.log( "hooked functions" );
 
 	return true;
