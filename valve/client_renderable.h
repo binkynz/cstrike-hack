@@ -1,5 +1,7 @@
 #pragma once
 
+#include "client/base_entity.h"
+
 struct client_renderable {
 
 	inline auto get_render_bounds( vector_3d& mins, vector_3d& maxs ) {

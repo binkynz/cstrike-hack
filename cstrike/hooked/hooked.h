@@ -25,6 +25,7 @@ private:
 	static void __fastcall cam_think( client_input* ecx, void* edx );
 	static void __fastcall cam_to_third_person( client_input* ecx, void* edx );
 	static void __fastcall reload_schemes( void* ecx, void* edx );
+	static void __fastcall draw_model( studio_render_context* ecx, void* edx, void* results, const draw_model_info& info, void* bone_to_world, float* flex_weights, float* flex_delayed_rates, const vector_3d& origin, int flags );
 
 };
 

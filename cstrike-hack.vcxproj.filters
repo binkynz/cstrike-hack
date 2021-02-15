@@ -21,6 +21,7 @@
     <ClCompile Include="cstrike\input\input.cpp" />
     <ClCompile Include="cstrike\hooked\functions\client_input.cpp" />
     <ClCompile Include="cstrike\hooked\functions\scheme_manager.cpp" />
+    <ClCompile Include="cstrike\hooked\functions\studio_render.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cstrike\cstrike.h" />
@@ -79,5 +80,7 @@
     <ClInclude Include="cstrike\input\input.h" />
     <ClInclude Include="valve\client\client_input.h" />
     <ClInclude Include="cstrike\config.h" />
+    <ClInclude Include="valve\studio_render\studio_render.h" />
+    <ClInclude Include="valve\studio_render\studio_render_context.h" />
   </ItemGroup>
 </Project>

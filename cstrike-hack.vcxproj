@@ -149,6 +149,7 @@
     <ClCompile Include="cstrike\hooked\functions\csgo_player_anim_state.cpp" />
     <ClCompile Include="cstrike\hooked\functions\engine_v_gui.cpp" />
     <ClCompile Include="cstrike\hooked\functions\scheme_manager.cpp" />
+    <ClCompile Include="cstrike\hooked\functions\studio_render.cpp" />
     <ClCompile Include="cstrike\hooked\functions\weapon_cs_base.cpp" />
     <ClCompile Include="cstrike\hooked\hooked.cpp" />
     <ClCompile Include="cstrike\input\input.cpp" />
@@ -213,6 +214,8 @@
     <ClInclude Include="valve\shared\user_cmd.h" />
     <ClInclude Include="valve\signatures.h" />
     <ClInclude Include="valve\studio.h" />
+    <ClInclude Include="valve\studio_render\studio_render.h" />
+    <ClInclude Include="valve\studio_render\studio_render_context.h" />
     <ClInclude Include="valve\tier1\localize.h" />
     <ClInclude Include="valve\tier1\tier1.h" />
     <ClInclude Include="valve\valve.h" />

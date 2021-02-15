@@ -28,6 +28,8 @@ bool hooked::setup( ) {
 
 	m_detour.setup( "CSchemeManager::ReloadSchemes", m_signatures.m_reload_schemes, &reload_schemes );
 
+	m_detour.setup( "CStudioRenderContext::DrawModel", m_signatures.m_draw_model, &draw_model );
+
 	m_console.log( "hooked functions" );
 
 	return true;

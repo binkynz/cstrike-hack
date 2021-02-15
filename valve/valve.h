@@ -10,6 +10,7 @@
 #include "mathlib/mathlib.h"
 #include "netvars/netvars.h"
 #include "shared/shared.h"
+#include "studio_render/studio_render.h"
 #include "tier1/tier1.h"
 #include "vgui/vgui.h"
 
