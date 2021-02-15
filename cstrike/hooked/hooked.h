@@ -24,7 +24,7 @@ private:
 	static void __fastcall set_up_velocity( csgo_player_anim_state* ecx, void* edx );
 	static void __fastcall cam_think( client_input* ecx, void* edx );
 	static void __fastcall cam_to_third_person( client_input* ecx, void* edx );
-	static void __fastcall on_screen_size_changed( void* ecx, void* edx, int old_width, int old_height );
+	static void __fastcall reload_schemes( void* ecx, void* edx );
 
 };
 

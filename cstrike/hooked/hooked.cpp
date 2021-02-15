@@ -26,7 +26,7 @@ bool hooked::setup( ) {
 
 	m_detour.setup( "CInput::CAM_ToThirdPerson", m_signatures.m_cam_to_third_person, &cam_to_third_person );
 
-	m_detour.setup( "CMatSystemSurface::OnScreenSizeChanged", m_signatures.m_on_screen_size_changed, &on_screen_size_changed );
+	m_detour.setup( "CSchemeManager::ReloadSchemes", m_signatures.m_reload_schemes, &reload_schemes );
 
 	m_console.log( "hooked functions" );
 

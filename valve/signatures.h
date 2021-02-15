@@ -46,7 +46,8 @@ struct signatures {
 
 	address m_start_drawing = m_pattern.find( "vguimatsurface.dll", "55 8B EC 83 E4 C0 83 EC 38" );
 	address m_finish_drawing = m_pattern.find( "vguimatsurface.dll", "8B 0D ? ? ? ? 56 C6 05 ? ? ? ? ?" );
-	address m_on_screen_size_changed = m_pattern.find( "vguimatsurface.dll", "55 8B EC 83 EC 08 53 8B D9 8D 4D F8" );
+
+	address m_reload_schemes = m_pattern.find( "vgui2.dll", "55 8B EC 83 EC 08 53 56 8B F1 6A 00" );
 
 	address m_hook = m_pattern.find( "gameoverlayrenderer.dll", "55 8B EC 51 8B 45 10 C7" );
 	address m_restore = m_pattern.find( "gameoverlayrenderer.dll", "E8 ? ? ? ? 83 C4 08 FF 15 ? ? ? ?" ).relative( );

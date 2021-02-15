@@ -106,7 +106,7 @@ void visuals::draw_weapon( ) {
 		return;
 
 	std::wstring weapon_name = m_interfaces.m_localize->find( weapon_info->m_hud_name );
-	std::transform( weapon_name.begin( ), weapon_name.end( ), weapon_name.begin( ), std::tolower );
+	std::transform( weapon_name.begin( ), weapon_name.end( ), weapon_name.begin( ), std::toupper );
 
 	m_render.draw_text( m_render.m_fonts.main,
 		m_box.x + m_box.width / 2, m_box.y + m_box.height,
