@@ -34,7 +34,7 @@ struct render {
 
 private:
 
-	bool create_font( h_font& font, std::string_view name, int tall, int weight, int flags = { } );
+	void create_font( h_font& font, std::string_view name, int tall, int weight, int flags = { } );
 
 	void handle_flags( int& x, int& y, int width, int height, int flags );
 

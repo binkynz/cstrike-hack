@@ -2,8 +2,7 @@
 
 bool render::setup( ) {
 
-	if ( !create_font( m_fonts.main, "Tahoma", 12, 350, fontflag_outline ) )
-		return false;
+	create_font( m_fonts.main, "Tahoma", 12, 350, fontflag_outline );
 
 	return true;
 
@@ -57,20 +56,12 @@ void render::draw_text( h_font& font, int x, int y, std::string_view text, const
 
 }
 
-bool render::create_font( h_font& font, std::string_view name, int tall, int weight, int flags ) {
+void render::create_font( h_font& font, std::string_view name, int tall, int weight, int flags ) {
 
 	font = m_interfaces.m_surface->create_font( );
-	if ( !font ) {
-
-		m_console.log( "failed to create font %s", name.data( ) );
-
-		return false;
-
-	}
 		
 	m_interfaces.m_surface->set_font_glyph( font, name.data( ), tall, weight, 0, 0, flags );
 
-	return true;
 }
 
 void render::handle_flags( int& x, int& y, int width, int height, int flags ) {
