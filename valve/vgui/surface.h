@@ -13,6 +13,24 @@ enum font_draw_type {
 
 };
 
+enum font_flags {
+
+	fontflag_none,
+	fontflag_italic = 0x001,
+	fontflag_underline = 0x002,
+	fontflag_strikeout = 0x004,
+	fontflag_symbol = 0x008,
+	fontflag_antialias = 0x010,
+	fontflag_gaussianblur = 0x020,
+	fontflag_rotary = 0x040,
+	fontflag_dropshadow = 0x080,
+	fontflag_additive = 0x100,
+	fontflag_outline = 0x200,
+	fontflag_custom = 0x400,
+	fontflag_bitmap = 0x800,
+
+};
+
 struct surface {
 
 	inline auto draw_set_color( int r, int g, int b, int a ) {
@@ -66,6 +84,18 @@ struct surface {
 	inline auto get_screen_size( int& wide, int& tall ) {
 
 		return m_utils.get_v_func< void( __thiscall* )( void*, int&, int& ) >( this, 44 )( this, wide, tall );
+
+	}
+
+	inline auto create_font( ) {
+
+		return m_utils.get_v_func< h_font( __thiscall* )( void* ) >( this, 71 )( this );
+
+	}
+
+	inline auto set_font_glyph( h_font font, const char* windows_font_name, int tall, int weight, int blur, int scanlines, int flags, int range_min = 0, int range_max = 0 ) {
+
+		return m_utils.get_v_func< void( __thiscall* )( void*, h_font, const char*, int, int, int, int, int, int, int ) >( this, 72 )( this, font, windows_font_name, tall, weight, blur, scanlines, flags, range_min, range_max  );
 
 	}
 

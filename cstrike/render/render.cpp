@@ -1,5 +1,14 @@
 #include "render.h"
 
+bool render::setup( ) {
+
+	if ( !create_font( m_fonts.main, "Tahoma", 12, 350, fontflag_outline ) )
+		return false;
+
+	return true;
+
+}
+
 void render::draw_line( int x0, int y0, int x1, int y1, const color& color ) {
 
 	m_interfaces.m_surface->draw_set_color( color.r, color.g, color.b, color.a );
@@ -46,6 +55,22 @@ void render::draw_text( h_font& font, int x, int y, std::string_view text, const
 
 	draw_text( font, x, y, std::wstring( text.begin( ), text.end( ) ), color, flags );
 
+}
+
+bool render::create_font( h_font& font, std::string_view name, int tall, int weight, int flags ) {
+
+	font = m_interfaces.m_surface->create_font( );
+	if ( !font ) {
+
+		m_console.log( "failed to create font %s", name.data( ) );
+
+		return false;
+
+	}
+		
+	m_interfaces.m_surface->set_font_glyph( font, name.data( ), tall, weight, 0, 0, flags );
+
+	return true;
 }
 
 void render::handle_flags( int& x, int& y, int width, int height, int flags ) {

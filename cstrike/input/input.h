@@ -29,6 +29,15 @@ struct input {
 
 	}
 
+	inline bool is_key_toggled( std::size_t code, bool& item ) {
+
+		if ( is_key_toggled( code ) )
+			item = !item;
+
+		return item;
+
+	}
+
 	inline bool is_key_down( std::size_t code ) {
 
 		return m_key_states[ code ].m_state == down;

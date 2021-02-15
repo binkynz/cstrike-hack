@@ -67,8 +67,8 @@ void visuals::draw_health( ) {
 	if ( health == 100 )
 		return;
 
-	m_render.draw_text( m_font, 
-		m_box.x - 7, m_box.y + health * m_box.height / 100 + 1, 
+	m_render.draw_text( m_render.m_fonts.main, 
+		m_box.x - 7, m_box.y + health * m_box.height / 100, 
 		std::to_wstring( health ), 
 		color( 255, 255, 255, m_alpha[ m_player.index - 1 ] ), 
 		x_right | y_centre );
@@ -87,7 +87,7 @@ void visuals::draw_name( ) {
 	if ( !info.m_xuid_low )
 		name.append( " - bot" );
 
-	m_render.draw_text( m_font, 
+	m_render.draw_text( m_render.m_fonts.main,
 		m_box.x + m_box.width / 2, m_box.y - 1, 
 		name, 
 		color( 255, 255, 255, m_alpha[ m_player.index - 1 ] ), 
@@ -108,8 +108,8 @@ void visuals::draw_weapon( ) {
 	std::wstring weapon_name = m_interfaces.m_localize->find( weapon_info->m_hud_name );
 	std::transform( weapon_name.begin( ), weapon_name.end( ), weapon_name.begin( ), std::tolower );
 
-	m_render.draw_text( m_font,
-		m_box.x + m_box.width / 2, m_box.y + m_box.height + 2,
+	m_render.draw_text( m_render.m_fonts.main,
+		m_box.x + m_box.width / 2, m_box.y + m_box.height,
 		weapon_name,
 		color( 255, 255, 255, m_alpha[ m_player.index - 1 ] ),
 		x_centre );

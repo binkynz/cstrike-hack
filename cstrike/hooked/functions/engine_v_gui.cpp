@@ -2,7 +2,7 @@
 
 void __fastcall hooked::paint( void* ecx, void* edx, paint_mode mode ) {
 
-	static auto o_paint = m_detour.get< decltype( &paint ) >( "C_EngineVGui::Paint" );
+	static auto o_paint = m_detour.get< decltype( &paint ) >( "CEngineVGui::Paint" );
 
 	if ( mode & paint_uipanels ) {
 

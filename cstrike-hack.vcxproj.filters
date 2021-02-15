@@ -20,6 +20,7 @@
     <ClCompile Include="cstrike\hooked\functions\csgo_player_anim_state.cpp" />
     <ClCompile Include="cstrike\input\input.cpp" />
     <ClCompile Include="cstrike\hooked\functions\client_input.cpp" />
+    <ClCompile Include="cstrike\hooked\functions\surface.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cstrike\cstrike.h" />

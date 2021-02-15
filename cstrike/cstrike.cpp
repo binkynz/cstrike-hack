@@ -1,6 +1,7 @@
 #include "cstrike.h"
 
 #include "hooked/hooked.h"
+#include "render/render.h"
 
 DWORD WINAPI cstrike::setup( void* parameter ) {
 
@@ -11,7 +12,7 @@ DWORD WINAPI cstrike::setup( void* parameter ) {
 	while ( !( m_cstrike.m_window = FindWindowA( "Valve001", nullptr ) ) )
 		m_utils.sleep( 100 );
 
-	if ( !m_interfaces.setup( ) || !m_netvars.setup( ) || !m_input.setup( ) || !m_hooked.setup( ) ) {
+	if ( !m_interfaces.setup( ) || !m_netvars.setup( ) || !m_input.setup( ) || !m_render.setup( ) || !m_hooked.setup( ) ) {
 
 		FreeLibraryAndExitThread( handle, EXIT_FAILURE );
 

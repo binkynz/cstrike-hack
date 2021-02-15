@@ -6,7 +6,7 @@ bool hooked::setup( ) {
 
 	m_detour.setup( "C_BasePlayer::CreateMove", m_signatures.m_create_move, &create_move );
 
-	m_detour.setup( "C_EngineVGui::Paint", m_signatures.m_paint, &paint );
+	m_detour.setup( "CEngineVGui::Paint", m_signatures.m_paint, &paint );
 
 	m_detour.setup( "ClientModeShared::GetViewModelFOV", m_signatures.m_get_view_model_fov, &get_view_model_fov );
 
@@ -22,9 +22,11 @@ bool hooked::setup( ) {
 
 	m_detour.setup( "CCSGOPlayerAnimState::SetUpMovement", m_signatures.m_setup_movement, &set_up_movement );
 
-	m_detour.setup( "C_Input::CAM_Think", m_signatures.m_cam_think, &cam_think );
+	m_detour.setup( "CInput::CAM_Think", m_signatures.m_cam_think, &cam_think );
 
-	m_detour.setup( "C_Input::CAM_ToThirdPerson", m_signatures.m_cam_to_third_person, &cam_to_third_person );
+	m_detour.setup( "CInput::CAM_ToThirdPerson", m_signatures.m_cam_to_third_person, &cam_to_third_person );
+
+	m_detour.setup( "CMatSystemSurface::OnScreenSizeChanged", m_signatures.m_on_screen_size_changed, &on_screen_size_changed );
 
 	m_console.log( "hooked functions" );
 

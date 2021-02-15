@@ -40,8 +40,6 @@ private:
 
 	std::array< int, 64 > m_alpha;
 
-	h_font m_font = 0x5;
-
 };
 
 inline visuals m_visuals;
