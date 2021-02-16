@@ -45,7 +45,7 @@ struct signatures {
 	address m_cam_to_third_person = m_pattern.find( "client.dll", "55 8B EC 83 EC 0C 8D 55 F4" );
 
 	address m_start_drawing = m_pattern.find( "vguimatsurface.dll", "55 8B EC 83 E4 C0 83 EC 38" );
-	address m_finish_drawing = m_pattern.find( "vguimatsurface.dll", "8B 0D ? ? ? ? 56 C6 05 ? ? ? ? ?" );
+	address m_finish_drawing = m_pattern.find( "vguimatsurface.dll", "8B 0D ? ? ? ? 56 C6 05" );
 
 	address m_reload_schemes = m_pattern.find( "vgui2.dll", "55 8B EC 83 EC 08 53 56 8B F1 6A 00" );
 
