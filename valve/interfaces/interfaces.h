@@ -55,7 +55,7 @@ private:
 				if ( !interface_address )
 					return t( );
 
-				m_console.log( "%s -> 0x%x", interface_name.data( ), interface_address );
+				m_console.log( "%s -> 0x%x", interface_node->m_name, interface_address );
 
 				return ( t )interface_address;
 
