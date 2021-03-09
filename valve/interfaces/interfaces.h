@@ -51,7 +51,7 @@ private:
 			if ( !name.compare( 0u, interface_name.length( ), interface_name ) 
 				&& std::atoi( interface_node->m_name + interface_name.length( ) ) > 0 ) {
 
-				auto interface_address = interface_node->m_create_function( );
+				auto interface_address = interface_node->m_create_fn( );
 				if ( !interface_address )
 					return t( );
 
