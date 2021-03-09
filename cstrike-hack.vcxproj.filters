@@ -82,5 +82,6 @@
     <ClInclude Include="cstrike\config.h" />
     <ClInclude Include="valve\studio_render\studio_render.h" />
     <ClInclude Include="valve\studio_render\studio_render_context.h" />
+    <ClInclude Include="valve\tier1\interface.h" />
   </ItemGroup>
 </Project>

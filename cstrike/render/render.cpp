@@ -38,10 +38,14 @@ void render::draw_outlined_rect( int x, int y, int width, int height, const colo
 
 void render::draw_text( h_font& font, int x, int y, std::wstring_view text, const color& color, int flags ) {
 
-	int width, height;
-	m_interfaces.m_surface->get_text_size( font, text.data( ), width, height );
+	if ( flags ) {
+		
+		int width, height;
+		m_interfaces.m_surface->get_text_size( font, text.data( ), width, height );
 
-	handle_flags( x, y, width, height, flags );
+		handle_flags( x, y, width, height, flags );
+		
+	}
 
 	m_interfaces.m_surface->draw_set_text_color( color.r, color.g, color.b, color.a );
 	m_interfaces.m_surface->draw_set_text_font( font );

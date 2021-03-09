@@ -4,19 +4,19 @@ bool interfaces::setup( ) {
 
 	m_console.log( "grabbing interfaces..." );
 
-	m_client = get< base_client_dll* >( "client.dll", "VClient018" );
+	m_client = get< base_client_dll* >( "client.dll", "VClient" );
 	if ( !m_client )
 		return false;
 
-	m_surface = get< surface* >( "vguimatsurface.dll", "VGUI_Surface031" );
+	m_surface = get< surface* >( "vguimatsurface.dll", "VGUI_Surface" );
 	if ( !m_surface )
 		return false;
 
-	m_entity_list = get< client_entity_list* >( "client.dll", "VClientEntityList003" );
+	m_entity_list = get< client_entity_list* >( "client.dll", "VClientEntityList" );
 	if ( !m_entity_list )
 		return false;
 
-	m_debug_overlay = get< debug_overlay* >( "engine.dll", "VDebugOverlay004" );
+	m_debug_overlay = get< debug_overlay* >( "engine.dll", "VDebugOverlay" );
 	if ( !m_debug_overlay )
 		return false;
 
@@ -25,15 +25,15 @@ bool interfaces::setup( ) {
 		return false;
 
 	m_console.log( "gpGlobals -> 0x%x", m_globals );
-	m_engine = get< engine_client* >( "engine.dll", "VEngineClient014" );
+	m_engine = get< engine_client* >( "engine.dll", "VEngineClient" );
 	if ( !m_engine )
 		return false;
 
-	m_localize = get< localize* >( "localize.dll", "Localize_001" );
+	m_localize = get< localize* >( "localize.dll", "Localize_" );
 	if ( !m_localize )
 		return false;
 
-	m_mdl_cache = get< mdl_cache* >( "datacache.dll", "MDLCache004" );
+	m_mdl_cache = get< mdl_cache* >( "datacache.dll", "MDLCache" );
 	if ( !m_mdl_cache )
 		return false;
 

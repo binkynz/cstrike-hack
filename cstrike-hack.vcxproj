@@ -216,6 +216,7 @@
     <ClInclude Include="valve\studio.h" />
     <ClInclude Include="valve\studio_render\studio_render.h" />
     <ClInclude Include="valve\studio_render\studio_render_context.h" />
+    <ClInclude Include="valve\tier1\interface.h" />
     <ClInclude Include="valve\tier1\localize.h" />
     <ClInclude Include="valve\tier1\tier1.h" />
     <ClInclude Include="valve\valve.h" />

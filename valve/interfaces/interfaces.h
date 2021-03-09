@@ -7,6 +7,7 @@
 #include "../client_entity_list.h"
 #include "../engine/debug_overlay.h"
 #include "../global_vars_base.h"
+#include "../tier1/interface.h"
 #include "../tier1/localize.h"
 #include "../data_cache/mdl_cache.h"
 
@@ -30,28 +31,41 @@ private:
 	template< class t > inline t get( std::string_view module_name, std::string_view interface_name ) {
 
 		HMODULE module = GetModuleHandleA( module_name.data( ) );
-
 		if ( !module )
 			return t( );
 
 		auto create_interface = GetProcAddress( module, "CreateInterface" );
-
 		if ( !create_interface )
 			return t( );
 
-		auto create_interface_fn = reinterpret_cast< t( * )( const char*, int* ) >( create_interface );
-
+		auto create_interface_fn = address( create_interface ).add( 0x4 ).relative( );
 		if ( !create_interface_fn )
 			return t( );
 
-		auto interface_address = create_interface_fn( interface_name.data( ), nullptr );
+		auto interface_node = create_interface_fn.add( 0x6 ).get< interface_reg* >( 2 );
 
-		if ( !interface_address )
-			return t( );
+		while ( interface_node != nullptr ) {
 
-		m_console.log( "%s -> 0x%x", interface_name.data( ), interface_address );
+			std::string name = interface_node->m_name;
 
-		return interface_address;
+			if ( !name.compare( 0u, interface_name.length( ), interface_name ) 
+				&& std::atoi( interface_node->m_name + interface_name.length( ) ) > 0 ) {
+
+				auto interface_address = interface_node->m_create_function( );
+				if ( !interface_address )
+					return t( );
+
+				m_console.log( "%s -> 0x%x", interface_name.data( ), interface_address );
+
+				return ( t )interface_address;
+
+			}
+
+			interface_node = interface_node->m_next;
+
+		}
+
+		return t( );
 
 	}
 

@@ -194,7 +194,7 @@ void __fastcall hooked::set_up_velocity( csgo_player_anim_state* ecx, void* edx 
 	else if ( eye_foot_delta < temp_yaw_min )
 		ecx->m_foot_yaw = ecx->m_eye_yaw + std::fabs( temp_yaw_min );
 
-	m_mathlib_base.angle_normalize( ecx->m_foot_yaw );
+	ecx->m_foot_yaw = m_mathlib_base.angle_normalize( ecx->m_foot_yaw );
 
 	if ( ecx->m_velocity_length_xy > 0.1f || std::fabs( ecx->m_velocity_length_z ) > 100.f ) {
 
