@@ -37,6 +37,10 @@ bool interfaces::setup( ) {
 	if ( !m_mdl_cache )
 		return false;
 
+	m_material_system = get< material_system* >( "materialsystem.dll", "VMaterialSystem" );
+	if ( !m_material_system )
+		return false;
+
 	m_console.log( "grabbed interfaces" );
 
 	return true;

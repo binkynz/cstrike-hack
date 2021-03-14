@@ -10,6 +10,7 @@
 #include "../tier1/interface.h"
 #include "../tier1/localize.h"
 #include "../data_cache/mdl_cache.h"
+#include "../materialsystem/materialsystem.h"
 
 #include "../../other/console/console.h"
 
@@ -25,6 +26,7 @@ struct interfaces {
 	engine_client* m_engine;
 	localize* m_localize;
 	mdl_cache* m_mdl_cache;
+	material_system* m_material_system;
 
 private:
 

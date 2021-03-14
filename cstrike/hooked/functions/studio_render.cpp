@@ -12,12 +12,24 @@ void __fastcall hooked::draw_model( studio_render_context* ecx, void* edx, void*
 		&& entity->is_player( )
 		&& entity->get_team( ) != m_cstrike.m_local_player->get_team( ) ) {
 
-		float color[ 3 ] = { 255.f, 110.f / 255.f, 144.f / 255.f };
-		ecx->set_colour_modulation( color );
+		ecx->set_color( color( 109, 114, 195 ) );
 
-		ecx->set_alpha_modulation( 0.8f );
+		// ecx->set_alpha( 1.f );
 
-		return o_draw_model( ecx, edx, results, info, bone_to_world, flex_weights, flex_delayed_rates, origin, flags );
+		static auto material = m_interfaces.m_material_system->find_material( "debug/debugdrawflat", "Model textures" );
+		ecx->set_material( material );
+
+		o_draw_model( ecx, edx, results, info, bone_to_world, flex_weights, flex_delayed_rates, origin, flags );
+
+		ecx->set_color( color( 221, 115, 115 ) );
+
+		ecx->set_material( material, false );
+
+		o_draw_model( ecx, edx, results, info, bone_to_world, flex_weights, flex_delayed_rates, origin, flags );
+
+		ecx->set_material( nullptr );
+
+		return;
 
 	}
 

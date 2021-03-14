@@ -205,6 +205,8 @@
     <ClInclude Include="valve\engine_v_gui.h" />
     <ClInclude Include="valve\global_vars_base.h" />
     <ClInclude Include="valve\interfaces\interfaces.h" />
+    <ClInclude Include="valve\materialsystem\material.h" />
+    <ClInclude Include="valve\materialsystem\materialsystem.h" />
     <ClInclude Include="valve\mathlib\mathlib.h" />
     <ClInclude Include="valve\mathlib\mathlib_base.h" />
     <ClInclude Include="valve\netvars\netvars.h" />
