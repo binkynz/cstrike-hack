@@ -25,16 +25,14 @@ struct studio_render_context {
 	}
 
 	inline auto set_material( material* material, bool ignore_z = true ) {
+		
+		if ( material )
+			material->set_material_var_flag( 1 << 15, ignore_z );
 
 		m_forced_material_type = 0;
 		m_forced_material[ 0 ] = material;
 		m_forced_material_index[ 0 ] = -1;
 		m_forced_material_index_count = 0;
-
-		if ( !m_forced_material[ 0 ] )
-			return;
-
-		m_forced_material[ 0 ]->set_material_var_flag( 1 << 15, ignore_z );
 
 	}
 
