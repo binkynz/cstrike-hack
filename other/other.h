@@ -4,6 +4,7 @@
 #include "console/console.h"
 #include "easing/easing.h"
 #include "hash/hash.h"
+#include "pe/pe.h"
 #include "pattern/pattern.h"
 #include "utils/utils.h"
 
