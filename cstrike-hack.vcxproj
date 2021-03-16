@@ -144,7 +144,7 @@
     <ClCompile Include="cstrike\cstrike.cpp" />
     <ClCompile Include="cstrike\dllmain.cpp" />
     <ClCompile Include="cstrike\features\visuals\visuals.cpp" />
-    <ClCompile Include="cstrike\hooked\functions\base_player.cpp" />
+    <ClCompile Include="cstrike\hooked\functions\cdll_client.cpp" />
     <ClCompile Include="cstrike\hooked\functions\client_input.cpp" />
     <ClCompile Include="cstrike\hooked\functions\client_mode_shared.cpp" />
     <ClCompile Include="cstrike\hooked\functions\csgo_player_anim_state.cpp" />
@@ -180,6 +180,7 @@
     <ClInclude Include="valve\client\base_animating.h" />
     <ClInclude Include="valve\client\base_combat_character.h" />
     <ClInclude Include="valve\client\client_input.h" />
+    <ClInclude Include="valve\client\net_graph_panel.h" />
     <ClInclude Include="valve\client\weapon_cs_base.h" />
     <ClInclude Include="valve\client\base_entity.h" />
     <ClInclude Include="valve\client\base_player.h" />
@@ -206,8 +207,8 @@
     <ClInclude Include="valve\engine_v_gui.h" />
     <ClInclude Include="valve\global_vars_base.h" />
     <ClInclude Include="valve\interfaces\interfaces.h" />
-    <ClInclude Include="valve\materialsystem\material.h" />
-    <ClInclude Include="valve\materialsystem\materialsystem.h" />
+    <ClInclude Include="valve\material_system\material.h" />
+    <ClInclude Include="valve\material_system\material_system.h" />
     <ClInclude Include="valve\mathlib\mathlib.h" />
     <ClInclude Include="valve\mathlib\mathlib_base.h" />
     <ClInclude Include="valve\netvars\netvars.h" />

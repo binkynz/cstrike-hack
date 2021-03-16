@@ -25,6 +25,7 @@ bool interfaces::setup( ) {
 		return false;
 
 	m_console.log( "gpGlobals -> 0x%x", m_globals );
+
 	m_engine = get< engine_client* >( "engine.dll", "VEngineClient" );
 	if ( !m_engine )
 		return false;
@@ -40,6 +41,12 @@ bool interfaces::setup( ) {
 	m_material_system = get< material_system* >( "materialsystem.dll", "VMaterialSystem" );
 	if ( !m_material_system )
 		return false;
+
+	m_net_graph_panel = m_pattern.find( "client.dll", "89 1D ? ? ? ? 8B C3" ).add( 0x2 ).get< net_graph_panel* >( 2 );
+	if ( !m_net_graph_panel )
+		return false;
+
+	m_console.log( "g_pNetGraphPanel -> 0x%x", m_net_graph_panel );
 
 	m_console.log( "grabbed interfaces" );
 

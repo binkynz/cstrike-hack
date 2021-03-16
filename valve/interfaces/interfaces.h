@@ -10,7 +10,8 @@
 #include "../tier1/interface.h"
 #include "../tier1/localize.h"
 #include "../data_cache/mdl_cache.h"
-#include "../materialsystem/materialsystem.h"
+#include "../material_system/material_system.h"
+#include "../client/net_graph_panel.h"
 
 #include "../../other/console/console.h"
 
@@ -27,6 +28,7 @@ struct interfaces {
 	localize* m_localize;
 	mdl_cache* m_mdl_cache;
 	material_system* m_material_system;
+	net_graph_panel* m_net_graph_panel;
 
 private:
 

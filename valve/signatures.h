@@ -11,9 +11,10 @@ struct signatures {
 
 	// functions
 
-	address m_create_move = m_pattern.find( "client.dll", "E8 ? ? ? ? FF 15 ? ? ? ? 84 C0 74 29" ).relative( );
-	address m_paint = m_pattern.find( "engine.dll", "55 8B EC 83 EC 40 53 8B D9 8B 0D ? ? ? ? 89 5D F8" );
+	address m_level_shutdown = m_pattern.find( "client.dll", "55 8B EC 83 E4 F8 83 EC 30 C6 05 ? ? ? ? ?" );
+	address m_create_move = m_pattern.find( "client.dll", "55 8B EC 8B 0D ? ? ? ? 85 C9 75 06" );
 	address m_get_view_model_fov = m_pattern.find( "client.dll", "55 8B EC 8B 0D ? ? ? ? 83 EC 08 57" );
+	address m_paint = m_pattern.find( "engine.dll", "55 8B EC 83 EC 40 53 8B D9 8B 0D ? ? ? ? 89 5D F8" );
 	address m_draw_crosshair = m_pattern.find( "client.dll", "55 8B EC 83 E4 F0 83 EC 78 56 8B F1 8B 0D ? ? ? ?" );
 	address m_update = m_pattern.find( "client.dll", "E8 ? ? ? ? E9 ? ? ? ? 83 BE ? ? ? ? ?" ).relative( );
 	address m_modify_eye_position = m_pattern.find( "client.dll", "E8 ? ? ? ? 8B 06 8B CE FF 90 ? ? ? ? 85 C0 74 50" ).relative( );

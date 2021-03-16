@@ -26,17 +26,27 @@ struct render {
 
 	void draw_text( h_font& font, int x, int y, std::string_view text, const color& color, int flags = { } );
 
+	std::string_view format_text( std::string_view format, ... );
+
 	struct {
 
 		h_font main;
 
 	} m_fonts;
 
+	struct {
+
+		int w, h;
+
+	} m_screen;
+
 private:
 
 	void create_font( h_font& font, std::string_view name, int tall, int weight, int flags = { } );
 
 	void handle_flags( int& x, int& y, int width, int height, int flags );
+
+	char m_buffer[ 256 ];
 
 };
 

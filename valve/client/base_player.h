@@ -2,6 +2,8 @@
 
 #include "base_combat_character.h"
 
+struct user_cmd;
+
 struct base_player : base_combat_character {
 
 	inline auto& get_health( ) {
@@ -17,6 +19,12 @@ struct base_player : base_combat_character {
 		static auto offset = m_netvars.m_offsets[ m_hash.get( "DT_CSPlayer->m_flPoseParameter" ) ];
 
 		return reinterpret_cast< float* >( reinterpret_cast< std::size_t >( this ) + offset );
+
+	}
+
+	inline auto create_move( float input_sample_time, user_cmd* cmd ) {
+
+		return m_utils.get_v_func< bool( __thiscall* )( void*, float, user_cmd* ) >( this, 288 )( this, input_sample_time, cmd );
 
 	}
 

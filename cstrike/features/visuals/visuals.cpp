@@ -6,6 +6,8 @@
 
 void visuals::paint( ) {
 
+	draw_watermark( );
+
 	m_cstrike.iterate_players( [ this ]( cs_player* player ) -> void {
 
 		m_player = {
@@ -30,6 +32,18 @@ void visuals::paint( ) {
 		draw_weapon( );
 
 		}, { iterate_dormant } );
+
+}
+
+void visuals::draw_watermark( ) {
+
+	int fps = static_cast< int >( 1.f / m_interfaces.m_net_graph_panel->m_frame_rate );
+
+	m_render.draw_text( m_render.m_fonts.main,
+		m_render.m_screen.w - 5, 5,
+		m_render.format_text( "%s | local: 0x%x | fps: %d", "cstrike-hack", m_cstrike.m_local_player, fps ),
+		color( 255, 255, 255 ),
+		x_right );
 
 }
 
@@ -69,7 +83,7 @@ void visuals::draw_health( ) {
 
 	m_render.draw_text( m_render.m_fonts.main, 
 		m_box.x - 7, m_box.y + health * m_box.height / 100, 
-		std::to_wstring( health ), 
+		m_render.format_text( "%d", health ),
 		color( 255, 255, 255, m_alpha[ m_player.index - 1 ] ), 
 		x_right | y_centre );
 

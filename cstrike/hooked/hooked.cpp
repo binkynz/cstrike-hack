@@ -4,11 +4,13 @@ bool hooked::setup( ) {
 
 	m_console.log( "hooking functions..." );
 
-	m_detour.setup( "C_BasePlayer::CreateMove", m_signatures.m_create_move, &create_move );
+	m_detour.setup( "CHLClient::LevelShutdown", m_signatures.m_level_shutdown, &level_shutdown );
 
-	m_detour.setup( "CEngineVGui::Paint", m_signatures.m_paint, &paint );
+	m_detour.setup( "ClientModeShared::CreateMove", m_signatures.m_create_move, &create_move );
 
 	m_detour.setup( "ClientModeShared::GetViewModelFOV", m_signatures.m_get_view_model_fov, &get_view_model_fov );
+
+	m_detour.setup( "CEngineVGui::Paint", m_signatures.m_paint, &paint );
 
 	m_detour.setup( "C_WeaponCSBase::DrawCrosshair", m_signatures.m_draw_crosshair, &draw_crosshair );
 

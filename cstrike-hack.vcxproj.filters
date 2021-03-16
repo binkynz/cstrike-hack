@@ -8,7 +8,6 @@
     <ClCompile Include="valve\detour\detour.cpp" />
     <ClCompile Include="other\pattern\pattern.cpp" />
     <ClCompile Include="cstrike\hooked\hooked.cpp" />
-    <ClCompile Include="cstrike\hooked\functions\base_player.cpp" />
     <ClCompile Include="valve\netvars\netvars.cpp" />
     <ClCompile Include="valve\interfaces\interfaces.cpp" />
     <ClCompile Include="other\hash\hash.cpp" />
@@ -22,6 +21,7 @@
     <ClCompile Include="cstrike\hooked\functions\client_input.cpp" />
     <ClCompile Include="cstrike\hooked\functions\scheme_manager.cpp" />
     <ClCompile Include="cstrike\hooked\functions\studio_render.cpp" />
+    <ClCompile Include="cstrike\hooked\functions\cdll_client.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cstrike\cstrike.h" />
@@ -83,7 +83,8 @@
     <ClInclude Include="valve\studio_render\studio_render.h" />
     <ClInclude Include="valve\studio_render\studio_render_context.h" />
     <ClInclude Include="valve\tier1\interface.h" />
-    <ClInclude Include="valve\materialsystem\material.h" />
-    <ClInclude Include="valve\materialsystem\materialsystem.h" />
+    <ClInclude Include="valve\client\net_graph_panel.h" />
+    <ClInclude Include="valve\material_system\material.h" />
+    <ClInclude Include="valve\material_system\material_system.h" />
   </ItemGroup>
 </Project>

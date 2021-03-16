@@ -13,9 +13,10 @@ struct hooked {
 
 private:
 
-	static bool __fastcall create_move( base_player* ecx, void* edx, float input_sample_time, user_cmd* cmd );
-	static void __fastcall paint( void* ecx, void* edx, paint_mode mode );
+	static void __fastcall level_shutdown( void* ecx, void* edx );
+	static bool __fastcall create_move( void* ecx, void* edx, float input_sample_time, user_cmd* cmd );
 	static float __fastcall get_view_model_fov( void* ecx, void* edx );
+	static void __fastcall paint( void* ecx, void* edx, paint_mode mode );
 	static void __fastcall draw_crosshair( weapon_cs_base* ecx, void* edx );
 	static void __vectorcall update( csgo_player_anim_state* ecx, void* unk0, float z, float y, float x, void* unk1 );
 	static void __fastcall modify_eye_position( csgo_player_anim_state* ecx, void* edx, vector_3d& input_eye_pos );
