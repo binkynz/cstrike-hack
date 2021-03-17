@@ -8,10 +8,4 @@ struct material {
 
 	}
 
-	inline auto is_error_material( ) {
-
-		return m_utils.get_v_func< bool( __thiscall* )( void* ) >( this, 42 )( this );
-
-	}
-
 };
