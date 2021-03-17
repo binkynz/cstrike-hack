@@ -3,8 +3,10 @@
 void __fastcall hooked::paint( void* ecx, void* edx, paint_mode mode ) {
 
 	static auto o_paint = m_detour.get< decltype( &paint ) >( "CEngineVGui::Paint" );
+	
+	int v3 = *( int* )ecx;
 
-	if ( mode & paint_uipanels ) {
+	if ( *( DWORD* )( v3 + 72 ) &&  ( mode & paint_uipanels ) != 0 ) {
 
 		m_interfaces.m_surface->start_drawing( );
 
