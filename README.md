@@ -1,3 +1,3 @@
 # cstrike-hack
 
-a hack by a serotonine deprived uni student
+a hack by a serotonin deprived uni student
