@@ -2,8 +2,6 @@
 
 bool interfaces::setup( ) {
 
-	m_console.log( "grabbing interfaces..." );
-
 	m_client = get< base_client_dll* >( m_signatures.m_client_dll, "VClient" );
 	if ( !m_client )
 		return false;
@@ -24,7 +22,7 @@ bool interfaces::setup( ) {
 	if ( !m_globals )
 		return false;
 
-	m_console.log( "gpGlobals -> 0x%x", m_globals );
+	m_console.log( "found pointer gpGlobals -> 0x%x", m_globals );
 
 	m_engine = get< engine_client* >( m_signatures.m_engine_dll, "VEngineClient" );
 	if ( !m_engine )
@@ -46,9 +44,7 @@ bool interfaces::setup( ) {
 	if ( !m_net_graph_panel )
 		return false;
 
-	m_console.log( "g_pNetGraphPanel -> 0x%x", m_net_graph_panel );
-
-	m_console.log( "grabbed interfaces" );
+	m_console.log( "found pointer g_pNetGraphPanel -> 0x%x", m_net_graph_panel );
 
 	return true;
 

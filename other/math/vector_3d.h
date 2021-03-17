@@ -141,9 +141,9 @@ struct vector_3d {
 
 		return {
 
-			x += fl,
-			y += fl,
-			z += fl
+			x + fl,
+			y + fl,
+			z + fl
 
 		};
 
@@ -153,9 +153,9 @@ struct vector_3d {
 
 		return {
 
-			x -= fl,
-			y -= fl,
-			z -= fl
+			x - fl,
+			y - fl,
+			z - fl
 
 		};
 
@@ -165,9 +165,9 @@ struct vector_3d {
 
 		return {
 
-			x *= fl,
-			y *= fl,
-			z *= fl
+			x * fl,
+			y * fl,
+			z * fl
 
 		};
 
@@ -177,9 +177,9 @@ struct vector_3d {
 
 		return {
 
-			x /= fl,
-			y /= fl,
-			z /= fl
+			x / fl,
+			y / fl,
+			z / fl
 		
 		};
 

@@ -22,6 +22,8 @@
     <ClCompile Include="cstrike\hooked\functions\scheme_manager.cpp" />
     <ClCompile Include="cstrike\hooked\functions\studio_render.cpp" />
     <ClCompile Include="cstrike\hooked\functions\cdll_client.cpp" />
+    <ClCompile Include="other\pe\pe.cpp" />
+    <ClCompile Include="valve\signatures\signatures.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cstrike\cstrike.h" />
@@ -75,7 +77,6 @@
     <ClInclude Include="valve\client\animation_layer.h" />
     <ClInclude Include="valve\data_cache\mdl_cache.h" />
     <ClInclude Include="valve\data_cache\data_cache.h" />
-    <ClInclude Include="valve\signatures.h" />
     <ClInclude Include="valve\studio.h" />
     <ClInclude Include="cstrike\input\input.h" />
     <ClInclude Include="valve\client\client_input.h" />
@@ -87,5 +88,6 @@
     <ClInclude Include="valve\material_system\material.h" />
     <ClInclude Include="valve\material_system\material_system.h" />
     <ClInclude Include="other\pe\pe.h" />
+    <ClInclude Include="valve\signatures\signatures.h" />
   </ItemGroup>
 </Project>

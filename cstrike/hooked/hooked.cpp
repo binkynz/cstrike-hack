@@ -2,8 +2,6 @@
 
 bool hooked::setup( ) {
 
-	m_console.log( "hooking functions..." );
-
 	m_detour.setup( "CHLClient::LevelShutdown", m_signatures.m_level_shutdown, &level_shutdown );
 
 	m_detour.setup( "ClientModeShared::CreateMove", m_signatures.m_create_move, &create_move );
@@ -31,8 +29,6 @@ bool hooked::setup( ) {
 	m_detour.setup( "CSchemeManager::ReloadSchemes", m_signatures.m_reload_schemes, &reload_schemes );
 
 	m_detour.setup( "CStudioRenderContext::DrawModel", m_signatures.m_draw_model, &draw_model );
-
-	m_console.log( "hooked functions" );
 
 	return true;
 

@@ -7,7 +7,8 @@
 
 struct pattern {
 
-	address find( std::uintptr_t base , std::string_view pattern );
+	// will eventually get my lazy ass to write a better scanner
+	address find( std::size_t base , std::string_view pattern );
 
 };
 

@@ -13,6 +13,8 @@
 #include "../material_system/material_system.h"
 #include "../client/net_graph_panel.h"
 
+#include "../../other/hash/hash.h"
+#include "../../other/pe/pe.h"
 #include "../../other/console/console.h"
 
 struct interfaces {
@@ -32,10 +34,11 @@ struct interfaces {
 
 private:
 
-	template< class t > inline t get( std::uintptr_t module_base, std::string_view interface_name ) {
-		static const auto fn_hash = m_hash.get ( "CreateInterface" );
+	template< class t > inline t get( address module_base, std::string_view interface_name ) {
 
-		auto create_interface = m_pe.export_fn ( module_base , fn_hash );
+		static auto fn_hash = m_hash.get( "CreateInterface" );
+
+		auto create_interface = m_pe.export_fn( module_base , fn_hash );
 		if ( !create_interface )
 			return t( );
 
@@ -56,7 +59,7 @@ private:
 				if ( !interface_address )
 					return t( );
 
-				m_console.log( "%s -> 0x%x", interface_node->m_name, interface_address );
+				m_console.log( "found interface %s -> 0x%x", interface_node->m_name, interface_address );
 
 				return ( t )interface_address;
 

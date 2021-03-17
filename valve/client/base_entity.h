@@ -74,6 +74,8 @@ struct base_entity {
 	}
 
 	// note - seems to be crashing, but base version also crashes for me so i'll leave it to sean to fix
+	// ...
+	// sean: doesnt crash for me?
 	inline auto get_anim_overlay( int i ) {
 
 		auto offset = m_signatures.m_anim_overlay.add( 0x2 ).to< std::size_t >( );

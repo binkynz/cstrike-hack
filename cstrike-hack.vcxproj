@@ -158,10 +158,12 @@
     <ClCompile Include="other\console\console.cpp" />
     <ClCompile Include="other\hash\hash.cpp" />
     <ClCompile Include="other\pattern\pattern.cpp" />
+    <ClCompile Include="other\pe\pe.cpp" />
     <ClCompile Include="other\utils\utils.cpp" />
     <ClCompile Include="valve\detour\detour.cpp" />
     <ClCompile Include="valve\interfaces\interfaces.cpp" />
     <ClCompile Include="valve\netvars\netvars.cpp" />
+    <ClCompile Include="valve\signatures\signatures.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cstrike\features\features.h" />
@@ -217,7 +219,7 @@
     <ClInclude Include="valve\shared\in_buttons.h" />
     <ClInclude Include="valve\shared\shared.h" />
     <ClInclude Include="valve\shared\user_cmd.h" />
-    <ClInclude Include="valve\signatures.h" />
+    <ClInclude Include="valve\signatures\signatures.h" />
     <ClInclude Include="valve\studio.h" />
     <ClInclude Include="valve\studio_render\studio_render.h" />
     <ClInclude Include="valve\studio_render\studio_render_context.h" />

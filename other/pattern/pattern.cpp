@@ -3,7 +3,8 @@
 #include <psapi.h>
 #include <vector>
 
-address pattern::find( std::uintptr_t base , std::string_view pattern ) {
+address pattern::find( std::size_t base, std::string_view pattern ) {
+
 	static auto pattern_to_byte = [ ]( const char* pattern ) -> std::vector< std::size_t > {
 
 		std::vector< std::size_t > bytes;

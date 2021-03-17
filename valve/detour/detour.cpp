@@ -1,12 +1,10 @@
 #include "detour.h"
 
-#include "../signatures.h"
+#include "../signatures/signatures.h"
 #include "../../other/console/console.h"
 #include "../../other/pattern/pattern.h"
 
 bool detour::setup( std::string_view name, void* function, void* custom_function ) {
-
-	m_console.log( "%s -> 0x%x", name.data( ), function );
 
 	if ( !function || !custom_function )
 		return false;
@@ -16,7 +14,15 @@ bool detour::setup( std::string_view name, void* function, void* custom_function
 
 	auto hook = m_signatures.m_hook.as< bool( __cdecl* )( void*, void*, void*, int ) >( );
 	
-	return hook( info.m_function, custom_function, &info.m_original, 0 );
+	bool result = hook( info.m_function, custom_function, &info.m_original, 0 );
+
+	if ( !result )
+		return false;
+
+	m_console.log( "hooked %s -> 0x%x", name.data( ), function );
+
+	return true;
+
 }
 
 void detour::unload( ) {

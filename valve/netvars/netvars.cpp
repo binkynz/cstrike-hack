@@ -12,8 +12,6 @@ bool netvars::setup( ) {
 	if ( !list )
 		return false;
 
-	m_console.log( "dumping netvars..." );
-
 	m_file.open( "netvars.txt", std::ios::out | std::ios::trunc );
 
 	while ( list != nullptr ) {
@@ -26,7 +24,7 @@ bool netvars::setup( ) {
 
 	m_file.close( );
 
-	m_console.log( "dumped netvars" );
+	m_console.log( "dumped netvars in CSGO directory" );
 
 	return true;
 

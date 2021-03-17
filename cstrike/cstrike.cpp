@@ -12,7 +12,8 @@ DWORD WINAPI cstrike::setup( void* parameter ) {
 	while ( !( m_cstrike.m_window = FindWindowA( "Valve001", nullptr ) ) )
 		m_utils.sleep( 100 );
 
-	if ( !m_pe.setup( ) || !m_signatures.setup( ) || !m_interfaces.setup( ) || !m_netvars.setup( ) || !m_input.setup( ) || !m_render.setup( ) || !m_hooked.setup( ) ) {
+	if ( !m_pe.setup( ) || !m_signatures.setup( ) || !m_interfaces.setup( ) 
+		|| !m_netvars.setup( ) || !m_input.setup( ) || !m_render.setup( ) || !m_hooked.setup( ) ) {
 
 		FreeLibraryAndExitThread( handle , EXIT_FAILURE );
 
