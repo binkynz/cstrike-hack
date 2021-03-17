@@ -4,7 +4,7 @@ void __fastcall hooked::paint( engine_vgui* ecx, void* edx, paint_mode mode ) {
 
 	static auto o_paint = m_detour.get< decltype( &paint ) >( "CEngineVGui::Paint" );
 
-	if ( ecx->m_static_transition_panel &&  ( mode & paint_uipanels ) != 0 ) {
+	if ( ecx->m_static_transition_panel && ( mode & paint_uipanels ) ) {
 
 		m_interfaces.m_surface->start_drawing( );
 
