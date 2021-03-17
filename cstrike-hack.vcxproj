@@ -148,7 +148,7 @@
     <ClCompile Include="cstrike\hooked\functions\client_input.cpp" />
     <ClCompile Include="cstrike\hooked\functions\client_mode_shared.cpp" />
     <ClCompile Include="cstrike\hooked\functions\csgo_player_anim_state.cpp" />
-    <ClCompile Include="cstrike\hooked\functions\engine_v_gui.cpp" />
+    <ClCompile Include="cstrike\hooked\functions\vgui_baseui.cpp" />
     <ClCompile Include="cstrike\hooked\functions\scheme_manager.cpp" />
     <ClCompile Include="cstrike\hooked\functions\studio_render.cpp" />
     <ClCompile Include="cstrike\hooked\functions\weapon_cs_base.cpp" />
@@ -207,7 +207,8 @@
     <ClInclude Include="valve\dt_recv.h" />
     <ClInclude Include="valve\engine\debug_overlay.h" />
     <ClInclude Include="valve\engine\engine.h" />
-    <ClInclude Include="valve\engine_v_gui.h" />
+    <ClInclude Include="valve\engine\vgui_baseui.h" />
+    <ClInclude Include="valve\engine_vgui.h" />
     <ClInclude Include="valve\global_vars_base.h" />
     <ClInclude Include="valve\interfaces\interfaces.h" />
     <ClInclude Include="valve\material_system\material.h" />

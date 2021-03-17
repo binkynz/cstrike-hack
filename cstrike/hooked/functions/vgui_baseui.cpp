@@ -1,12 +1,10 @@
 #include "../hooked.h"
 
-void __fastcall hooked::paint( void* ecx, void* edx, paint_mode mode ) {
+void __fastcall hooked::paint( engine_vgui* ecx, void* edx, paint_mode mode ) {
 
 	static auto o_paint = m_detour.get< decltype( &paint ) >( "CEngineVGui::Paint" );
-	
-	int v3 = *( int* )ecx;
 
-	if ( *( DWORD* )( v3 + 72 ) &&  ( mode & paint_uipanels ) != 0 ) {
+	if ( ecx->m_static_transition_panel &&  ( mode & paint_uipanels ) != 0 ) {
 
 		m_interfaces.m_surface->start_drawing( );
 

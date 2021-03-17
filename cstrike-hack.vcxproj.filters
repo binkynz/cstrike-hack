@@ -11,7 +11,6 @@
     <ClCompile Include="valve\netvars\netvars.cpp" />
     <ClCompile Include="valve\interfaces\interfaces.cpp" />
     <ClCompile Include="other\hash\hash.cpp" />
-    <ClCompile Include="cstrike\hooked\functions\engine_v_gui.cpp" />
     <ClCompile Include="cstrike\render\render.cpp" />
     <ClCompile Include="cstrike\features\visuals\visuals.cpp" />
     <ClCompile Include="cstrike\hooked\functions\client_mode_shared.cpp" />
@@ -24,6 +23,7 @@
     <ClCompile Include="cstrike\hooked\functions\cdll_client.cpp" />
     <ClCompile Include="other\pe\pe.cpp" />
     <ClCompile Include="valve\signatures\signatures.cpp" />
+    <ClCompile Include="cstrike\hooked\functions\vgui_baseui.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cstrike\cstrike.h" />
@@ -55,7 +55,6 @@
     <ClInclude Include="other\hash\hash.h" />
     <ClInclude Include="valve\vgui\surface.h" />
     <ClInclude Include="valve\vgui\vgui.h" />
-    <ClInclude Include="valve\engine_v_gui.h" />
     <ClInclude Include="cstrike\render\render.h" />
     <ClInclude Include="other\color\color.h" />
     <ClInclude Include="cstrike\features\visuals\visuals.h" />
@@ -89,5 +88,7 @@
     <ClInclude Include="valve\material_system\material_system.h" />
     <ClInclude Include="other\pe\pe.h" />
     <ClInclude Include="valve\signatures\signatures.h" />
+    <ClInclude Include="valve\engine_vgui.h" />
+    <ClInclude Include="valve\engine\vgui_baseui.h" />
   </ItemGroup>
 </Project>
