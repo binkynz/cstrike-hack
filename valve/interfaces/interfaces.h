@@ -32,13 +32,10 @@ struct interfaces {
 
 private:
 
-	template< class t > inline t get( std::string_view module_name, std::string_view interface_name ) {
+	template< class t > inline t get( std::uintptr_t module_base, std::string_view interface_name ) {
+		static const auto fn_hash = m_hash.get ( "CreateInterface" );
 
-		HMODULE module = GetModuleHandleA( module_name.data( ) );
-		if ( !module )
-			return t( );
-
-		auto create_interface = GetProcAddress( module, "CreateInterface" );
+		auto create_interface = m_pe.export_fn ( module_base , fn_hash );
 		if ( !create_interface )
 			return t( );
 

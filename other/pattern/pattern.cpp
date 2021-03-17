@@ -3,8 +3,7 @@
 #include <psapi.h>
 #include <vector>
 
-address pattern::find( std::string_view module_name, std::string_view pattern ) {
-
+address pattern::find( std::uintptr_t base , std::string_view pattern ) {
 	static auto pattern_to_byte = [ ]( const char* pattern ) -> std::vector< std::size_t > {
 
 		std::vector< std::size_t > bytes;
@@ -33,19 +32,19 @@ address pattern::find( std::string_view module_name, std::string_view pattern ) 
 
 	};
 
-	HMODULE handle = GetModuleHandleA( module_name.data( ) );
-	if ( !handle )
+	auto dos_header = reinterpret_cast< PIMAGE_DOS_HEADER >( base );
+	if ( dos_header->e_magic != IMAGE_DOS_SIGNATURE )
 		return nullptr;
 
-	MODULEINFO module_info;
-	if ( !K32GetModuleInformation( GetCurrentProcess( ), handle, &module_info, sizeof( MODULEINFO ) ) )
+	auto nt_header = reinterpret_cast< PIMAGE_NT_HEADERS >( base + dos_header->e_lfanew );
+	if ( nt_header->Signature != IMAGE_NT_SIGNATURE )
 		return nullptr;
 
-	auto image_bytes = reinterpret_cast< unsigned char* >( handle );
+	auto image_bytes = reinterpret_cast< unsigned char* >( nt_header->OptionalHeader.ImageBase );
 	if ( !image_bytes )
 		return nullptr;
 
-	auto image_size = module_info.SizeOfImage;
+	auto image_size = nt_header->OptionalHeader.SizeOfImage;
 	if ( !image_size )
 		return nullptr;
 

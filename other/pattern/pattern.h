@@ -7,7 +7,7 @@
 
 struct pattern {
 
-	address find( std::string_view module_name, std::string_view pattern );
+	address find( std::uintptr_t base , std::string_view pattern );
 
 };
 

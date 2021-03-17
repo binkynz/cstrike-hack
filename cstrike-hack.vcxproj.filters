@@ -86,5 +86,6 @@
     <ClInclude Include="valve\client\net_graph_panel.h" />
     <ClInclude Include="valve\material_system\material.h" />
     <ClInclude Include="valve\material_system\material_system.h" />
+    <ClInclude Include="other\pe\pe.h" />
   </ItemGroup>
 </Project>

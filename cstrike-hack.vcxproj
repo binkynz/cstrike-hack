@@ -175,6 +175,7 @@
     <ClInclude Include="other\math\vector_3d.h" />
     <ClInclude Include="other\hash\hash.h" />
     <ClInclude Include="other\memory\stack.h" />
+    <ClInclude Include="other\pe\pe.h" />
     <ClInclude Include="valve\cdll_int.h" />
     <ClInclude Include="valve\client\animation_layer.h" />
     <ClInclude Include="valve\client\base_animating.h" />
