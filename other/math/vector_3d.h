@@ -89,117 +89,85 @@ struct vector_3d {
 
 	}
 
-	inline vector_3d operator+( const vector_3d& v ) {
+	inline vector_3d operator+( const vector_3d& v ) const {
 
-		vector_3d result;
+		vector_3d result = *this;
 
-		result.x = x + v.x;
-		result.y = y + v.y;
-		result.z = z + v.z;
-
-		return result;
+		return result += v;
 
 	}
 
-	inline vector_3d operator-( const vector_3d& v ) {
+	inline vector_3d operator-( const vector_3d& v ) const {
 
-		vector_3d delta;
+		vector_3d result = *this;
 
-		delta.x = x - v.x;
-		delta.y = y - v.y;
-		delta.z = z - v.z;
-
-		return delta;
+		return result -= v;
 
 	}
 
-	inline vector_3d operator*( const vector_3d& v ) {
+	inline vector_3d operator*( const vector_3d& v ) const {
 
-		vector_3d result;
+		vector_3d result = *this;
 
-		result.x = x * v.x;
-		result.y = y * v.y;
-		result.z = z * v.z;
-
-		return result;
+		return result *= v;
 
 	}
 
-	inline vector_3d operator/( const vector_3d& v ) {
+	inline vector_3d operator/( const vector_3d& v ) const {
 
-		vector_3d result;
+		vector_3d result = *this;
 
-		result.x = x / v.x;
-		result.y = y / v.y;
-		result.z = z / v.z;
-
-		return result;
+		return result /= v;
 
 	}
 
-	inline vector_3d operator+( float fl ) {
+	inline vector_3d operator+( float fl ) const {
 
-		return {
+		vector_3d result = *this;
 
-			x + fl,
-			y + fl,
-			z + fl
-
-		};
+		return result += fl;
 
 	}
 
-	inline vector_3d operator-( float fl ) {
+	inline vector_3d operator-( float fl ) const {
 
-		return {
+		vector_3d result = *this;
 
-			x - fl,
-			y - fl,
-			z - fl
-
-		};
+		return result -= fl;
 
 	}
 
-	inline vector_3d operator*( float fl ) {
+	inline vector_3d operator*( float fl ) const {
 
-		return {
+		vector_3d result = *this;
 
-			x * fl,
-			y * fl,
-			z * fl
-
-		};
+		return result *= fl;
 
 	}
 
-	inline vector_3d operator/( float fl ) {
+	inline vector_3d operator/( float fl ) const {
 
-		return {
+		vector_3d result = *this;
 
-			x / fl,
-			y / fl,
-			z / fl
-		
-		};
+		return result /= fl;
 
 	}
 
-	inline float length( ) {
-
-		return std::sqrtf( std::powf( x, 2 ) + std::powf( y, 2 ) + std::powf( z, 2 ) );
-
-	}
-
-	inline float length_sqr( ) {
+	inline float length_sqr( ) const {
 
 		return std::powf( x, 2 ) + std::powf( y, 2 ) + std::powf( z, 2 );
 
 	}
 
-	inline float vector_normalize( vector_3d& v ) {
+	inline float length( ) const {
 
-		float radius = std::sqrtf( std::powf( x, 2 ) + std::powf( y, 2 ) + std::powf( z, 2 ) );
+		return std::sqrtf( length_sqr( ) );
+
+	}
+
+	inline float vector_normalize( vector_3d& v ) const {
+
+		float radius = length( );
 		radius = 1.f / ( radius + FLT_EPSILON );
 
 		v *= radius;

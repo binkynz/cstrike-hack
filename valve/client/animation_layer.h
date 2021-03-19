@@ -15,5 +15,6 @@ struct animation_layer {
 	char _pad3[ 0x4 ]; // 36
 	float m_playback_rate; // 40
 	float m_cycle; // 44
+	char _pad4[ 0x8 ]; // 48
 
 };

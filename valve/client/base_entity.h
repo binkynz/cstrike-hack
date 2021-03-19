@@ -80,7 +80,7 @@ struct base_entity {
 
 		auto offset = m_signatures.m_anim_overlay.add( 0x2 ).to< std::size_t >( );
 
-		return reinterpret_cast< animation_layer* >( i * 0x38 + *reinterpret_cast< std::size_t* >( reinterpret_cast< std::size_t >( this ) + offset ) );
+		return reinterpret_cast< animation_layer* >( i * sizeof( animation_layer ) + *reinterpret_cast< std::size_t* >( reinterpret_cast< std::size_t >( this ) + offset ) );
 
 	}
 
