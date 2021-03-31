@@ -24,6 +24,13 @@
     <ClCompile Include="other\pe\pe.cpp" />
     <ClCompile Include="valve\signatures\signatures.cpp" />
     <ClCompile Include="cstrike\hooked\functions\vgui_baseui.cpp" />
+    <ClCompile Include="cstrike\menu\menu.cpp" />
+    <ClCompile Include="cstrike\menu\objects\group\group.cpp" />
+    <ClCompile Include="cstrike\menu\objects\tab\tab.cpp" />
+    <ClCompile Include="cstrike\menu\objects\object.cpp" />
+    <ClCompile Include="cstrike\menu\objects\checkbox\checkbox.cpp" />
+    <ClCompile Include="cstrike\hooked\functions\mat_system_surface.cpp" />
+    <ClCompile Include="cstrike\menu\objects\slider\slider.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cstrike\cstrike.h" />
@@ -90,5 +97,12 @@
     <ClInclude Include="valve\signatures\signatures.h" />
     <ClInclude Include="valve\engine_vgui.h" />
     <ClInclude Include="valve\engine\vgui_baseui.h" />
+    <ClInclude Include="cstrike\menu\menu.h" />
+    <ClInclude Include="cstrike\menu\objects\object.h" />
+    <ClInclude Include="cstrike\menu\objects\objects.h" />
+    <ClInclude Include="cstrike\menu\objects\group\group.h" />
+    <ClInclude Include="cstrike\menu\objects\tab\tab.h" />
+    <ClInclude Include="cstrike\menu\objects\checkbox\checkbox.h" />
+    <ClInclude Include="cstrike\menu\objects\slider\slider.h" />
   </ItemGroup>
 </Project>

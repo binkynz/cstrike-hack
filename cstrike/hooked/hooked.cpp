@@ -30,6 +30,8 @@ bool hooked::setup( ) {
 
 	m_detour.setup( "CStudioRenderContext::DrawModel", m_signatures.m_draw_model, &draw_model );
 
+	m_detour.setup( "CMatSystemSurface::LockCursor", m_signatures.m_lock_cursor, &lock_cursor );
+
 	return true;
 
 }

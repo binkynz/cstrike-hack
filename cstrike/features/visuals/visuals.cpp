@@ -8,6 +8,9 @@ void visuals::paint( ) {
 
 	draw_watermark( );
 
+	if ( !m_config.m_esp.active )
+		return;
+
 	m_cstrike.iterate_players( [ this ]( cs_player* player ) -> void {
 
 		m_player = {
@@ -49,6 +52,9 @@ void visuals::draw_watermark( ) {
 
 void visuals::draw_box( ) {
 
+	if ( !m_config.m_esp.player_box )
+		return;
+
 	m_render.draw_outlined_rect( m_box.x - 1, m_box.y - 1, 
 		m_box.width + 2, m_box.height + 2, 
 		color( 0, 0, 0, m_alpha[ m_player.index - 1 ] ) );
@@ -64,6 +70,9 @@ void visuals::draw_box( ) {
 }
 
 void visuals::draw_health( ) {
+
+	if ( !m_config.m_esp.player_health )
+		return;
 
 	int health = m_player.pointer->get_health( ), 
 		scaler = static_cast< int >( 2.55 * health );
@@ -91,6 +100,9 @@ void visuals::draw_health( ) {
 
 void visuals::draw_name( ) {
 
+	if ( !m_config.m_esp.player_name )
+		return;
+
 	player_info info;
 	if ( !m_interfaces.m_engine->get_player_info( m_player.index, &info ) )
 		return;
@@ -110,6 +122,9 @@ void visuals::draw_name( ) {
 }
 
 void visuals::draw_weapon( ) {
+
+	if ( !m_config.m_esp.player_weapon )
+		return;
 
 	weapon_cs_base* weapon = m_interfaces.m_entity_list->get< weapon_cs_base* >( m_player.pointer->get_active_weapon( ) );
 	if ( !weapon )

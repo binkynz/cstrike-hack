@@ -1,5 +1,7 @@
 #include "../hooked.h"
 
+#include "../../menu/menu.h"
+
 void __fastcall hooked::paint( engine_vgui* ecx, void* edx, paint_mode mode ) {
 
 	static auto o_paint = m_detour.get< decltype( &paint ) >( "CEngineVGui::Paint" );
@@ -9,6 +11,8 @@ void __fastcall hooked::paint( engine_vgui* ecx, void* edx, paint_mode mode ) {
 		m_interfaces.m_surface->start_drawing( );
 
 		m_visuals.paint( );
+
+		m_menu.paint( );
 
 		m_interfaces.m_surface->finish_drawing( );
 

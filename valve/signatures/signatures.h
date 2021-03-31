@@ -63,6 +63,7 @@ struct signatures {
 
 	address m_start_drawing;
 	address m_finish_drawing;
+	address m_lock_cursor;
 
 	address m_reload_schemes;
 

@@ -61,6 +61,7 @@ bool signatures::setup( ) {
 
 	m_start_drawing = m_pattern.find( m_vguimatsurface_dll, "55 8B EC 83 E4 C0 83 EC 38" );
 	m_finish_drawing = m_pattern.find( m_vguimatsurface_dll, "8B 0D ? ? ? ? 56 C6 05 ? ? ? ? ?" );
+	m_lock_cursor = m_pattern.find( m_vguimatsurface_dll, "80 3D ? ? ? ? ? 8B 91 ? ? ? ? 8B 0D ? ? ? ? C6 05 ? ? ? ? ? 8B 01 74 0B FF 35 ? ? ? ? 52 FF 50 34 C3 6A 00 52 FF 50 34 C3 55" );
 
 	m_reload_schemes = m_pattern.find( m_vgui2_dll, "55 8B EC 83 EC 08 53 56 8B F1 6A 00" );
 

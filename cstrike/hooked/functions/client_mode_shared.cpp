@@ -14,6 +14,6 @@ bool __fastcall hooked::create_move( void* ecx, void* edx, float input_sample_ti
 
 float __fastcall hooked::get_view_model_fov( void* ecx, void* edx ) {
 
-	return 95.f;
+	return m_config.m_misc.viewmodel_fov;
 
 }

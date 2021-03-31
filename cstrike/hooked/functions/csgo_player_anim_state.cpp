@@ -76,8 +76,9 @@ void __vectorcall hooked::update( csgo_player_anim_state* ecx, void* unk0, float
 	ecx->m_last_update_frame = m_interfaces.m_globals->m_framecount;
 
 	// compare to server hitboxes - only compare to some players to not tank fps
-	// if ( player == m_cstrike.m_local_player )
-		// player->draw_server_hitboxes( );
+	if ( m_config.m_misc.server_hitboxes )
+		if ( player == m_cstrike.m_local_player )
+			player->draw_server_hitboxes( );
 
 }
 

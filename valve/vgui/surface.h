@@ -87,6 +87,12 @@ struct surface {
 
 	}
 
+	inline auto unlock_cursor( ) {
+
+		return m_utils.get_v_func< void( __thiscall* )( void* ) >( this, 66 )( this );
+
+	}
+
 	inline auto create_font( ) {
 
 		return m_utils.get_v_func< h_font( __thiscall* )( void* ) >( this, 71 )( this );

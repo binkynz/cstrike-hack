@@ -44,11 +44,32 @@ struct input {
 
 	}
 
+	inline bool is_mouse_down( std::size_t code ) {
+
+		return m_key_states[ code ].m_state == toggled;
+
+	}
+
+	inline bool is_mouse_in_bounds( int x, int y, int width, int height ) {
+
+		return m_mouse.x >= x && m_mouse.y >= y && m_mouse.x <= x + width && m_mouse.y <= y + height;
+
+	}
+
+	inline int get_mouse_x( ) { return m_mouse.x; }
+	inline int get_mouse_y( ) { return m_mouse.y; }
+
 private:
 
 	static long __stdcall wnd_proc( HWND window, UINT message, WPARAM w_param, LPARAM l_param );
 
 	WNDPROC m_original_wnd_proc;
+
+	struct {
+
+		int x, y;
+
+	} m_mouse;
 
 	struct key_states {
 

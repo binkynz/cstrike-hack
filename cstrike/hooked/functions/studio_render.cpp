@@ -4,7 +4,7 @@ void __fastcall hooked::draw_model( studio_render_context* ecx, void* edx, void*
 
 	static auto o_draw_model = m_detour.get< decltype( &draw_model ) >( "CStudioRenderContext::DrawModel" );
 
-	if ( !m_cstrike.m_local_player || !info.m_client_entity )
+	if ( !m_config.m_esp.chams || !m_cstrike.m_local_player || !info.m_client_entity )
 		return o_draw_model( ecx, edx, results, info, bone_to_world, flex_weights, flex_delayed_rates, origin, flags );
 
 	base_entity* entity = reinterpret_cast< base_entity* >( info.m_client_entity - 0x4 );
