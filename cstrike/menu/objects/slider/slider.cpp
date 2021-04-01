@@ -48,7 +48,7 @@ void slider::draw( ) {
 	m_render.draw_text( m_render.m_fonts.main,
 		x + m_width + m_gap, y,
 		m_render.format_text( "%s - %d", m_name.data( ), *m_item ),
-		color( 255, 255, 255 ) );
+		m_menu.m_colors.light );
 
 }
 
