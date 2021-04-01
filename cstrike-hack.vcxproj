@@ -158,6 +158,7 @@
     <ClCompile Include="cstrike\menu\menu.cpp" />
     <ClCompile Include="cstrike\menu\objects\checkbox\checkbox.cpp" />
     <ClCompile Include="cstrike\menu\objects\group\group.cpp" />
+    <ClCompile Include="cstrike\menu\objects\key\key.cpp" />
     <ClCompile Include="cstrike\menu\objects\object.cpp" />
     <ClCompile Include="cstrike\menu\objects\slider\slider.cpp" />
     <ClCompile Include="cstrike\menu\objects\tab\tab.cpp" />
@@ -179,6 +180,7 @@
     <ClInclude Include="cstrike\menu\menu.h" />
     <ClInclude Include="cstrike\menu\objects\checkbox\checkbox.h" />
     <ClInclude Include="cstrike\menu\objects\group\group.h" />
+    <ClInclude Include="cstrike\menu\objects\key\key.h" />
     <ClInclude Include="cstrike\menu\objects\object.h" />
     <ClInclude Include="cstrike\menu\objects\objects.h" />
     <ClInclude Include="cstrike\menu\objects\slider\slider.h" />

@@ -56,6 +56,7 @@ bool menu::setup( ) {
 		tab->setup_group( 355, 50, 320, 325, [ ]( group* group ) -> void {
 
 			group->setup_checkbox( "chams", &m_config.m_esp.chams );
+			group->setup_key( "thirdperson key", &m_config.m_esp.thirdperson_key );
 			group->setup_slider( "thirdperson distance", &m_config.m_esp.thirdperson_distance, 30, 170 );
 
 			} );

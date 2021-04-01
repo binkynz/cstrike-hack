@@ -61,6 +61,8 @@ void input::think( UINT message, WPARAM w_param, LPARAM l_param ) {
 		m_key_states[ key ].m_framecount = m_interfaces.m_globals->m_framecount + 1;
 		m_key_states[ key ].m_state = toggled;
 
+		m_last_key = key;
+
 	} else {
 
 		m_key_states[ key ].m_state = state;

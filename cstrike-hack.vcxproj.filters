@@ -31,6 +31,7 @@
     <ClCompile Include="cstrike\menu\objects\checkbox\checkbox.cpp" />
     <ClCompile Include="cstrike\hooked\functions\mat_system_surface.cpp" />
     <ClCompile Include="cstrike\menu\objects\slider\slider.cpp" />
+    <ClCompile Include="cstrike\menu\objects\key\key.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cstrike\cstrike.h" />
@@ -104,5 +105,6 @@
     <ClInclude Include="cstrike\menu\objects\tab\tab.h" />
     <ClInclude Include="cstrike\menu\objects\checkbox\checkbox.h" />
     <ClInclude Include="cstrike\menu\objects\slider\slider.h" />
+    <ClInclude Include="cstrike\menu\objects\key\key.h" />
   </ItemGroup>
 </Project>

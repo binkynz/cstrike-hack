@@ -12,6 +12,8 @@ struct group {
 
 	void setup_slider( std::string_view name, int* item, int min, int max );
 
+	void setup_key( std::string_view name, int* item );
+
 private:
 
 	int get_height( );

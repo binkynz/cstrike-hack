@@ -18,8 +18,8 @@ void tab::draw( int x, int y, bool is_selected ) {
 	if ( !is_selected )
 		return;
 
-	for ( auto g : m_groups )
-		g.draw( );
+	for ( auto group : m_groups )
+		group.draw( );
 
 }
 

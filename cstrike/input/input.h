@@ -56,6 +56,8 @@ struct input {
 
 	}
 
+	inline int get_last_key( ) {  return m_last_key; };
+	inline void set_last_key( int key = -1 ) { m_last_key = key; };
 	inline int get_mouse_x( ) { return m_mouse.x; }
 	inline int get_mouse_y( ) { return m_mouse.y; }
 
@@ -64,6 +66,8 @@ private:
 	static long __stdcall wnd_proc( HWND window, UINT message, WPARAM w_param, LPARAM l_param );
 
 	WNDPROC m_original_wnd_proc;
+
+	int m_last_key;
 
 	struct {
 

@@ -26,9 +26,13 @@ void checkbox::draw( ) {
 	int x = m_menu.m_size.x + m_size.x,
 		y = m_menu.m_size.y + m_size.y;
 
-	m_render.draw_filled_rect( x, y, 
-		m_height, m_height, 
-		*m_item ? color( 255, 255, 255 ) : color( 255, 255, 255, 100 ) );
+	m_render.draw_outlined_rect( x, y,
+		m_height, m_height,
+		m_menu.m_colors.light );
+
+	m_render.draw_filled_rect( x + 1, y + 1, 
+		m_height - 2, m_height - 2, 
+		*m_item ? m_menu.m_colors.vibrant : m_menu.m_colors.light );
 
 	m_render.draw_text( m_render.m_fonts.main,
 		x + m_height + m_gap, y,
