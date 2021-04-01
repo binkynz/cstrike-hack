@@ -2,10 +2,6 @@
 
 #include "../../menu.h"
 
-#include "../checkbox/checkbox.h"
-#include "../slider/slider.h"
-#include "../key/key.h"
-
 group::group( int x, int y, int width, int height ) {
 
 	m_size = {
