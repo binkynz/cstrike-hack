@@ -100,11 +100,11 @@
     <ClInclude Include="valve\engine\vgui_baseui.h" />
     <ClInclude Include="cstrike\menu\menu.h" />
     <ClInclude Include="cstrike\menu\objects\object.h" />
-    <ClInclude Include="cstrike\menu\objects\objects.h" />
     <ClInclude Include="cstrike\menu\objects\group\group.h" />
     <ClInclude Include="cstrike\menu\objects\tab\tab.h" />
     <ClInclude Include="cstrike\menu\objects\checkbox\checkbox.h" />
     <ClInclude Include="cstrike\menu\objects\slider\slider.h" />
     <ClInclude Include="cstrike\menu\objects\key\key.h" />
+    <ClInclude Include="cstrike\menu\objects\objects.h" />
   </ItemGroup>
 </Project>
