@@ -162,15 +162,17 @@ void menu::process_tabs( ) {
 		start_y = m_size.y + m_size.gap,
 		end_x = m_size.x + m_size.width - m_size.gap;
 
-	int total_width = end_x - start_x;
+	int total_width = end_x - start_x,
+		width = ( total_width / ( m_tabs.size( ) + 1 ) );
+
+	m_render.draw_line( start_x + width - width / 2, start_y - 5,
+		start_x + width - width / 2, start_y + 5,
+		m_colors.light );
+
 	for ( std::size_t i = 0; i < m_tabs.size( ); i++ ) {
 
-		int width = ( total_width / ( m_tabs.size( ) + 1 ) ),
-			x = start_x + width * ( i + 1 );
+		int x = start_x + width * ( i + 1 );
 
-		m_render.draw_line( x - width / 2, start_y - 5,
-			x - width / 2, start_y + 5,
-			m_colors.light );
 		m_render.draw_line( x + width / 2, start_y - 5,
 			x + width / 2, start_y + 5,
 			m_colors.light );
