@@ -25,7 +25,7 @@ struct cstrike {
 
 	HWND m_window;
 
-	base_player* m_local_player;
+	cs_player* m_local_player;
 
 };
 

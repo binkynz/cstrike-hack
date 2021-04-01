@@ -12,6 +12,8 @@ private:
 
 	void draw_watermark( );
 
+	void draw_local_info( );
+
 	void draw_box( );
 
 	void draw_health( );

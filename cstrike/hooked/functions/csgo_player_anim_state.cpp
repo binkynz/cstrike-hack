@@ -201,11 +201,20 @@ void __fastcall hooked::set_up_velocity( csgo_player_anim_state* ecx, void* edx 
 
 		ecx->m_foot_yaw = m_mathlib_base.approach_angle( ecx->m_eye_yaw, ecx->m_foot_yaw, ecx->m_last_update_increment * ( 30.f + 20.f * ecx->m_walk_to_run_transition ) );
 
-		// add server code
+		ecx->m_lower_body_realign_timer = ecx->m_last_update_time + ( 1.1f * 0.2f );
+		player->get_lower_body_yaw_target( ) = ecx->m_eye_yaw;
 
 	} else {
 
 		ecx->m_foot_yaw = m_mathlib_base.approach_angle( player->get_lower_body_yaw_target( ), ecx->m_foot_yaw, ecx->m_last_update_increment * 100.f );
+
+		if ( ecx->m_last_update_time > ecx->m_lower_body_realign_timer
+			&& std::fabsf( m_mathlib_base.angle_diff( ecx->m_foot_yaw, ecx->m_eye_yaw ) ) > 35.f ) {
+
+			ecx->m_lower_body_realign_timer = ecx->m_last_update_time + 1.1f;
+			player->get_lower_body_yaw_target( ) = ecx->m_eye_yaw;
+
+		}
 
 	}
 

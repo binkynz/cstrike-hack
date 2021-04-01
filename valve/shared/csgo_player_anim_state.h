@@ -198,4 +198,7 @@ struct csgo_player_anim_state {
 	float m_aim_pitch_min; // 824
 	float m_aim_pitch_max; // 828
 
+	// custom members
+	float m_lower_body_realign_timer;
+
 };

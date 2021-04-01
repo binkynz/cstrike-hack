@@ -8,6 +8,8 @@ void visuals::paint( ) {
 
 	draw_watermark( );
 
+	draw_local_info( );
+
 	if ( !m_config.m_esp.active )
 		return;
 
@@ -47,6 +49,24 @@ void visuals::draw_watermark( ) {
 		m_render.format_text( "%s | local: 0x%x | fps: %d", "cstrike-hack", m_cstrike.m_local_player, fps ),
 		color( 255, 255, 255 ),
 		x_right );
+
+}
+
+void visuals::draw_local_info( ) {
+
+	if ( !m_cstrike.m_local_player )
+		return;
+
+	csgo_player_anim_state* anim_state = m_cstrike.m_local_player->get_player_anim_state_csgo( );
+	if ( !anim_state )
+		return;
+
+	float lower_body_realign_time_remaining = std::fmaxf( 0.f, anim_state->m_lower_body_realign_timer - m_interfaces.m_globals->m_curtime );
+
+	m_render.draw_text( m_render.m_fonts.main,
+		5, m_render.m_screen.h / 2,
+		m_render.format_text( "lby update in: %g", lower_body_realign_time_remaining ),
+		color( 255, 255, 255 ) );
 
 }
 

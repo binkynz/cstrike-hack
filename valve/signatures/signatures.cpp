@@ -22,6 +22,7 @@ bool signatures::setup( ) {
 
 	m_anim_overlay = m_pattern.find( m_client_dll, "8B 80 ? ? ? ? 03 C1 74 15" );
 	m_abs_velocity = m_pattern.find( m_client_dll, "F3 0F 10 A6 ? ? ? ? F3 0F 11 64 24 ?" );
+	m_player_anim_state_csgo = m_pattern.find( m_client_dll, "8B 8E ? ? ? ? EB 39" );
 
 	// functions
 
@@ -72,6 +73,7 @@ bool signatures::setup( ) {
 
 	m_draw_server_hitboxes = m_pattern.find( m_server_dll, "E8 ? ? ? ? F6 83 ? ? ? ? ? 0F 84 ? ? ? ? 33 FF" ).relative( );
 	m_util_player_by_index = m_pattern.find( m_server_dll, "85 C9 7E 2A A1 ? ? ? ?" );
+	m_server_setup_velocity = m_pattern.find( m_server_dll, "55 8B EC 83 E4 F8 83 EC 28 56 57 8B 3D ? ? ? ? 8B F1 8B CF" );
 
 	return true;
 

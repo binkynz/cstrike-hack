@@ -24,6 +24,7 @@ struct signatures {
 
 	address m_anim_overlay;
 	address m_abs_velocity;
+	address m_player_anim_state_csgo;
 
 	// functions
 
@@ -74,6 +75,7 @@ struct signatures {
 
 	address m_draw_server_hitboxes;
 	address m_util_player_by_index;
+	address m_server_setup_velocity;
 
 };
 
