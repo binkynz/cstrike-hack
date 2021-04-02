@@ -58,6 +58,12 @@ private:
 
 	} m_weapon;
 
+	struct {
+
+		color light = color( 255, 255, 255 );
+
+	} m_colors;
+
 	std::array< int, 64 > m_alpha;
 
 };

@@ -56,7 +56,7 @@ void visuals::draw_watermark( ) {
 	m_render.draw_text( m_render.m_fonts.main,
 		m_render.m_screen.w - 5, 5,
 		m_render.format_text( "%s | local: 0x%x | fps: %d", "cstrike-hack", m_cstrike.m_local_player, fps ),
-		color( 255, 255, 255 ),
+		m_colors.light,
 		x_right );
 
 }
@@ -75,7 +75,7 @@ void visuals::draw_local_info( ) {
 	m_render.draw_text( m_render.m_fonts.main,
 		5, m_render.m_screen.h / 2,
 		m_render.format_text( "lby update in: %g", lower_body_realign_time_remaining ),
-		color( 255, 255, 255 ) );
+		m_colors.light );
 
 }
 
