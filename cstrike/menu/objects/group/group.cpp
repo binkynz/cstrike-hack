@@ -36,7 +36,7 @@ void group::setup_checkbox( std::string_view name, bool* item ) {
 	int x = m_size.x + m_gap,
 		y = m_size.y + get_height( ) + m_gap;
 
-	auto obj = std::shared_ptr< checkbox >( new checkbox( name, x, y ) );
+	auto obj = std::make_shared< checkbox >( name, x, y );
 
 	obj->set_size( 13 );
 	obj->set_item( item );
@@ -50,7 +50,7 @@ void group::setup_slider( std::string_view name, int* item, int min, int max ) {
 	int x = m_size.x + m_gap,
 		y = m_size.y + get_height( ) + m_gap;
 
-	auto obj = std::shared_ptr< slider >( new slider( name, x, y ) );
+	auto obj = std::make_shared< slider >( name, x, y );
 
 	obj->set_size( 100, 13 );
 	obj->set_item( item );
@@ -65,7 +65,7 @@ void group::setup_key( std::string_view name, int* item ) {
 	int x = m_size.x + m_gap,
 		y = m_size.y + get_height( ) + m_gap;
 
-	auto obj = std::shared_ptr< key >( new key( name, x, y ) );
+	auto obj = std::make_shared< key >(  name, x, y );
 
 	obj->set_size( 50, 13 );
 	obj->set_item( item );
