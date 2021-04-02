@@ -190,12 +190,12 @@ void visuals::draw_ammo( ) {
 
 	}
 
-	m_render.draw_filled_rect( m_box.x, m_box.y + m_box.height + 2,
-		m_box.width, 4,
+	m_render.draw_filled_rect( m_box.x - 1, m_box.y + m_box.height + 2,
+		m_box.width + 2, 4,
 		m_player.m_colors.dark );
 
-	m_render.draw_filled_rect( m_box.x + 1, m_box.y + m_box.height + 3,
-		static_cast< int >( m_box.width * scaler - 2 ), 2,
+	m_render.draw_filled_rect( m_box.x, m_box.y + m_box.height + 3,
+		static_cast< int >( m_box.width * scaler ), 2,
 		color( 0, 128, 255, m_alpha[ m_player.index - 1 ] ) );
 
 }
