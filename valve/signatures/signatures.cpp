@@ -59,6 +59,7 @@ bool signatures::setup( ) {
 	m_studio_set_pose_parameter = m_pattern.find( m_client_dll, "E8 ? ? ? ? 0F 28 D8 83 C4 04" ).relative( );
 	m_cam_think = m_pattern.find( m_client_dll, "55 8B EC 83 E4 F8 81 EC ? ? ? ? 56 8B F1 8B 0D ? ? ? ? 57 85 C9" );
 	m_cam_to_third_person = m_pattern.find( m_client_dll, "55 8B EC 83 EC 0C 8D 55 F4" );
+	m_get_sequence_activity = m_pattern.find( m_client_dll, "E8 ? ? ? ? 33 C9 3B F0" ).relative( );
 
 	m_start_drawing = m_pattern.find( m_vguimatsurface_dll, "55 8B EC 83 E4 C0 83 EC 38" );
 	m_finish_drawing = m_pattern.find( m_vguimatsurface_dll, "8B 0D ? ? ? ? 56 C6 05 ? ? ? ? ?" );

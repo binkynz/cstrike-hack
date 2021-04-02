@@ -23,6 +23,7 @@ struct config {
 		bool player_health = true;
 		bool player_name = true;
 		bool player_weapon = true;
+		bool player_ammo = true;
 
 		bool chams = true;
 		bool third_person = false;

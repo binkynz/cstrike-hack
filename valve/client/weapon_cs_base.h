@@ -4,14 +4,24 @@
 
 struct cs_weapon_info {
 
-	char _pad0[ 0x88 ];
-	const char* m_hud_name;
-	char _pad1[ 0x3c ];
-	int m_weapon_type;
+	char _pad0[ 0x14 ]; // 0
+	int m_max_clip1; // 20
+	char _pad1[ 0x70 ]; // 24
+	const char* m_hud_name; // 136
+	char _pad2[ 0x3c ]; // 140
+	int m_weapon_type; // 200
 
 };
 
 struct weapon_cs_base : base_entity {
+
+	inline auto& get_ammo( ) {
+
+		static auto offset = m_netvars.m_offsets[ m_hash.get( "DT_WeaponCSBase->m_iClip1" ) ];
+
+		return *reinterpret_cast< int* >( reinterpret_cast< std::size_t >( this ) + offset );
+
+	}
 
 	inline auto get_max_speed( ) {
 

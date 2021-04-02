@@ -50,6 +50,7 @@ bool menu::setup( ) {
 			group->setup_checkbox( "player health", &m_config.m_esp.player_health );
 			group->setup_checkbox( "player name", &m_config.m_esp.player_name );
 			group->setup_checkbox( "player weapon", &m_config.m_esp.player_weapon );
+			group->setup_checkbox( "player weapon ammo", &m_config.m_esp.player_ammo );
 
 			} );
 

@@ -46,6 +46,14 @@ struct base_animating : base_player {
 
 	}
 
+	inline auto get_sequence_activity( int sequence ) {
+
+		auto function = m_signatures.m_get_sequence_activity.as< int( __thiscall* )( void*, int ) >( );
+
+		return function( this, sequence );
+
+	}
+
 	inline auto lookup_pose_parameter( const char* name ) {
 
 		auto function = m_signatures.m_lookup_pose_parameter.as< int( __thiscall* )( void*, studio_hdr*, const char* name ) >( );

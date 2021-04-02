@@ -26,7 +26,14 @@ void visuals::paint( ) {
 		if ( !calculate_box( ) )
 			return;
 
+		m_weapon.pointer = m_interfaces.m_entity_list->get< weapon_cs_base* >( m_player.pointer->get_active_weapon( ) );
+		if ( m_weapon.pointer )
+			m_weapon.info = m_weapon.pointer->get_cs_wpn_data( );
+
 		calculate_alpha( );
+
+		m_player.m_colors.dark = color( 0, 0, 0, m_alpha[ m_player.index - 1 ] );
+		m_player.m_colors.light = color( 255, 255, 255, m_alpha[ m_player.index - 1 ] );
 
 		draw_box( );
 
@@ -35,6 +42,8 @@ void visuals::paint( ) {
 		draw_name( );
 
 		draw_weapon( );
+
+		draw_ammo( );
 
 		}, { iterate_dormant } );
 
@@ -77,15 +86,15 @@ void visuals::draw_box( ) {
 
 	m_render.draw_outlined_rect( m_box.x - 1, m_box.y - 1, 
 		m_box.width + 2, m_box.height + 2, 
-		color( 0, 0, 0, m_alpha[ m_player.index - 1 ] ) );
+		m_player.m_colors.dark );
 
 	m_render.draw_outlined_rect( m_box.x + 1, m_box.y + 1, 
 		m_box.width - 2, m_box.height - 2, 
-		color( 0, 0, 0, m_alpha[ m_player.index - 1 ] ) );
+		m_player.m_colors.dark );
 
 	m_render.draw_outlined_rect( m_box.x, m_box.y,
 		m_box.width, m_box.height, 
-		color( 255, 255, 255, m_alpha[ m_player.index - 1 ] ) );
+		m_player.m_colors.light );
 
 }
 
@@ -99,7 +108,7 @@ void visuals::draw_health( ) {
 
 	m_render.draw_filled_rect( m_box.x - 2, m_box.y - 1, 
 		4, m_box.height + 2, 
-		color( 0, 0, 0, m_alpha[ m_player.index - 1 ] ), 
+		m_player.m_colors.dark,
 		x_right );
 
 	m_render.draw_filled_rect( m_box.x - 3, m_box.y, 
@@ -113,7 +122,7 @@ void visuals::draw_health( ) {
 	m_render.draw_text( m_render.m_fonts.main, 
 		m_box.x - 7, m_box.y + health * m_box.height / 100, 
 		m_render.format_text( "%d", health ),
-		color( 255, 255, 255, m_alpha[ m_player.index - 1 ] ), 
+		m_player.m_colors.light,
 		x_right | y_centre );
 
 }
@@ -136,7 +145,7 @@ void visuals::draw_name( ) {
 	m_render.draw_text( m_render.m_fonts.main,
 		m_box.x + m_box.width / 2, m_box.y - 1, 
 		name, 
-		color( 255, 255, 255, m_alpha[ m_player.index - 1 ] ), 
+		m_player.m_colors.light,
 		x_centre | y_bottom );
 
 }
@@ -146,22 +155,48 @@ void visuals::draw_weapon( ) {
 	if ( !m_config.m_esp.player_weapon )
 		return;
 
-	weapon_cs_base* weapon = m_interfaces.m_entity_list->get< weapon_cs_base* >( m_player.pointer->get_active_weapon( ) );
-	if ( !weapon )
+	if ( !m_weapon.pointer )
 		return;
 
-	cs_weapon_info* weapon_info = weapon->get_cs_wpn_data( );
-	if ( !weapon_info )
-		return;
+	int gap = m_config.m_esp.player_ammo ? 5 : 0;
 
-	std::wstring weapon_name = m_interfaces.m_localize->find( weapon_info->m_hud_name );
+	std::wstring weapon_name = m_interfaces.m_localize->find( m_weapon.info->m_hud_name );
 	std::transform( weapon_name.begin( ), weapon_name.end( ), weapon_name.begin( ), std::toupper );
 
 	m_render.draw_text( m_render.m_fonts.main,
-		m_box.x + m_box.width / 2, m_box.y + m_box.height,
+		m_box.x + m_box.width / 2, m_box.y + m_box.height + gap,
 		weapon_name,
-		color( 255, 255, 255, m_alpha[ m_player.index - 1 ] ),
+		m_player.m_colors.light,
 		x_centre );
+
+}
+
+void visuals::draw_ammo( ) {
+
+	if ( !m_config.m_esp.player_ammo )
+		return;
+
+	if ( !m_weapon.pointer )
+		return;
+
+	float scaler = static_cast< float >( m_weapon.pointer->get_ammo( ) ) / static_cast< float >( m_weapon.info->m_max_clip1 );
+
+	animation_layer* animation_layer_weapon_action = m_player.pointer->get_anim_overlay( 1 );
+	if ( animation_layer_weapon_action ) {
+
+		int activity = m_player.pointer->get_sequence_activity( animation_layer_weapon_action->m_sequence );
+		if ( activity == 967 && animation_layer_weapon_action->m_weight != 0.f )
+			scaler = animation_layer_weapon_action->m_cycle;
+
+	}
+
+	m_render.draw_filled_rect( m_box.x, m_box.y + m_box.height + 2,
+		m_box.width, 4,
+		m_player.m_colors.dark );
+
+	m_render.draw_filled_rect( m_box.x + 1, m_box.y + m_box.height + 3,
+		static_cast< int >( m_box.width * scaler - 2 ), 2,
+		color( 0, 128, 255, m_alpha[ m_player.index - 1 ] ) );
 
 }
 

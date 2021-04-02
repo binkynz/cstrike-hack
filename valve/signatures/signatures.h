@@ -61,6 +61,7 @@ struct signatures {
 	address m_studio_set_pose_parameter;
 	address m_cam_think;
 	address m_cam_to_third_person;
+	address m_get_sequence_activity;
 
 	address m_start_drawing;
 	address m_finish_drawing;

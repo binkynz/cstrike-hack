@@ -22,6 +22,8 @@ private:
 
 	void draw_weapon( );
 
+	void draw_ammo( );
+
 	void calculate_alpha( );
 
 	bool calculate_box( );
@@ -40,7 +42,21 @@ private:
 
 		bool is_dormant;
 
+		struct {
+
+			color dark, light;
+
+		} m_colors;
+
 	} m_player;
+
+	struct {
+
+		weapon_cs_base* pointer;
+
+		cs_weapon_info* info;
+
+	} m_weapon;
 
 	std::array< int, 64 > m_alpha;
 
