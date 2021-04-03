@@ -2,7 +2,6 @@
 
 #include "../signatures/signatures.h"
 #include "../../other/console/console.h"
-#include "../../other/pattern/pattern.h"
 
 bool detour::setup( std::string_view name, void* function, void* custom_function ) {
 

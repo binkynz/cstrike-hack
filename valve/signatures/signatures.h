@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../../other/pattern/pattern.h"
+#include "../../other/pe/pe.h"
 
 struct signatures {
 
@@ -9,16 +9,16 @@ struct signatures {
 
 	// module names
 
-	address m_client_dll;
-	address m_engine_dll;
-	address m_server_dll;
-	address m_gameoverlayrenderer_dll;
-	address m_vgui2_dll;
-	address m_vguimatsurface_dll;
-	address m_studiorender_dll;
-	address m_localize_dll;
-	address m_datacache_dll;
-	address m_materialsystem_dll;
+	module_info m_client_dll;
+	module_info m_engine_dll;
+	module_info m_server_dll;
+	module_info m_gameoverlayrenderer_dll;
+	module_info m_vgui2_dll;
+	module_info m_vguimatsurface_dll;
+	module_info m_studiorender_dll;
+	module_info m_localize_dll;
+	module_info m_datacache_dll;
+	module_info m_materialsystem_dll;
 
 	// offsets
 

@@ -165,7 +165,7 @@
     <ClCompile Include="cstrike\render\render.cpp" />
     <ClCompile Include="other\console\console.cpp" />
     <ClCompile Include="other\hash\hash.cpp" />
-    <ClCompile Include="other\pattern\pattern.cpp" />
+    <ClCompile Include="other\module\module.cpp" />
     <ClCompile Include="other\pe\pe.cpp" />
     <ClCompile Include="other\utils\utils.cpp" />
     <ClCompile Include="valve\detour\detour.cpp" />
@@ -193,6 +193,7 @@
     <ClInclude Include="other\math\vector_3d.h" />
     <ClInclude Include="other\hash\hash.h" />
     <ClInclude Include="other\memory\stack.h" />
+    <ClInclude Include="other\module\module.h" />
     <ClInclude Include="other\pe\pe.h" />
     <ClInclude Include="valve\cdll_int.h" />
     <ClInclude Include="valve\client\animation_layer.h" />
@@ -210,7 +211,6 @@
     <ClInclude Include="other\console\console.h" />
     <ClInclude Include="other\memory\address.h" />
     <ClInclude Include="other\other.h" />
-    <ClInclude Include="other\pattern\pattern.h" />
     <ClInclude Include="other\utils\utils.h" />
     <ClInclude Include="valve\client_class.h" />
     <ClInclude Include="valve\client_entity_list.h" />

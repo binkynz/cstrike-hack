@@ -34,11 +34,11 @@ struct interfaces {
 
 private:
 
-	template< class t > inline t get( address module_base, std::string_view interface_name ) {
+	template< class t > inline t get( module_info the_module, std::string_view interface_name ) {
 
 		static auto fn_hash = m_hash.get( "CreateInterface" );
 
-		auto create_interface = m_pe.export_fn( module_base , fn_hash );
+		auto create_interface = m_pe.export_fn( the_module.get_module( ), fn_hash );
 		if ( !create_interface )
 			return t( );
 

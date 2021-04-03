@@ -4,7 +4,6 @@
 #include <TlHelp32.h>
 
 #include "../console/console.h"
-#include "../hash/hash.h"
 
 bool pe::setup( ) {
 

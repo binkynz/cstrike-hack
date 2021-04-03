@@ -6,7 +6,6 @@
     <ClCompile Include="other\utils\utils.cpp" />
     <ClCompile Include="other\console\console.cpp" />
     <ClCompile Include="valve\detour\detour.cpp" />
-    <ClCompile Include="other\pattern\pattern.cpp" />
     <ClCompile Include="cstrike\hooked\hooked.cpp" />
     <ClCompile Include="valve\netvars\netvars.cpp" />
     <ClCompile Include="valve\interfaces\interfaces.cpp" />
@@ -32,6 +31,7 @@
     <ClCompile Include="cstrike\hooked\functions\mat_system_surface.cpp" />
     <ClCompile Include="cstrike\menu\objects\slider\slider.cpp" />
     <ClCompile Include="cstrike\menu\objects\key\key.cpp" />
+    <ClCompile Include="other\module\module.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cstrike\cstrike.h" />
@@ -39,7 +39,6 @@
     <ClInclude Include="other\other.h" />
     <ClInclude Include="other\console\console.h" />
     <ClInclude Include="valve\detour\detour.h" />
-    <ClInclude Include="other\pattern\pattern.h" />
     <ClInclude Include="other\memory\address.h" />
     <ClInclude Include="valve\valve.h" />
     <ClInclude Include="cstrike\hooked\hooked.h" />
@@ -106,5 +105,6 @@
     <ClInclude Include="cstrike\menu\objects\slider\slider.h" />
     <ClInclude Include="cstrike\menu\objects\key\key.h" />
     <ClInclude Include="cstrike\menu\objects\objects.h" />
+    <ClInclude Include="other\module\module.h" />
   </ItemGroup>
 </Project>

@@ -40,7 +40,7 @@ bool interfaces::setup( ) {
 	if ( !m_material_system )
 		return false;
 
-	m_net_graph_panel = m_pattern.find( m_signatures.m_client_dll, "89 1D ? ? ? ? 8B C3" ).add( 0x2 ).get< net_graph_panel* >( 2 );
+	m_net_graph_panel = m_signatures.m_client_dll.find_pattern( "89 1D ? ? ? ? 8B C3" ).add( 0x2 ).get< net_graph_panel* >( 2 );
 	if ( !m_net_graph_panel )
 		return false;
 

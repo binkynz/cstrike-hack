@@ -1,7 +1,9 @@
 #pragma once
 
-#include <windows.h>
 #include <unordered_map>
+
+#include "../hash/hash.h"
+#include "../module/module.h"
 
 // disable cringe warning
 #pragma warning(disable : 4244)
@@ -15,17 +17,17 @@ struct pe {
 	// get export address
 	std::size_t export_fn( std::size_t base, std::size_t fn_hash, bool in_memory = false );
 
-	// get module base by hash
-	std::size_t get( std::size_t hash ) {
+	// get module by name
+	module_info get( std::string_view name ) {
 
-		return m_loaded_modules[ hash ];
+		return m_loaded_modules[ m_hash.get( name ) ];
 
 	}
 
 private:
 
 	// store all modules
-	std::unordered_map< std::size_t, std::size_t > m_loaded_modules;
+	std::unordered_map< std::size_t, module_info > m_loaded_modules;
 
 };
 
