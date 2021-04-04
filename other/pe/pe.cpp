@@ -25,9 +25,9 @@ bool pe::setup( ) {
 		auto wide_name = std::wstring( base_dll_name->Buffer, base_dll_name->Length >> 1 );
 		auto name = std::string( wide_name.begin( ), wide_name.end( ) );
 
-		m_loaded_modules[ m_hash.get( name ) ] = reinterpret_cast< std::size_t >( ldr_entry->DllBase );
+		m_loaded_modules[ m_hash.get( name ) ] = module_info( reinterpret_cast< std::size_t >( ldr_entry->DllBase ) );
 
-		m_console.log( "found module %s -> 0x%x", name.data( ), m_loaded_modules[ m_hash.get( name ) ] );
+		m_console.log( "found module %s -> 0x%x", name.data( ), m_loaded_modules[ m_hash.get( name ) ].get_module( ) );
 
 	}
 

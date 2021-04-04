@@ -25,8 +25,8 @@ private:
 	std::size_t m_module;
 	std::uint8_t* m_bitmap;
 	PIMAGE_DOS_HEADER m_dos_header;
-	std::uint64_t m_base;
+	long m_base;
 	PIMAGE_NT_HEADERS m_nt_headers;
-	std::uint64_t m_size;
+	unsigned long m_size;
 
 };
