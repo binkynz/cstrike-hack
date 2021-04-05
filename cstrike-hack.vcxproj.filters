@@ -32,6 +32,7 @@
     <ClCompile Include="cstrike\menu\objects\slider\slider.cpp" />
     <ClCompile Include="cstrike\menu\objects\key\key.cpp" />
     <ClCompile Include="other\module\module.cpp" />
+    <ClCompile Include="cstrike\hooked\functions\cl_main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cstrike\cstrike.h" />
@@ -106,5 +107,10 @@
     <ClInclude Include="cstrike\menu\objects\key\key.h" />
     <ClInclude Include="cstrike\menu\objects\objects.h" />
     <ClInclude Include="other\module\module.h" />
+    <ClInclude Include="valve\engine\client.h" />
+    <ClInclude Include="valve\tier1\bitbuf.h" />
+    <ClInclude Include="valve\net_channel.h" />
+    <ClInclude Include="valve\tier0\tier0.h" />
+    <ClInclude Include="valve\tier0\mem_alloc.h" />
   </ItemGroup>
 </Project>

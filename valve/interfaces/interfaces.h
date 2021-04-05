@@ -12,6 +12,8 @@
 #include "../data_cache/mdl_cache.h"
 #include "../material_system/material_system.h"
 #include "../client/net_graph_panel.h"
+#include "../engine/client.h"
+#include "../tier0/mem_alloc.h"
 
 #include "../../other/hash/hash.h"
 #include "../../other/pe/pe.h"
@@ -31,6 +33,8 @@ struct interfaces {
 	mdl_cache* m_mdl_cache;
 	material_system* m_material_system;
 	net_graph_panel* m_net_graph_panel;
+	client_state* m_client_state;
+	mem_alloc* m_mem_alloc;
 
 private:
 

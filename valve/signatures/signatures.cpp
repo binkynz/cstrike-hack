@@ -14,6 +14,7 @@ bool signatures::setup( ) {
 	m_localize_dll = m_pe.get( "localize.dll" );
 	m_datacache_dll = m_pe.get( "datacache.dll" );
 	m_materialsystem_dll = m_pe.get( "materialsystem.dll" );
+	m_tier0 = m_pe.get( "tier0.dll" );
 
 	// offsets
 
@@ -26,7 +27,6 @@ bool signatures::setup( ) {
 	m_level_shutdown = m_client_dll.find_pattern( "55 8B EC 83 E4 F8 83 EC 30 C6 05 ? ? ? ? ?" );
 	m_create_move = m_client_dll.find_pattern( "55 8B EC 8B 0D ? ? ? ? 85 C9 75 06" );
 	m_get_view_model_fov = m_client_dll.find_pattern( "55 8B EC 8B 0D ? ? ? ? 83 EC 08 57" );
-	m_paint = m_engine_dll.find_pattern( "55 8B EC 83 EC 40 53 8B D9 8B 0D ? ? ? ? 89 5D F8" );
 	m_draw_crosshair = m_client_dll.find_pattern( "55 8B EC 83 E4 F0 83 EC 78 56 8B F1 8B 0D ? ? ? ?" );
 	m_update = m_client_dll.find_pattern( "E8 ? ? ? ? E9 ? ? ? ? 83 BE ? ? ? ? ?" ).relative( );
 	m_modify_eye_position = m_client_dll.find_pattern( "E8 ? ? ? ? 8B 06 8B CE FF 90 ? ? ? ? 85 C0 74 50" ).relative( );
@@ -57,6 +57,11 @@ bool signatures::setup( ) {
 	m_cam_think = m_client_dll.find_pattern( "55 8B EC 83 E4 F8 81 EC ? ? ? ? 56 8B F1 8B 0D ? ? ? ? 57 85 C9" );
 	m_cam_to_third_person = m_client_dll.find_pattern( "55 8B EC 83 EC 0C 8D 55 F4" );
 	m_get_sequence_activity = m_client_dll.find_pattern( "E8 ? ? ? ? 33 C9 3B F0" ).relative( );
+
+	m_paint = m_engine_dll.find_pattern( "55 8B EC 83 EC 40 53 8B D9 8B 0D ? ? ? ? 89 5D F8" );
+	m_cl_send_move = m_engine_dll.find_pattern( "E8 ? ? ? ? 84 DB 0F 84 ? ? ? ? 8B 8F ? ? ? ?" ).relative( );
+	m_set_data = m_engine_dll.find_pattern( "E8 ? ? ? ? 8D 7E 18" ).relative( );
+	m_cl_msg_move_deconstructor = m_engine_dll.find_pattern( "E8 ? ? ? ? 5F 5E 5B 8B E5 5D C3 CC CC CC CC CC CC CC CC CC CC CC CC CC 55 8B EC 81 EC ? ? ? ?" ).relative( );
 
 	m_start_drawing = m_vguimatsurface_dll.find_pattern( "55 8B EC 83 E4 C0 83 EC 38" );
 	m_finish_drawing = m_vguimatsurface_dll.find_pattern( "8B 0D ? ? ? ? 56 C6 05 ? ? ? ? ?" );

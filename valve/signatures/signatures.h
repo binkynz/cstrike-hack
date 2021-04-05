@@ -19,6 +19,7 @@ struct signatures {
 	module_info m_localize_dll;
 	module_info m_datacache_dll;
 	module_info m_materialsystem_dll;
+	module_info m_tier0;
 
 	// offsets
 
@@ -31,7 +32,6 @@ struct signatures {
 	address m_level_shutdown;
 	address m_create_move;
 	address m_get_view_model_fov;
-	address m_paint;
 	address m_draw_crosshair;
 	address m_update;
 	address m_modify_eye_position;
@@ -62,6 +62,11 @@ struct signatures {
 	address m_cam_think;
 	address m_cam_to_third_person;
 	address m_get_sequence_activity;
+
+	address m_paint;
+	address m_cl_send_move;
+	address m_set_data;
+	address m_cl_msg_move_deconstructor;
 
 	address m_start_drawing;
 	address m_finish_drawing;

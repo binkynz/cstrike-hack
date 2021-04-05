@@ -32,6 +32,8 @@ bool hooked::setup( ) {
 
 	m_detour.setup( "CMatSystemSurface::LockCursor", m_signatures.m_lock_cursor, &lock_cursor );
 
+	m_detour.setup( "CL_SendMove", m_signatures.m_cl_send_move, &cl_send_move );
+
 	return true;
 
 }

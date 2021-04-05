@@ -12,7 +12,9 @@
 #include "netvars/netvars.h"
 #include "shared/shared.h"
 #include "studio_render/studio_render.h"
+#include "tier0/tier0.h"
 #include "tier1/tier1.h"
 #include "vgui/vgui.h"
 
 #include "engine_vgui.h"
+#include "net_channel.h"

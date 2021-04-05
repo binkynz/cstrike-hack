@@ -46,6 +46,18 @@ bool interfaces::setup( ) {
 
 	m_console.log( "found pointer g_pNetGraphPanel -> 0x%x", m_net_graph_panel );
 
+	m_client_state = m_utils.get_v_func( m_engine, 12 ).add( 0x10 ).get< client_state* >( 2 );
+	if ( !m_client_state )
+		return false;
+
+	m_console.log( "found reference to GetBaseLocalClient -> 0x%x", m_client_state );
+
+	m_mem_alloc = *reinterpret_cast< mem_alloc** >( m_pe.export_fn( m_signatures.m_tier0.get_module( ), m_hash.get( "g_pMemAlloc" ) ) );
+	if ( !m_mem_alloc )
+		return false;
+
+	m_console.log( "found pointer g_pMemAlloc -> 0x%x", m_mem_alloc );
+
 	return true;
 
 }

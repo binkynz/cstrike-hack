@@ -147,6 +147,7 @@
     <ClCompile Include="cstrike\hooked\functions\cdll_client.cpp" />
     <ClCompile Include="cstrike\hooked\functions\client_input.cpp" />
     <ClCompile Include="cstrike\hooked\functions\client_mode_shared.cpp" />
+    <ClCompile Include="cstrike\hooked\functions\cl_main.cpp" />
     <ClCompile Include="cstrike\hooked\functions\csgo_player_anim_state.cpp" />
     <ClCompile Include="cstrike\hooked\functions\mat_system_surface.cpp" />
     <ClCompile Include="cstrike\hooked\functions\vgui_baseui.cpp" />
@@ -221,6 +222,7 @@
     <ClInclude Include="valve\detour\detour.h" />
     <ClInclude Include="valve\dt_common.h" />
     <ClInclude Include="valve\dt_recv.h" />
+    <ClInclude Include="valve\engine\client.h" />
     <ClInclude Include="valve\engine\debug_overlay.h" />
     <ClInclude Include="valve\engine\engine.h" />
     <ClInclude Include="valve\engine\vgui_baseui.h" />
@@ -232,6 +234,7 @@
     <ClInclude Include="valve\mathlib\mathlib.h" />
     <ClInclude Include="valve\mathlib\mathlib_base.h" />
     <ClInclude Include="valve\netvars\netvars.h" />
+    <ClInclude Include="valve\net_channel.h" />
     <ClInclude Include="valve\shared\csgo_player_anim_state.h" />
     <ClInclude Include="valve\shared\in_buttons.h" />
     <ClInclude Include="valve\shared\shared.h" />
@@ -240,6 +243,9 @@
     <ClInclude Include="valve\studio.h" />
     <ClInclude Include="valve\studio_render\studio_render.h" />
     <ClInclude Include="valve\studio_render\studio_render_context.h" />
+    <ClInclude Include="valve\tier0\mem_alloc.h" />
+    <ClInclude Include="valve\tier0\tier0.h" />
+    <ClInclude Include="valve\tier1\bitbuf.h" />
     <ClInclude Include="valve\tier1\interface.h" />
     <ClInclude Include="valve\tier1\localize.h" />
     <ClInclude Include="valve\tier1\tier1.h" />
