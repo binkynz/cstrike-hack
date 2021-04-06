@@ -26,6 +26,7 @@ struct signatures {
 	address m_anim_overlay;
 	address m_abs_velocity;
 	address m_player_anim_state_csgo;
+	address m_use_new_animstate;
 
 	// functions
 
@@ -62,6 +63,14 @@ struct signatures {
 	address m_cam_think;
 	address m_cam_to_third_person;
 	address m_get_sequence_activity;
+	address m_update_client_side_animation;
+	address m_handle_taser_animation;
+	address m_get_view_model;
+	address m_update_all_viewmodel_addons;
+	address m_remove_viewmodel_arm_models;
+	address m_remove_viewmodel_label;
+	address m_remove_viewmodel_stat_track;
+	address m_remove_viewmodel_stickers;
 
 	address m_paint;
 	address m_cl_send_move;

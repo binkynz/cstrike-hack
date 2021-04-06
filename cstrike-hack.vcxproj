@@ -149,6 +149,7 @@
     <ClCompile Include="cstrike\hooked\functions\client_mode_shared.cpp" />
     <ClCompile Include="cstrike\hooked\functions\cl_main.cpp" />
     <ClCompile Include="cstrike\hooked\functions\csgo_player_anim_state.cpp" />
+    <ClCompile Include="cstrike\hooked\functions\cs_player.cpp" />
     <ClCompile Include="cstrike\hooked\functions\mat_system_surface.cpp" />
     <ClCompile Include="cstrike\hooked\functions\vgui_baseui.cpp" />
     <ClCompile Include="cstrike\hooked\functions\scheme_manager.cpp" />
@@ -235,6 +236,7 @@
     <ClInclude Include="valve\mathlib\mathlib_base.h" />
     <ClInclude Include="valve\netvars\netvars.h" />
     <ClInclude Include="valve\net_channel.h" />
+    <ClInclude Include="valve\shared\base_view_model.h" />
     <ClInclude Include="valve\shared\csgo_player_anim_state.h" />
     <ClInclude Include="valve\shared\in_buttons.h" />
     <ClInclude Include="valve\shared\shared.h" />

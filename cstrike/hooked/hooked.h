@@ -29,6 +29,7 @@ private:
 	static void __fastcall draw_model( studio_render_context* ecx, void* edx, void* results, const draw_model_info& info, void* bone_to_world, float* flex_weights, float* flex_delayed_rates, const vector_3d& origin, int flags );
 	static void __fastcall lock_cursor( surface* ecx, void* edx );
 	static void __cdecl cl_send_move( );
+	static void __fastcall update_client_side_animation( cs_player* ecx, void* edx );
 
 };
 

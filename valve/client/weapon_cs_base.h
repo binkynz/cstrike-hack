@@ -23,6 +23,14 @@ struct weapon_cs_base : base_entity {
 
 	}
 
+	inline auto& get_view_model_index( ) {
+
+		static auto offset = m_netvars.m_offsets[ m_hash.get( "DT_WeaponCSBase->m_nViewModelIndex" ) ];
+
+		return *reinterpret_cast< int* >( reinterpret_cast< std::size_t >( this ) + offset );
+
+	}
+
 	inline auto get_max_speed( ) {
 
 		return m_utils.get_v_func< float( __thiscall* )( void* ) >( this, 441 )( this );

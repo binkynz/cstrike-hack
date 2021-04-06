@@ -34,6 +34,8 @@ bool hooked::setup( ) {
 
 	m_detour.setup( "CL_SendMove", m_signatures.m_cl_send_move, &cl_send_move );
 
+	m_detour.setup( "C_CSPlayer::UpdateClientSideAnimation", m_signatures.m_update_client_side_animation, &update_client_side_animation );
+
 	return true;
 
 }

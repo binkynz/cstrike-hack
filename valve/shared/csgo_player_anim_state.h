@@ -44,6 +44,14 @@ struct animstate_pose_param_cache {
 
 struct csgo_player_anim_state {
 
+	inline auto update( float y, float x ) {
+
+		auto function = m_signatures.m_update.as< void( __vectorcall* )( void*, void*, float, float, float, void* ) >( );
+
+		return function( this, nullptr, 0.f, y, x, nullptr );
+
+	}
+
 	inline auto set_up_velocity( ) {
 
 		auto function = m_signatures.m_setup_velocity.as< void( __thiscall* )( void* ) >( );

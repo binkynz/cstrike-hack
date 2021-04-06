@@ -19,6 +19,12 @@ struct base_entity {
 
 	}
 
+	inline auto on_latch_interpolated_variables( int flags ) {
+
+		return m_utils.get_v_func< void( __thiscall* )( void*, int ) >( this, 107 )( this, flags );
+
+	}
+
 	inline auto is_alive( ) {
 
 		return m_utils.get_v_func< bool( __thiscall* )( void* ) >( this, 155 )( this );

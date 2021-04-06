@@ -33,6 +33,7 @@
     <ClCompile Include="cstrike\menu\objects\key\key.cpp" />
     <ClCompile Include="other\module\module.cpp" />
     <ClCompile Include="cstrike\hooked\functions\cl_main.cpp" />
+    <ClCompile Include="cstrike\hooked\functions\cs_player.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cstrike\cstrike.h" />
@@ -112,5 +113,6 @@
     <ClInclude Include="valve\net_channel.h" />
     <ClInclude Include="valve\tier0\tier0.h" />
     <ClInclude Include="valve\tier0\mem_alloc.h" />
+    <ClInclude Include="valve\shared\base_view_model.h" />
   </ItemGroup>
 </Project>

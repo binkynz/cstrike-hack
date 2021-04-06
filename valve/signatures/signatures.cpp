@@ -21,6 +21,7 @@ bool signatures::setup( ) {
 	m_anim_overlay = m_client_dll.find_pattern( "8B 80 ? ? ? ? 03 C1 74 15" );
 	m_abs_velocity = m_client_dll.find_pattern( "F3 0F 10 A6 ? ? ? ? F3 0F 11 64 24 ?" );
 	m_player_anim_state_csgo = m_client_dll.find_pattern( "8B 8E ? ? ? ? EB 39" );
+	m_use_new_animstate = m_client_dll.find_pattern( "80 BE ? ? ? ? ? 74 36 8B 06" );
 
 	// functions
 
@@ -57,6 +58,14 @@ bool signatures::setup( ) {
 	m_cam_think = m_client_dll.find_pattern( "55 8B EC 83 E4 F8 81 EC ? ? ? ? 56 8B F1 8B 0D ? ? ? ? 57 85 C9" );
 	m_cam_to_third_person = m_client_dll.find_pattern( "55 8B EC 83 EC 0C 8D 55 F4" );
 	m_get_sequence_activity = m_client_dll.find_pattern( "E8 ? ? ? ? 33 C9 3B F0" ).relative( );
+	m_update_client_side_animation = m_client_dll.find_pattern( "55 8B EC 51 56 8B F1 80 BE ? ? ? ? ? 74 36" );
+	m_handle_taser_animation = m_client_dll.find_pattern( "E8 ? ? ? ? 8B 06 8B CE 8B 80 ? ? ? ? FF D0 84 C0 0F 84 ? ? ? ?" ).relative( );
+	m_get_view_model = m_client_dll.find_pattern( "E8 ? ? ? ? 8B F8 8B 47 04" ).relative( );
+	m_update_all_viewmodel_addons = m_client_dll.find_pattern( "E8 ? ? ? ? 8B 16 8B CE 6A 20" ).relative( );
+	m_remove_viewmodel_arm_models = m_client_dll.find_pattern( "E8 ? ? ? ? 46 83 FE 03 7C E7 85 DB" ).relative( );
+	m_remove_viewmodel_label = m_client_dll.find_pattern( "E8 ? ? ? ? 8B CB E8 ? ? ? ? 8B CB E8 ? ? ? ? 5F" ).relative( );
+	m_remove_viewmodel_stat_track = m_client_dll.find_pattern( "E8 ? ? ? ? 56 FF 74 24 10" ).relative( );
+	m_remove_viewmodel_stickers = m_client_dll.find_pattern( "E8 ? ? ? ? 43 83 FB 03 7C CC" ).relative( );
 
 	m_paint = m_engine_dll.find_pattern( "55 8B EC 83 EC 40 53 8B D9 8B 0D ? ? ? ? 89 5D F8" );
 	m_cl_send_move = m_engine_dll.find_pattern( "E8 ? ? ? ? 84 DB 0F 84 ? ? ? ? 8B 8F ? ? ? ?" ).relative( );

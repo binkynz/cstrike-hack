@@ -12,6 +12,12 @@ struct base_animating : base_player {
 
 	}
 
+	inline auto frame_advance( float interval ) {
+
+		return m_utils.get_v_func< float( __thiscall* )( void*, float ) >( this, 220 )( this, interval );
+
+	}
+
 	inline auto lookup_bone( const char* name ) {
 
 		auto function = m_signatures.m_lookup_bone.as< int( __thiscall* )( void*, const char* ) >( );
