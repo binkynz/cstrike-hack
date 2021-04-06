@@ -197,6 +197,7 @@ struct csgo_player_anim_state {
 	float m_aim_yaw_max; // 820
 	float m_aim_pitch_min; // 824
 	float m_aim_pitch_max; // 828
+	int m_animstate_version; // 832
 
 	// custom members
 	float m_lower_body_realign_timer;
