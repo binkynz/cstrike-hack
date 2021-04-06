@@ -11,7 +11,7 @@ void __fastcall hooked::update_client_side_animation( cs_player* ecx, void* edx 
 		if ( ecx->get_sequence( ) == -1 )
 			ecx->frame_advance( 0.f );
 
-		if ( ecx == m_cstrike.m_local_player /* && *((_BYTE *)this + 13860 */ )
+		if ( ecx->is_local_player( ) /* && *((_BYTE *)this + 13860 */ )
 			ecx->get_player_anim_state_csgo( )->update( ecx->eye_angles( ).y, ecx->eye_angles( ).x );
 		else
 			ecx->get_player_anim_state_csgo( )->update( ecx->get_eye_angles( ).y, ecx->get_eye_angles( ).x );
@@ -24,7 +24,7 @@ void __fastcall hooked::update_client_side_animation( cs_player* ecx, void* edx 
 	if ( ecx->get_killed_by_taser( ) )
 		ecx->handle_taser_animation( );
 
-	if ( ecx == m_cstrike.m_local_player ) {
+	if ( ecx->is_local_player( ) ) {
 
 		weapon_cs_base* weapon = m_interfaces.m_entity_list->get< weapon_cs_base* >( ecx->get_active_weapon( ) );
 		if ( weapon ) {

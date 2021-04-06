@@ -31,6 +31,12 @@ struct base_player : base_combat_character {
 
 	}
 
+	inline auto is_local_player( ) {
+
+		return m_utils.get_v_func< bool( __thiscall* )( void* ) >( this, 157 )( this );
+
+	}
+
 	inline auto create_move( float input_sample_time, user_cmd* cmd ) {
 
 		return m_utils.get_v_func< bool( __thiscall* )( void*, float, user_cmd* ) >( this, 288 )( this, input_sample_time, cmd );
