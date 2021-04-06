@@ -8,7 +8,7 @@ void __fastcall hooked::update_client_side_animation( cs_player* ecx, void* edx 
 
 	} else {
 
-		if ( ecx->get_sequence( ) == -1 )
+		if ( ecx->get_sequence( ) != -1 )
 			ecx->frame_advance( 0.f );
 
 		if ( ecx->is_local_player( ) /* && *((_BYTE *)this + 13860 */ )
@@ -18,7 +18,7 @@ void __fastcall hooked::update_client_side_animation( cs_player* ecx, void* edx 
 
 	}
 
-	if ( ecx->get_sequence( ) == -1 )
+	if ( ecx->get_sequence( ) != -1 )
 		ecx->on_latch_interpolated_variables( 1 /* LATCH_ANIMATION_VAR */ );
 
 	if ( ecx->get_killed_by_taser( ) )
