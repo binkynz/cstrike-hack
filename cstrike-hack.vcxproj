@@ -170,10 +170,9 @@
     <ClCompile Include="other\module\module.cpp" />
     <ClCompile Include="other\pe\pe.cpp" />
     <ClCompile Include="other\utils\utils.cpp" />
-    <ClCompile Include="valve\detour\detour.cpp" />
     <ClCompile Include="valve\interfaces\interfaces.cpp" />
+    <ClCompile Include="valve\modules\modules.cpp" />
     <ClCompile Include="valve\netvars\netvars.cpp" />
-    <ClCompile Include="valve\signatures\signatures.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cstrike\features\features.h" />
@@ -220,7 +219,6 @@
     <ClInclude Include="valve\client_renderable.h" />
     <ClInclude Include="valve\data_cache\data_cache.h" />
     <ClInclude Include="valve\data_cache\mdl_cache.h" />
-    <ClInclude Include="valve\detour\detour.h" />
     <ClInclude Include="valve\dt_common.h" />
     <ClInclude Include="valve\dt_recv.h" />
     <ClInclude Include="valve\engine\client.h" />
@@ -234,6 +232,7 @@
     <ClInclude Include="valve\material_system\material_system.h" />
     <ClInclude Include="valve\mathlib\mathlib.h" />
     <ClInclude Include="valve\mathlib\mathlib_base.h" />
+    <ClInclude Include="valve\modules\modules.h" />
     <ClInclude Include="valve\netvars\netvars.h" />
     <ClInclude Include="valve\net_channel.h" />
     <ClInclude Include="valve\shared\base_view_model.h" />
@@ -241,7 +240,6 @@
     <ClInclude Include="valve\shared\in_buttons.h" />
     <ClInclude Include="valve\shared\shared.h" />
     <ClInclude Include="valve\shared\user_cmd.h" />
-    <ClInclude Include="valve\signatures\signatures.h" />
     <ClInclude Include="valve\studio.h" />
     <ClInclude Include="valve\studio_render\studio_render.h" />
     <ClInclude Include="valve\studio_render\studio_render_context.h" />

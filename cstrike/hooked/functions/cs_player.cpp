@@ -1,6 +1,6 @@
 #include "../hooked.h"
 
-void __fastcall hooked::update_client_side_animation( cs_player* ecx, void* edx ) {
+void __fastcall hooked::cs_player_fn::update_client_side_animation( cs_player* ecx, void* edx ) {
 
 	if ( ecx->get_use_new_animstate( ) ) {
 
@@ -11,7 +11,7 @@ void __fastcall hooked::update_client_side_animation( cs_player* ecx, void* edx 
 		if ( ecx->get_sequence( ) != -1 )
 			ecx->frame_advance( 0.f );
 
-		if ( ecx->is_local_player( ) /* && *((_BYTE *)this + 13860 */ )
+		if ( ecx->is_local_player( ) )
 			ecx->get_player_anim_state_csgo( )->update( ecx->eye_angles( ).y, ecx->eye_angles( ).x );
 		else
 			ecx->get_player_anim_state_csgo( )->update( ecx->get_eye_angles( ).y, ecx->get_eye_angles( ).x );

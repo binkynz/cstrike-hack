@@ -72,7 +72,7 @@ struct cs_player : base_animating {
 
 	inline auto get_player_anim_state_csgo( ) {
 
-		auto offset = m_signatures.m_player_anim_state_csgo.add( 0x2 ).to< std::size_t >( );
+		static auto offset = m_modules.m_client_dll.get_address( "C_CSPlayer->m_PlayerAnimStateCSGO" ).add( 0x2 ).to< std::size_t >( );
 
 		return *reinterpret_cast< csgo_player_anim_state** >( reinterpret_cast< std::size_t >( this ) + offset );
 
@@ -80,7 +80,7 @@ struct cs_player : base_animating {
 
 	inline auto& get_use_new_animstate( ) {
 
-		auto offset = m_signatures.m_use_new_animstate.add( 0x2 ).to< std::size_t >( );
+		static auto offset = m_modules.m_client_dll.get_address( "C_CSPlayer->m_bUseNewAnimstate" ).add( 0x2 ).to< std::size_t >( );
 
 		return *reinterpret_cast< bool* >( reinterpret_cast< std::size_t >( this ) + offset );
 
@@ -94,7 +94,7 @@ struct cs_player : base_animating {
 
 	inline auto handle_taser_animation( ) {
 
-		auto function = m_signatures.m_handle_taser_animation.as< void( __thiscall* )( void* ) >( );
+		static auto function = m_modules.m_client_dll.get_address( "C_CSPlayer::HandleTaserAnimation" ).as< void( __thiscall* )( void* ) >( );
 
 		return function( this );
 

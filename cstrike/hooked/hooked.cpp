@@ -2,39 +2,67 @@
 
 bool hooked::setup( ) {
 
-	m_detour.setup( "CHLClient::LevelShutdown", m_signatures.m_level_shutdown, &level_shutdown );
+	// cdll_client_fn
+	if ( !m_modules.m_client_dll.hook_function( "CHLClient::LevelShutdown", &cdll_client_fn::level_shutdown ) )
+		return false;
 
-	m_detour.setup( "ClientModeShared::CreateMove", m_signatures.m_create_move, &create_move );
+	// cl_main_fn
+	if ( !m_modules.m_engine_dll.hook_function( "CL_SendMove", &cl_main_fn::cl_send_move ) )
+		return false;
 
-	m_detour.setup( "ClientModeShared::GetViewModelFOV", m_signatures.m_get_view_model_fov, &get_view_model_fov );
+	// client_input_fn
+	if ( !m_modules.m_client_dll.hook_function( "CInput::CAM_Think", &client_input_fn::cam_think ) )
+		return false;
 
-	m_detour.setup( "CEngineVGui::Paint", m_signatures.m_paint, &paint );
+	if ( !m_modules.m_client_dll.hook_function( "CInput::CAM_ToThirdPerson", &client_input_fn::cam_to_third_person ) )
+		return false;
 
-	m_detour.setup( "C_WeaponCSBase::DrawCrosshair", m_signatures.m_draw_crosshair, &draw_crosshair );
+	// client_mode_shared_fn
+	if ( !m_modules.m_client_dll.hook_function( "ClientModeShared::CreateMove", &client_mode_shared_fn::create_move ) )
+		return false;
 
-	m_detour.setup( "CCSGOPlayerAnimState::Update", m_signatures.m_update, &update );
+	if ( !m_modules.m_client_dll.hook_function( "ClientModeShared::GetViewModelFOV", &client_mode_shared_fn::get_view_model_fov ) )
+		return false;
 
-	m_detour.setup( "CCSGOPlayerAnimState::ModifyEyePosition", m_signatures.m_modify_eye_position, &modify_eye_position );
+	// cs_player_fn
+	if ( !m_modules.m_client_dll.hook_function( "C_CSPlayer::UpdateClientSideAnimation", &cs_player_fn::update_client_side_animation ) )
+		return false;
 
-	m_detour.setup( "CCSGOPlayerAnimState::DoProceduralFootPlant", m_signatures.m_do_procedural_foot_plant, &do_procedural_foot_plant );
+	// csgo_player_anim_state_fn
+	if ( !m_modules.m_client_dll.hook_function( "CCSGOPlayerAnimState::Update", &csgo_player_anim_state_fn::update ) )
+		return false;
 
-	m_detour.setup( "CCSGOPlayerAnimState::SetUpVelocity", m_signatures.m_setup_velocity, &set_up_velocity );
+	if ( !m_modules.m_client_dll.hook_function( "CCSGOPlayerAnimState::ModifyEyePosition", &csgo_player_anim_state_fn::modify_eye_position ) )
+		return false;
 
-	m_detour.setup( "CCSGOPlayerAnimState::SetUpMovement", m_signatures.m_setup_movement, &set_up_movement );
+	if ( !m_modules.m_client_dll.hook_function( "CCSGOPlayerAnimState::DoProceduralFootPlant", &csgo_player_anim_state_fn::do_procedural_foot_plant ) )
+		return false;
 
-	m_detour.setup( "CInput::CAM_Think", m_signatures.m_cam_think, &cam_think );
+	if ( !m_modules.m_client_dll.hook_function( "CCSGOPlayerAnimState::SetUpVelocity", &csgo_player_anim_state_fn::set_up_velocity ) )
+		return false;
 
-	m_detour.setup( "CInput::CAM_ToThirdPerson", m_signatures.m_cam_to_third_person, &cam_to_third_person );
+	if ( !m_modules.m_client_dll.hook_function( "CCSGOPlayerAnimState::SetUpMovement", &csgo_player_anim_state_fn::set_up_movement ) )
+		return false;
 
-	m_detour.setup( "CSchemeManager::ReloadSchemes", m_signatures.m_reload_schemes, &reload_schemes );
+	// mat_system_surface_fn
+	if ( !m_modules.m_vguimatsurface_dll.hook_function( "CMatSystemSurface::LockCursor", &mat_system_surface_fn::lock_cursor ) )
+		return false;
 
-	m_detour.setup( "CStudioRenderContext::DrawModel", m_signatures.m_draw_model, &draw_model );
+	// scheme_manager_fn
+	if ( !m_modules.m_vgui2_dll.hook_function( "CSchemeManager::ReloadSchemes", &scheme_manager_fn::reload_schemes ) )
+		return false;
 
-	m_detour.setup( "CMatSystemSurface::LockCursor", m_signatures.m_lock_cursor, &lock_cursor );
+	// studio_render_fn
+	if ( !m_modules.m_studiorender_dll.hook_function( "CStudioRenderContext::DrawModel", &studio_render_fn::draw_model ) )
+		return false;
 
-	m_detour.setup( "CL_SendMove", m_signatures.m_cl_send_move, &cl_send_move );
+	// vgui_baseui_fn
+	if ( !m_modules.m_engine_dll.hook_function( "CEngineVGui::Paint", &vgui_baseui_fn::paint ) )
+		return false;
 
-	m_detour.setup( "C_CSPlayer::UpdateClientSideAnimation", m_signatures.m_update_client_side_animation, &update_client_side_animation );
+	// weapon_cs_base_fn
+	if ( !m_modules.m_client_dll.hook_function( "C_WeaponCSBase::DrawCrosshair", &weapon_cs_base_fn::draw_crosshair ) )
+		return false;
 
 	return true;
 
@@ -42,6 +70,16 @@ bool hooked::setup( ) {
 
 void hooked::unload( ) {
 
-	m_detour.unload( );
+	m_modules.m_client_dll.unload_functions( );
+	m_modules.m_engine_dll.unload_functions( );
+	m_modules.m_server_dll.unload_functions( );
+	m_modules.m_gameoverlayrenderer_dll.unload_functions( );
+	m_modules.m_vgui2_dll.unload_functions( );
+	m_modules.m_vguimatsurface_dll.unload_functions( );
+	m_modules.m_studiorender_dll.unload_functions( );
+	m_modules.m_localize_dll.unload_functions( );
+	m_modules.m_datacache_dll.unload_functions( );
+	m_modules.m_materialsystem_dll.unload_functions( );
+	m_modules.m_tier0.unload_functions( );
 
 }

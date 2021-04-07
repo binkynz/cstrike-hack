@@ -1,6 +1,6 @@
 #include "../hooked.h"
 
-void __vectorcall hooked::update( csgo_player_anim_state* ecx, void* unk0, float z, float y, float x, void* unk1 ) {
+void __vectorcall hooked::csgo_player_anim_state_fn::update( csgo_player_anim_state* ecx, void* unk0, float z, float y, float x, void* unk1 ) {
 
 	cs_player* player = ecx->m_player;
 	if ( !player || ( !player->is_alive( ) && !player->is_player_ghost( ) ) || !ecx->cache_sequences( ) )
@@ -82,7 +82,7 @@ void __vectorcall hooked::update( csgo_player_anim_state* ecx, void* unk0, float
 
 }
 
-void __fastcall hooked::modify_eye_position( csgo_player_anim_state* ecx, void* edx, vector_3d& input_eye_pos ) {
+void __fastcall hooked::csgo_player_anim_state_fn::modify_eye_position( csgo_player_anim_state* ecx, void* edx, vector_3d& input_eye_pos ) {
 
 	cs_player* player = ecx->m_player;
 	if ( !player )
@@ -108,13 +108,13 @@ void __fastcall hooked::modify_eye_position( csgo_player_anim_state* ecx, void* 
 
 }
 
-void __fastcall hooked::do_procedural_foot_plant( csgo_player_anim_state* ecx, void* edx, void* bone_to_world, void* left_foot_chain, void* right_foot_chain, void* pos ) {
+void __fastcall hooked::csgo_player_anim_state_fn::do_procedural_foot_plant( csgo_player_anim_state* ecx, void* edx, void* bone_to_world, void* left_foot_chain, void* right_foot_chain, void* pos ) {
 
 	return;
 
 }
 
-void __fastcall hooked::set_up_velocity( csgo_player_anim_state* ecx, void* edx ) {
+void __fastcall hooked::csgo_player_anim_state_fn::set_up_velocity( csgo_player_anim_state* ecx, void* edx ) {
 
 	m_interfaces.m_mdl_cache->begin_lock( );
 
@@ -317,9 +317,9 @@ void __fastcall hooked::set_up_velocity( csgo_player_anim_state* ecx, void* edx 
 
 }
 
-void __fastcall hooked::set_up_movement( csgo_player_anim_state* ecx, void* edx ) {
+void __fastcall hooked::csgo_player_anim_state_fn::set_up_movement( csgo_player_anim_state* ecx, void* edx ) {
 
-	static auto o_set_up_movement = m_detour.get< decltype( &set_up_movement ) >( "CCSGOPlayerAnimState::SetUpMovement" );
+	static auto o_set_up_movement = m_modules.m_client_dll.get< decltype( &set_up_movement ) >( "CCSGOPlayerAnimState::SetUpMovement" );
 
 	// to do
 

@@ -43,7 +43,7 @@ void netvars::store( std::string_view name, recv_table* table, std::size_t offse
 		auto variable = prop->m_var_name;
 
 		std::string netvar = std::string( name.data( ) ) + "->" + variable;
-		std::size_t hash = m_hash.get( netvar.c_str( ) );
+		std::size_t hash = m_hash.get( netvar );
 
 		if ( !m_offsets[ hash ] ) {
 

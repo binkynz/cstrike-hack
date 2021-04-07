@@ -11,7 +11,7 @@ struct studio_hdr {
 
 	inline auto seqdesc( int seq ) {
 
-		auto function = m_signatures.m_seqdesc.as< mstudioseqdesc& ( __thiscall* )( void*, int ) >( );
+		static auto function = m_modules.m_client_dll.get_address( "CStudioHdr::pSeqdesc" ).as< mstudioseqdesc& ( __thiscall* )( void*, int ) >( );
 
 		return function( this, seq );
 

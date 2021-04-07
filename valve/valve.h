@@ -1,10 +1,9 @@
 #pragma once
 
-#include "signatures/signatures.h"
+#include "modules/modules.h"
 
 #include "client/client.h"
 #include "data_cache/data_cache.h"
-#include "detour/detour.h"
 #include "engine/engine.h"
 #include "interfaces/interfaces.h"
 #include "material_system/material_system.h"

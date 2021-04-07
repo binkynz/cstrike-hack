@@ -63,7 +63,7 @@ struct base_entity {
 
 	inline auto calc_absolute_velocity( ) { // grr
 
-		auto function = m_signatures.m_calc_absolute_velocity.as< void( __thiscall* )( void* ) >( );
+		static auto function = m_modules.m_client_dll.get_address( "C_BaseEntity::CalcAbsoluteVelocity" ).as< void( __thiscall* )( void* ) >( );
 
 		return function( this );
 
@@ -71,7 +71,7 @@ struct base_entity {
 
 	inline auto& get_abs_velocity( ) {
 
-		auto offset = m_signatures.m_abs_velocity.add( 0x4 ).to< std::size_t >( );
+		static auto offset = m_modules.m_client_dll.get_address( "C_BaseEntity->m_vecAbsVelocity" ).add( 0x4 ).to< std::size_t >( );
 
 		calc_absolute_velocity( );
 
@@ -84,7 +84,7 @@ struct base_entity {
 	// sean: doesnt crash for me?
 	inline auto get_anim_overlay( int i ) {
 
-		auto offset = m_signatures.m_anim_overlay.add( 0x2 ).to< std::size_t >( );
+		static auto offset = m_modules.m_client_dll.get_address( "C_BaseEntity->m_nAnimOverlay" ).add( 0x2 ).to< std::size_t >( );
 
 		return reinterpret_cast< animation_layer* >( i * 0x38 + *reinterpret_cast< std::size_t* >( reinterpret_cast< std::size_t >( this ) + offset ) );
 
@@ -92,7 +92,7 @@ struct base_entity {
 
 	inline auto get_ground_entity( ) {
 
-		auto function = m_signatures.m_get_ground_entity.as< base_entity* ( __thiscall* )( void* ) >( );
+		static auto function = m_modules.m_client_dll.get_address( "C_BaseEntity::GetGroundEntity" ).as< base_entity* ( __thiscall* )( void* ) >( );
 
 		return function( this );
 
@@ -100,7 +100,7 @@ struct base_entity {
 
 	inline auto invalidate_physics_recursive( int change_flags ) {
 
-		auto function = m_signatures.m_invalidate_physics_recursive.as< void( __thiscall* )( void*, int ) >( );
+		static auto function = m_modules.m_client_dll.get_address( "C_BaseEntity::InvalidatePhysicsRecursive" ).as< void( __thiscall* )( void*, int ) >( );
 
 		return function( this, change_flags );
 
@@ -108,7 +108,7 @@ struct base_entity {
 
 	inline auto set_abs_angles( const q_angle& angles ) {
 
-		auto function = m_signatures.m_set_abs_angles.as< void( __thiscall* )( void*, const q_angle& ) >( );
+		static auto function = m_modules.m_client_dll.get_address( "C_BaseEntity::SetAbsAngles" ).as< void( __thiscall* )( void*, const q_angle& ) >( );
 
 		return function( this, angles );
 

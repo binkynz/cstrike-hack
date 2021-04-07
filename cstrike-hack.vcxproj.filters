@@ -5,7 +5,6 @@
     <ClCompile Include="cstrike\cstrike.cpp" />
     <ClCompile Include="other\utils\utils.cpp" />
     <ClCompile Include="other\console\console.cpp" />
-    <ClCompile Include="valve\detour\detour.cpp" />
     <ClCompile Include="cstrike\hooked\hooked.cpp" />
     <ClCompile Include="valve\netvars\netvars.cpp" />
     <ClCompile Include="valve\interfaces\interfaces.cpp" />
@@ -21,7 +20,6 @@
     <ClCompile Include="cstrike\hooked\functions\studio_render.cpp" />
     <ClCompile Include="cstrike\hooked\functions\cdll_client.cpp" />
     <ClCompile Include="other\pe\pe.cpp" />
-    <ClCompile Include="valve\signatures\signatures.cpp" />
     <ClCompile Include="cstrike\hooked\functions\vgui_baseui.cpp" />
     <ClCompile Include="cstrike\menu\menu.cpp" />
     <ClCompile Include="cstrike\menu\objects\group\group.cpp" />
@@ -34,13 +32,13 @@
     <ClCompile Include="other\module\module.cpp" />
     <ClCompile Include="cstrike\hooked\functions\cl_main.cpp" />
     <ClCompile Include="cstrike\hooked\functions\cs_player.cpp" />
+    <ClCompile Include="valve\modules\modules.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cstrike\cstrike.h" />
     <ClInclude Include="other\utils\utils.h" />
     <ClInclude Include="other\other.h" />
     <ClInclude Include="other\console\console.h" />
-    <ClInclude Include="valve\detour\detour.h" />
     <ClInclude Include="other\memory\address.h" />
     <ClInclude Include="valve\valve.h" />
     <ClInclude Include="cstrike\hooked\hooked.h" />
@@ -96,7 +94,6 @@
     <ClInclude Include="valve\material_system\material.h" />
     <ClInclude Include="valve\material_system\material_system.h" />
     <ClInclude Include="other\pe\pe.h" />
-    <ClInclude Include="valve\signatures\signatures.h" />
     <ClInclude Include="valve\engine_vgui.h" />
     <ClInclude Include="valve\engine\vgui_baseui.h" />
     <ClInclude Include="cstrike\menu\menu.h" />
@@ -114,5 +111,6 @@
     <ClInclude Include="valve\tier0\tier0.h" />
     <ClInclude Include="valve\tier0\mem_alloc.h" />
     <ClInclude Include="valve\shared\base_view_model.h" />
+    <ClInclude Include="valve\modules\modules.h" />
   </ItemGroup>
 </Project>

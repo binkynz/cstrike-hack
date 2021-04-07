@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../signatures/signatures.h"
+#include "../modules/modules.h"
 
 using h_font = unsigned long;
 
@@ -113,7 +113,7 @@ struct surface {
 
 	inline auto start_drawing( ) {
 
-		auto function = m_signatures.m_start_drawing.as< void( __thiscall* )( void* ) >( );
+		static auto function = m_modules.m_vguimatsurface_dll.get_address( "CMatSystemSurface::StartDrawing" ).as< void( __thiscall* )( void* ) >( );
 
 		return function( this );
 
@@ -121,7 +121,7 @@ struct surface {
 
 	inline auto finish_drawing( ) {
 
-		auto function = m_signatures.m_finish_drawing.as< void( __thiscall* )( void* ) >( );
+		static auto function = m_modules.m_vguimatsurface_dll.get_address( "CMatSystemSurface::FinishDrawing" ).as< void( __thiscall* )( void* ) >( );
 
 		return function( this );
 

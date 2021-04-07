@@ -4,9 +4,9 @@ struct cl_msg_move {
 
 	cl_msg_move( ) {
 
-		m_net_message_vtable = m_signatures.m_cl_send_move.add( 0x76 ).to< std::size_t >( );
-		m_cl_msg_move_vtable = m_signatures.m_cl_send_move.add( 0x82 ).to< std::size_t >( );
-		m_allocated_memory = m_signatures.m_cl_send_move.add( 0x7b ).to< void* >( );
+		m_net_message_vtable = m_modules.m_engine_dll.get_address( "CL_SendMove" ).add( 0x76 ).to< std::size_t >( );
+		m_cl_msg_move_vtable = m_modules.m_engine_dll.get_address( "CL_SendMove" ).add( 0x82 ).to< std::size_t >( );
+		m_allocated_memory = m_modules.m_engine_dll.get_address( "CL_SendMove" ).add( 0x7b ).to< void* >( );
 
 		m_unknown = 15;
 
@@ -22,7 +22,7 @@ struct cl_msg_move {
 
 	~cl_msg_move( ) {
 
-		auto function = m_signatures.m_cl_msg_move_deconstructor.as< void( __thiscall* )( void* ) >( );
+		static auto function = m_modules.m_engine_dll.get_address( "CCLCMsg_Move::Deconstuctor" ).as< void( __thiscall* )( void* ) >( );
 
 		function( this );
 
@@ -44,7 +44,7 @@ struct cl_msg_move {
 
 		m_flags |= 4;
 
-		if ( m_allocated_memory == m_signatures.m_cl_send_move.add( 0x7b ).to< void* >( ) ) {
+		if ( m_allocated_memory == m_modules.m_engine_dll.get_address( "CL_SendMove" ).add( 0x7b ).to< void* >( ) ) {
 
 			address new_memory = address( m_interfaces.m_mem_alloc->alloc( 24 ) );
 			if ( new_memory ) {
@@ -59,7 +59,7 @@ struct cl_msg_move {
 
 		}
 
-		auto function = m_signatures.m_set_data.as< void* ( __thiscall* )( void*, unsigned char*, std::size_t ) >( );
+		static auto function = m_modules.m_engine_dll.get_address( "CCLCMsg_Move::set_data" ).as< void* ( __thiscall* )( void*, unsigned char*, std::size_t ) >( );
 
 		return function( m_allocated_memory, data, num_bytes_written );
 
@@ -83,7 +83,7 @@ struct cl_msg_move {
 
 };
 
-void __cdecl hooked::cl_send_move( ) {
+void __cdecl hooked::cl_main_fn::cl_send_move( ) {
 
 	// gtfo with the split screen bullshit
 
