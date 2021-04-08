@@ -8,7 +8,8 @@ struct cs_weapon_info {
 	int m_max_clip1; // 20
 	char _pad1[ 0x70 ]; // 24
 	const char* m_hud_name; // 136
-	char _pad2[ 0x3c ]; // 140
+	const char* m_weapon_name; // 140
+	char _pad2[ 0x38 ]; // 144
 	int m_weapon_type; // 200
 
 };

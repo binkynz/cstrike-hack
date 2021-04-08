@@ -151,6 +151,7 @@
     <ClCompile Include="cstrike\hooked\functions\csgo_player_anim_state.cpp" />
     <ClCompile Include="cstrike\hooked\functions\cs_player.cpp" />
     <ClCompile Include="cstrike\hooked\functions\mat_system_surface.cpp" />
+    <ClCompile Include="cstrike\hooked\functions\prediction.cpp" />
     <ClCompile Include="cstrike\hooked\functions\vgui_baseui.cpp" />
     <ClCompile Include="cstrike\hooked\functions\scheme_manager.cpp" />
     <ClCompile Include="cstrike\hooked\functions\studio_render.cpp" />
@@ -202,6 +203,7 @@
     <ClInclude Include="valve\client\base_combat_character.h" />
     <ClInclude Include="valve\client\client_input.h" />
     <ClInclude Include="valve\client\net_graph_panel.h" />
+    <ClInclude Include="valve\client\prediction.h" />
     <ClInclude Include="valve\client\weapon_cs_base.h" />
     <ClInclude Include="valve\client\base_entity.h" />
     <ClInclude Include="valve\client\base_player.h" />
@@ -237,7 +239,9 @@
     <ClInclude Include="valve\net_channel.h" />
     <ClInclude Include="valve\shared\base_view_model.h" />
     <ClInclude Include="valve\shared\csgo_player_anim_state.h" />
+    <ClInclude Include="valve\shared\game_movement.h" />
     <ClInclude Include="valve\shared\in_buttons.h" />
+    <ClInclude Include="valve\shared\move_helper.h" />
     <ClInclude Include="valve\shared\shared.h" />
     <ClInclude Include="valve\shared\user_cmd.h" />
     <ClInclude Include="valve\studio.h" />

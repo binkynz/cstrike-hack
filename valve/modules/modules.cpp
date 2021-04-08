@@ -67,6 +67,7 @@ bool modules::get( ) {
 void modules::get_addresses( ) {
 
 	m_client_dll.add_address( "g_pNetGraphPanel", "89 1D ? ? ? ? 8B C3" );
+	m_client_dll.add_address( "g_pMoveData", "FF 35 ? ? ? ? 56 85 DB" );
 
 	m_client_dll.add_address( "C_BaseAnimating::LookupBone", "E8 ? ? ? ? 89 44 24 5C", true );
 	m_client_dll.add_address( "C_BaseAnimating::GetBonePosition", "E8 ? ? ? ? 8D 14 24", true );
@@ -78,11 +79,18 @@ void modules::get_addresses( ) {
 
 	m_client_dll.add_address( "C_BaseEntity->m_vecAbsVelocity", "F3 0F 10 A6 ? ? ? ? F3 0F 11 64 24 ?" );
 	m_client_dll.add_address( "C_BaseEntity->m_nAnimOverlay", "8B 80 ? ? ? ? 03 C1 74 15" );
+	m_client_dll.add_address( "C_BaseEntity->m_nPredictionRandomSeed", "8B 47 40 A3 ? ? ? ?" );
+	m_client_dll.add_address( "C_BaseEntity->m_pPredictionPlayer", "0F 5B C0 89 35 ? ? ? ?" );
 	m_client_dll.add_address( "C_BaseEntity::GetGroundEntity", "E8 ? ? ? ? 8B 4C 24 14 85 C0", true );
 	m_client_dll.add_address( "C_BaseEntity::InvalidatePhysicsRecursive", "E8 ? ? ? ? 89 5E 18", true );
 	m_client_dll.add_address( "C_BaseEntity::SetAbsAngles", "E8 ? ? ? ? 53 8D 45 F0", true );
 	m_client_dll.add_address( "C_BaseEntity::CalcAbsoluteVelocity", "E8 ? ? ? ? 83 7B 30 00", true );
+	m_client_dll.add_address( "C_BaseEntity::PhysicsRunThink", "E8 ? ? ? ? 84 C0 0F 84 ? ? ? ? F3 0F 10 86 ? ? ? ?", true );
+	m_client_dll.add_address( "C_BaseEntity::CheckHasThinkFunction", "E8 ? ? ? ? EB 11 8B 86 ? ? ? ?", true );
 
+	m_client_dll.add_address( "C_BasePlayer->m_LastCmd", "8D 8E ? ? ? ? 89 5C 24 3C" );
+	m_client_dll.add_address( "C_BasePlayer->m_afButtonForced", "8B 86 ? ? ? ? 09 47 30" );
+	m_client_dll.add_address( "C_BasePlayer->m_afButtonLast", "33 CA 89 86 ? ? ? ?" );
 	m_client_dll.add_address( "C_BasePlayer::GetViewModel", "E8 ? ? ? ? 8B F8 8B 47 04", true );
 	m_client_dll.add_address( "C_BasePlayer::IsLocalPlayer", "56 8B F1 85 F6 74 16" );
 
@@ -124,6 +132,8 @@ void modules::get_addresses( ) {
 	m_client_dll.add_address( "C_BaseViewModel::RemoveViewmodelLabel", "E8 ? ? ? ? 8B CB E8 ? ? ? ? 8B CB E8 ? ? ? ? 5F", true );
 	m_client_dll.add_address( "C_BaseViewModel::RemoveViewmodelStatTrak", "E8 ? ? ? ? 56 FF 74 24 10", true );
 	m_client_dll.add_address( "C_BaseViewModel::RemoveViewmodelStickers", "E8 ? ? ? ? 43 83 FB 03 7C CC", true );
+
+	m_client_dll.add_address( "CPrediction::RunCommand", "55 8B EC 83 E4 C0 83 EC 34 53 56 8B 75 08" );
 
 	m_engine_dll.add_address( "CEngineVGui::Paint", "55 8B EC 83 EC 40 53 8B D9 8B 0D ? ? ? ? 89 5D F8" );
 

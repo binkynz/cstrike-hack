@@ -5,6 +5,10 @@
 
 #include "../netvars/netvars.h"
 
+#include "../shared/user_cmd.h"
+
+struct base_player;
+
 struct base_entity {
 
 	inline client_renderable* get_client_renderable( ) {
@@ -22,6 +26,12 @@ struct base_entity {
 	inline auto on_latch_interpolated_variables( int flags ) {
 
 		return m_utils.get_v_func< void( __thiscall* )( void*, int ) >( this, 107 )( this, flags );
+
+	}
+
+	inline auto think( ) {
+
+		return m_utils.get_v_func< void( __thiscall* )( void* ) >( this, 138 )( this );
 
 	}
 
@@ -111,6 +121,45 @@ struct base_entity {
 		static auto function = m_modules.m_client_dll.get_address( "C_BaseEntity::SetAbsAngles" ).as< void( __thiscall* )( void*, const q_angle& ) >( );
 
 		return function( this, angles );
+
+	}
+
+	inline auto physics_run_think( int think_method = 0 ) {
+
+		static auto function = m_modules.m_client_dll.get_address( "C_BaseEntity::PhysicsRunThink" ).as< bool( __thiscall* )( void*, int ) >( );
+
+		return function( this, think_method );
+
+	}
+
+	inline auto check_has_think_function( bool is_thinking = false ) {
+
+		static auto function = m_modules.m_client_dll.get_address( "C_BaseEntity::CheckHasThinkFunction" ).as< void( __thiscall* )( void*, bool ) >( );
+
+		return function( this, is_thinking );
+
+	}
+
+	inline static auto set_prediction_random_seed( const user_cmd* cmd ) {
+
+		static auto prediction_random_seed = m_modules.m_client_dll.get_address( "C_BaseEntity->m_nPredictionRandomSeed" ).add( 0x4 ).to< int* >( );
+
+		if ( !cmd ) {
+
+			*prediction_random_seed = -1;
+			return;
+
+		}
+
+		*prediction_random_seed = cmd->m_random_seed;
+
+	}
+
+	inline static auto set_prediction_player( base_player* player ) {
+
+		static auto prediction_player = m_modules.m_client_dll.get_address( "C_BaseEntity->m_pPredictionPlayer" ).add( 0x5 ).to< base_player* >( );
+
+		prediction_player = player;
 
 	}
 

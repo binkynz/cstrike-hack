@@ -14,6 +14,7 @@
 #include "../client/net_graph_panel.h"
 #include "../engine/client.h"
 #include "../tier0/mem_alloc.h"
+#include "../shared/game_movement.h"
 
 #include "../../other/hash/hash.h"
 #include "../../other/pe/pe.h"
@@ -35,6 +36,8 @@ struct interfaces {
 	net_graph_panel* m_net_graph_panel;
 	client_state* m_client_state;
 	mem_alloc* m_mem_alloc;
+	game_movement* m_game_movement;
+	move_data* m_move_data;
 
 private:
 

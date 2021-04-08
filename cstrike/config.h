@@ -28,7 +28,7 @@ struct config {
 		bool chams = true;
 		bool third_person = false;
 		int thirdperson_key = 0x56;
-		int thirdperson_distance = 100;
+		int thirdperson_distance = 150;
 
 	} m_esp;
 

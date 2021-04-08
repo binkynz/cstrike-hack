@@ -48,6 +48,10 @@ bool hooked::setup( ) {
 	if ( !m_modules.m_vguimatsurface_dll.hook_function( "CMatSystemSurface::LockCursor", &mat_system_surface_fn::lock_cursor ) )
 		return false;
 
+	// prediction_fn
+	if ( !m_modules.m_client_dll.hook_function( "CPrediction::RunCommand", &prediction_fn::run_command ) )
+		return false;
+
 	// scheme_manager_fn
 	if ( !m_modules.m_vgui2_dll.hook_function( "CSchemeManager::ReloadSchemes", &scheme_manager_fn::reload_schemes ) )
 		return false;

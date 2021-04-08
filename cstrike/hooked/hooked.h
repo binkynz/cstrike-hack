@@ -61,6 +61,12 @@ private:
 
 	};
 
+	struct prediction_fn {
+
+		static void __fastcall run_command( prediction* ecx, void* edx, base_player* player, user_cmd* cmd, move_helper* move_helper );
+
+	};
+
 	struct scheme_manager_fn {
 
 		static void __fastcall reload_schemes( void* ecx, void* edx );

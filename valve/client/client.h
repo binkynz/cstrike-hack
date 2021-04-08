@@ -8,4 +8,5 @@
 #include "client_input.h"
 #include "cs_player.h"
 #include "net_graph_panel.h"
+#include "prediction.h"
 #include "weapon_cs_base.h"

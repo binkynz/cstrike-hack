@@ -33,6 +33,7 @@
     <ClCompile Include="cstrike\hooked\functions\cl_main.cpp" />
     <ClCompile Include="cstrike\hooked\functions\cs_player.cpp" />
     <ClCompile Include="valve\modules\modules.cpp" />
+    <ClCompile Include="cstrike\hooked\functions\prediction.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cstrike\cstrike.h" />
@@ -112,5 +113,8 @@
     <ClInclude Include="valve\tier0\mem_alloc.h" />
     <ClInclude Include="valve\shared\base_view_model.h" />
     <ClInclude Include="valve\modules\modules.h" />
+    <ClInclude Include="valve\client\prediction.h" />
+    <ClInclude Include="valve\shared\move_helper.h" />
+    <ClInclude Include="valve\shared\game_movement.h" />
   </ItemGroup>
 </Project>

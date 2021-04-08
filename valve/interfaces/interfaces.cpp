@@ -58,6 +58,16 @@ bool interfaces::setup( ) {
 
 	m_console.log( "found pointer g_pMemAlloc -> 0x%x", m_mem_alloc );
 
+	m_game_movement = get< game_movement* >( m_modules.m_client_dll, "GameMovement" );
+	if ( !m_game_movement )
+		return false;
+
+	m_move_data = m_modules.m_client_dll.get_address( "g_pMoveData" ).add( 0x2 ).get< move_data* >( 2 );
+	if ( !m_move_data )
+		return false;
+
+	m_console.log( "found pointer g_pMoveData -> 0x%x", m_move_data );
+
 	return true;
 
 }
