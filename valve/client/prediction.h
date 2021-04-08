@@ -6,14 +6,6 @@ struct base_player;
 struct move_helper;
 struct move_data;
 
-#pragma once
-
-#include "../shared/user_cmd.h"
-
-struct base_player;
-struct move_helper;
-struct move_data;
-
 struct prediction {
 
 	inline auto check_moving_ground( base_player* player, double frametime ) {
