@@ -1,3 +1,3 @@
 # cstrike-hack
 
-a hack by a serotonin deprived uni student
+A C++ hack for the video game: Counter-Strike Global Offensive
